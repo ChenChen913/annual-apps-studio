@@ -11,6 +11,7 @@ export const ICON_LIBRARY: LibraryIcon[] = [
   { id: 'typeless', label: 'Typeless', src: '/icons/typeless.webp', keywords: '语音 输入' },
   { id: 'wetype', label: '微信输入法', src: '/icons/wetype.webp', keywords: '输入法 微信' },
   { id: 'doubao_ime', label: '豆包输入法', src: '/icons/doubao_ime.webp', keywords: '输入法 字节' },
+  { id: 'v2rayn', label: 'v2rayN', src: '/icons/v2rayn.webp', keywords: '代理 网络 v2ray 科学上网' },
   { id: 'trae', label: 'TRAE', src: '/icons/trae.webp', keywords: '编程 AI IDE' },
   { id: 'workbuddy', label: 'WorkBuddy', src: '/icons/workbuddy.webp', keywords: '办公 AI 助手' },
   { id: 'claude_code', label: 'Claude Code', src: '/icons/claude_code.webp', keywords: '编程 AI 终端' },

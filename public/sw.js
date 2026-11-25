@@ -17,6 +17,7 @@ const PRECACHE = [
   '/icons/typeless.webp',
   '/icons/wetype.webp',
   '/icons/doubao_ime.webp',
+  '/icons/v2rayn.webp',
   '/icons/trae.webp',
   '/icons/workbuddy.webp',
   '/icons/claude_code.webp',

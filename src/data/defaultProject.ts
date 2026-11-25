@@ -4,7 +4,7 @@ import type { Category, PosterDoc } from '../types'
 const DEFAULT_CATEGORIES: { name: string; icons: string[] }[] = [
   {
     name: '效率',
-    icons: ['localsend', 'faststone', 'typeless', 'wetype', 'doubao_ime'],
+    icons: ['localsend', 'faststone', 'typeless', 'wetype', 'doubao_ime', 'v2rayn'],
   },
   {
     name: 'AI 与开发',
@@ -26,6 +26,7 @@ const ICON_LABELS: Record<string, string> = {
   typeless: 'Typeless',
   wetype: '微信输入法',
   doubao_ime: '豆包输入法',
+  v2rayn: 'v2rayN',
   trae: 'TRAE',
   workbuddy: 'WorkBuddy',
   claude_code: 'Claude Code',
@@ -73,7 +74,7 @@ export function createDefaultDoc(): PosterDoc {
     shadow: true,
     showMeta: false,
     iconShape: 'squircle',
-    columns: 5,
+    columns: 6,
     iconSize: 100,
     gapX: 232,
     gapY: 164,
