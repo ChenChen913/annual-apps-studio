@@ -1,0 +1,26 @@
+{
+  "name": "我的年度软件 · 海报编辑器",
+  "short_name": "年度软件",
+  "description": "把这一年的软件做成一页海报：12 套模板、36 张背景、6 种画幅，可离线编辑和导出。",
+  "lang": "zh-CN",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#eef0ea",
+  "theme_color": "#2f6b58",
+  "icons": [
+    {
+      "src": "/pwa-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/pwa-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
