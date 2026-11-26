@@ -2,7 +2,7 @@
 
 本文件记录 `annual-apps-studio` 随项目分发的**图片、图标、字体**等素材的来源与许可条件。它只覆盖素材，**不构成对项目源代码的授权**；反之，代码仓库的许可也不自动覆盖这里的素材。
 
-> 结论先说：新增的 20 张实拍背景全部为 **CC0 1.0**（可商用、可再分发、无署名义务，但本文件仍逐项署名）；8 张设计背景为本项目自行生成；114 个内置图标来自 4 个来源，其中 99 个为 CC0 / MIT / Apache-2.0，15 个为项目原有的品牌官方图稿（版权归各品牌，仅作识别用途）。字体为**霞鹜文楷**，SIL OFL 1.1。
+> 结论先说：新增的 20 张实拍背景全部为 **CC0 1.0**（可商用、可再分发、无署名义务，但本文件仍逐项署名）；3 张原有实拍也已替换为 CC0 高清版；8 张设计背景为本项目自行生成；115 个内置图标来自 4 个来源，其中 99 个为 CC0 / MIT / Apache-2.0，16 个为项目原有的品牌官方图稿（版权归各品牌，仅作识别用途，其中 Notepad++ 官方 Logo 原文件为 GPL）。字体为**霞鹜文楷**，SIL OFL 1.1。
 
 ---
 
@@ -25,13 +25,13 @@
 
 来源：**Wikimedia Commons**。筛选方式为按「CC0 1.0」授权声明检索候选（122 张），再人工按构图、色彩层次、与图标的对比度挑选 20 张。
 
-处理方式：下载长边 1800px → 转 WebP（质量 78）；另生成长边 480px 的 `-thumb.webp` 供选择器使用。文件位于 `public/backgrounds/`。
+处理方式：下载长边 3840px 原图 → 转 WebP（质量 80）；另生成长边 720px 的 `-thumb.webp` 供选择器使用。文件位于 `public/backgrounds/`。2026-11-26 第二轮升级把原先的 1800px 版本全部替换，避免 2× 导出时上采样发虚；3 张原始分辨率不足的素材也换成了更高清的同类作品。
 
 CC0 1.0（Public Domain Dedication）允许复制、修改、商用、再分发，且**不要求署名**。下表署名是出于对作者的尊重与可追溯性，不是许可强制要求。
 
 | # | 背景 ID | 名称 | 分类 | 作者 | 原作品 / 来源页 | 许可 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | `photo-snowpeak` | 霞光雪峰 | 实拍 · 雪山 | Bernard Spragg. NZ | [Sunset Mount Cook NZ](https://commons.wikimedia.org/wiki/File:Sunset_Mount_Cook_NZ_(8114766837).jpg) | CC0 1.0 |
+| 1 | `photo-snowpeak` | 霞光雪峰 | 实拍 · 雪山 | Romain Guy | [Mount Fuji at sunset, March 2025](https://commons.wikimedia.org/wiki/File:Mount_Fuji_at_sunset,_March_2025.jpg)（11650×7767） | CC0 1.0 |
 | 2 | `photo-forestfog` | 雾锁林海 | 实拍 · 森林 | Vadim Sherbakov | [Foggy pine (Unsplash)](https://commons.wikimedia.org/wiki/File:Foggy_pine_(Unsplash).jpg) | CC0 1.0 |
 | 3 | `photo-birch` | 白桦林径 | 实拍 · 森林 | Romzig | [Edderitz (Oktober 2026)](https://commons.wikimedia.org/wiki/File:Edderitz_(Oktober_2026)_1.jpg) | CC0 1.0 |
 | 4 | `photo-goldwoods` | 金秋林间 | 实拍 · 秋景 | lumoplank | [Yamanakako - Yamanaka6753](https://commons.wikimedia.org/wiki/File:Yamanakako_-_Yamanaka6753.jpg) | CC0 1.0 |
@@ -39,9 +39,9 @@ CC0 1.0（Public Domain Dedication）允许复制、修改、商用、再分发�
 | 6 | `photo-cliff` | 海岸悬崖 | 实拍 · 海岸 | Gerda Arendt | [El Remo, La Palma](https://commons.wikimedia.org/wiki/File:El_Remo,_La_Palma,_surf_against_black_cliffs.jpg) | CC0 1.0 |
 | 7 | `photo-lakeglow` | 湖光山色 | 实拍 · 湖泊 | Johannes Plenio | [Beautiful mountain reflection](https://commons.wikimedia.org/wiki/File:Beautiful_mountain_reflection_(Unsplash).jpg) | CC0 1.0 |
 | 8 | `photo-glacierlake` | 冰川湖 | 实拍 · 湖泊 | James Wheeler | [Lake and mountain](https://commons.wikimedia.org/wiki/File:Pexels-james-wheeler-417074.jpg) | CC0 1.0 |
-| 9 | `photo-dawnsea` | 海上晨光 | 实拍 · 日出 | PikWizard | [Sunset sky water](https://commons.wikimedia.org/wiki/File:Sunset_sky_water.jpg) | CC0 1.0 |
+| 9 | `photo-dawnsea` | 海上晨光 | 实拍 · 日出 | paul morris oldskool2016 | [Richly colored sky over calm sea water](https://commons.wikimedia.org/wiki/File:Richly_colored_sky_over_calm_sea_water_(Unsplash).jpg)（4164×2716） | CC0 1.0 |
 | 10 | `photo-firecloud` | 火烧云 | 实拍 · 日落 | cindy del valle | [Dramatic golden sunset](https://commons.wikimedia.org/wiki/File:Dramatic_golden_sunset._(Unsplash).jpg) | CC0 1.0 |
-| 11 | `photo-duskcloud` | 暮色云霞 | 实拍 · 云层 | Joel Alzugaray | [Sunset Caletense](https://commons.wikimedia.org/wiki/File:Sunset_Caletense_(245636543).jpeg) | CC0 1.0 |
+| 11 | `photo-duskcloud` | 暮色云霞 | 实拍 · 云层 | Jebulon | [Stormy sunset clouds over Rome, Italy](https://commons.wikimedia.org/wiki/File:Stormy_sunset_clouds_over_Rome,_Italy.jpg)（4030×3056） | CC0 1.0 |
 | 12 | `photo-milkyway` | 星河 | 实拍 · 夜空 | W.carter | [Stars and Milky Way over Åbyfjorden](https://commons.wikimedia.org/wiki/File:Stars_and_Milky_Way_over_%C3%85byfjorden_2.jpg) | CC0 1.0 |
 | 13 | `photo-dunes` | 沙丘曲线 | 实拍 · 沙漠 | Keith Hardy | [Hiking Through Sand Dunes](https://commons.wikimedia.org/wiki/File:Hiking_Through_Sand_Dunes_(Unsplash).jpg) | CC0 1.0 |
 | 14 | `photo-citynight` | 城市夜色 | 实拍 · 城市夜景 | Wilfredor | [Cannon on the ramparts, Quebec City](https://commons.wikimedia.org/wiki/File:Cannon_on_the_ramparts_and_the_Lower_Town_at_night,_Quebec_City.jpg) | CC0 1.0 |
@@ -69,11 +69,14 @@ CC0 1.0（Public Domain Dedication）允许复制、修改、商用、再分发�
 | `design-paper` | 米白纸张 | 极简 | `design-paper.webp` |
 | `design-shadow` | 米色光影 | 极简 | `design-shadow.webp` |
 
-处理方式与实拍一致：长边 1800px WebP + 480px 缩略图。生成模型的服务条款允许将产出用于商业与再分发；本项目按「随项目发布」处理。若你所在司法辖区对 AI 生成物的版权归属有不同规定，请以当地法律与服务条款为准。
+处理方式：设计背景仍为长边 1800px WebP（质量 82）+ 480px 缩略图（抽象图没有细节纹理，1800px 已足够覆盖 2× 导出）；2026-11-26 的实拍批量升级只提高了摄影图的分辨率，没有放大这些生成图。生成模型的服务条款允许将产出用于商业与再分发；本项目按「随项目发布」处理。若你所在司法辖区对 AI 生成物的版权归属有不同规定，请以当地法律与服务条款为准。
 
 ### 2.3 原有素材（36 张）
 
-- **3 张本地实拍**：`bg_forest.webp`、`bg_bay.webp`、`bg_night.webp`（背景 id：`forest` / `bay` / `night`）。⚠️ **来源与许可未在仓库中标注**，本次升级保留未动（避免破坏老项目与草稿里的引用）。公开发布前建议：补充原始来源与授权，或替换为 CC0 素材并保留旧 id。
+- **3 张原有实拍**：`bg_forest.webp`、`bg_bay.webp`、`bg_night.webp`（背景 id：`forest` / `bay` / `night`）。这 3 张在本轮已**替换为 CC0 高清素材**，保留旧 id 以不破坏老项目与草稿引用：
+  - `forest`：Forest near Mauerweg Hohen Neuendorf（Leonhard Lenz，5184×3888，CC0）[来源页](https://commons.wikimedia.org/wiki/File:Forest_near_Mauerweg_Hohen_Neuendorf_at_night_on_2019-11-11_02.jpg)
+  - `bay`：Golden sunset over Norrkila bay（W.carter，4925×2770，CC0）[来源页](https://commons.wikimedia.org/wiki/File:Golden_sunset_over_Norrkila_bay.jpg)
+  - `night`：Night skyline of Toronto（Andrew Gosine，5472×3648，CC0）[来源页](https://commons.wikimedia.org/wiki/File:Night_skyline_of_Toronto,_Canada_374759.jpg)
 - **33 张程序绘制背景**：由 `src/data/backgrounds.ts` 内的 CSS 渐变、SVG 图案、噪点纹理在本地生成，不含第三方图像，无额外许可问题。
 
 ### 2.4 背景分发注意事项
@@ -86,7 +89,7 @@ CC0 1.0（Public Domain Dedication）允许复制、修改、商用、再分发�
 
 ## 3. 图标素材
 
-内置图标库共 **114 个**（清单维护在 `src/data/icons.ts`，文件位于 `public/icons/`），全部为本地 320px WebP，运行时**不发任何网络请求**。
+内置图标库共 **115 个**（清单维护在 `src/data/icons.ts`，文件位于 `public/icons/`），全部为本地 320px WebP，运行时**不发任何网络请求**。
 
 ### 3.1 来源与许可分布
 
@@ -95,13 +98,13 @@ CC0 1.0（Public Domain Dedication）允许复制、修改、商用、再分发�
 | SVG Logos（经 Iconify 分发） | 55 | **CC0 1.0** | 彩色品牌图标集，可再分发 |
 | Dashboard Icons（homarr-labs/dashboard-icons） | 27 | **Apache-2.0**（仓库许可） | 自建服务 / NAS / 系统类 Logo |
 | Devicon（经 Iconify 分发） | 17 | **MIT** | 开发工具与技术栈图标 |
-| 项目原有内置图标 | 15 | **版权归各品牌，随项目原样保留** | 官方应用图稿，仅作识别软件用途 |
-| 合计 | **114** | | |
+| 项目原有内置图标 | 16 | **版权归各品牌，随项目原样保留**；`notepadpp` 为官方 GPL Logo | 官方应用图稿，仅作识别软件用途 |
+| 合计 | **115** | | |
 
 「项目原有内置图标」清单（用于确认分发边界）：
-`trae`、`workbuddy`、`hermes`、`deepseek_harness`、`yuanbao`、`doubao_ime`、`typeless`、`typora`、`feishu`、`wechat`、`douyin`、`localsend`、`faststone`、`wetype`、`v2rayn`。
+`trae`、`workbuddy`、`hermes`、`deepseek_harness`、`yuanbao`、`doubao_ime`、`typeless`、`typora`、`feishu`、`wechat`、`douyin`、`localsend`、`faststone`、`wetype`、`v2rayn`、`notepadpp`。
 
-这 15 个图标**不适用** CC0 / MIT / Apache-2.0，它们是各软件厂商的商标或官方应用图标。本项目仅在「标识用户安装了哪款软件」的语境下展示，不修改其配色与造型，也不用于暗示背书。**若你计划商业发行，请自行评估商标合理使用范围；如无法确认，删除对应图标即可，不影响其它功能。**
+这 16 个图标**不适用** CC0 / MIT / Apache-2.0，它们是各软件厂商的商标或官方应用图标。本项目仅在「标识用户安装了哪款软件」的语境下展示，不修改其配色与造型，也不用于暗示背书。其中 `notepadpp` 使用 Notepad++ 官方 Logo（作者 Don Ho，Wikimedia Commons 标注许可 **GPL**），该文件单独按 GPL 分发；如再分发请保留其许可声明与来源页，它不改变本项目其它代码与素材的许可。**若你计划商业发行，请自行评估商标合理使用范围；如无法确认，删除对应图标即可，不影响其它功能。**
 
 ### 3.2 商标声明
 
@@ -148,9 +151,9 @@ OFL 1.1 允许嵌入、再分发与商用，要求：不得单独售卖字体文
 
 - [x] 20 张新增实拍背景均为 CC0，已逐项记录作者与来源页
 - [x] 8 张设计背景为本项目生成，无第三方底图
-- [ ] 3 张原有实拍背景（`forest` / `bay` / `night`）来源待补充或替换
-- [x] 114 个内置图标的来源与许可已分类记录
-- [x] 15 个项目原有品牌图标的商标风险已在 3.1 标注
+- [x] 3 张原有实拍背景（`forest` / `bay` / `night`）已替换为 CC0 高清素材，旧 id 保留
+- [x] 115 个内置图标的来源与许可已分类记录
+- [x] 16 个项目原有品牌图标的商标风险已在 3.1 标注（`notepadpp` 的 GPL Logo 单独说明）
 - [x] 字体许可已记录（OFL 1.1）
 - [ ] 代码许可证（`LICENSE` 文件）待作者确认后添加
 - [x] 在线搜索仅走公开 API，未抓取页面、未使用 iframe
@@ -162,3 +165,4 @@ OFL 1.1 允许嵌入、再分发与商用，要求：不得单独售卖字体文
 | 日期 | 变更 |
 | --- | --- |
 | 2026-11-26 | 初版：新增 20 张 CC0 实拍背景、8 张生成背景、114 个内置图标、字体与在线搜索说明 |
+| 2026-11-26 | 第二轮：实拍背景全部升级为 3840px（3 张换更高清素材，3 张原有图替换为 CC0）；补 Notepad++ 官方 Logo（GPL，库内 115 个图标）；修正文档中的尺寸与来源记录 |

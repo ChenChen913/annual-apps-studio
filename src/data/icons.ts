@@ -602,6 +602,16 @@ export const ICON_LIBRARY: LibraryIcon[] = [
     license: "CC0 1.0",
   },
   {
+    id: "notepadpp",
+    label: "Notepad++",
+    src: "/icons/notepadpp.webp",
+    category: "开发",
+    platform: "Windows",
+    keywords: "编辑器 文本 代码 notepad++ notepadpp 开发 windows",
+    source: "Notepad++ 官方 Logo（Wikimedia Commons）",
+    license: "GPL",
+  },
+  {
     id: "obsidian",
     label: "Obsidian",
     src: "/icons/obsidian.webp",

@@ -83,7 +83,21 @@ export function computeFit(doc: PosterDoc): LayoutFit {
   const label = doc.names ? doc.nameSize + chrome.labelGap : 0
   const perRow = available / Math.max(rows, 1)
   const room = perRow - label - 14
-  const iconSize = Math.max(MIN_ICON, Math.min(doc.iconSize, Math.round(room)))
+  // 只对已经验证过「放大后仍能装下」的留白模板做 9:16 放大；
+  // pixel / film / brutalist 等绝对定位模板保持原尺寸，避免底部分类被裁切。
+  const PORTRAIT_BOOST: Partial<Record<TemplateId, number>> = {
+    cute: 1.6,
+    journal: 1.6,
+    magazine: 1.6,
+    newspaper: 1.5,
+    minimal: 1.6,
+    pixel: 1.8,
+    cyber: 1.8,
+  }
+  const portraitBoost = doc.ratio === '9:16' ? (PORTRAIT_BOOST[doc.templateId] ?? 1) : 1
+  const columnCap = Math.round((canvas.width / Math.max(columns, 1)) * 0.68)
+  const preferred = Math.min(Math.round(doc.iconSize * portraitBoost), columnCap)
+  const iconSize = Math.max(MIN_ICON, Math.min(preferred, Math.round(room)))
   const needHeight = rows * (iconSize + label + 14)
   return {
     columns,

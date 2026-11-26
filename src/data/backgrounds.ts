@@ -487,10 +487,10 @@ const RIPPLE_SCENE = svgUrl(`
 const PHOTO_LIBRARY: PosterBackground[] = [
   photo('photo-snowpeak', '霞光雪峰', '自然', '实拍 · 雪山', '#1b1f26', false, {
     provider: 'Wikimedia Commons',
-    title: 'Sunset Mount Cook NZ',
-    pageUrl: 'https://commons.wikimedia.org/wiki/File:Sunset_Mount_Cook_NZ_(8114766837).jpg',
+    title: 'Mount Fuji at sunset, March 2025',
+    pageUrl: 'https://commons.wikimedia.org/wiki/File:Mount_Fuji_at_sunset,_March_2025.jpg',
     license: 'CC0 1.0',
-    artist: 'Bernard Spragg. NZ',
+    artist: 'Romain Guy',
   }),
   photo('photo-forestfog', '雾锁林海', '自然', '实拍 · 森林', '#16211d', false, {
     provider: 'Wikimedia Commons',
@@ -543,10 +543,11 @@ const PHOTO_LIBRARY: PosterBackground[] = [
   }),
   photo('photo-dawnsea', '海上晨光', '自然', '实拍 · 日出', '#c9b7a8', true, {
     provider: 'Wikimedia Commons',
-    title: 'Sunset sky water',
-    pageUrl: 'https://commons.wikimedia.org/wiki/File:Sunset_sky_water.jpg',
+    title: 'Richly colored sky over calm sea water (Unsplash)',
+    pageUrl:
+      'https://commons.wikimedia.org/wiki/File:Richly_colored_sky_over_calm_sea_water_(Unsplash).jpg',
     license: 'CC0 1.0',
-    artist: 'PikWizard',
+    artist: 'paul morris oldskool2016',
   }),
   photo('photo-firecloud', '火烧云', '自然', '实拍 · 日落', '#2a1712', false, {
     provider: 'Wikimedia Commons',
@@ -557,10 +558,10 @@ const PHOTO_LIBRARY: PosterBackground[] = [
   }),
   photo('photo-duskcloud', '暮色云霞', '自然', '实拍 · 云层', '#232a30', false, {
     provider: 'Wikimedia Commons',
-    title: 'Sunset Caletense',
-    pageUrl: 'https://commons.wikimedia.org/wiki/File:Sunset_Caletense_(245636543).jpeg',
+    title: 'Stormy sunset clouds over Rome, Italy',
+    pageUrl: 'https://commons.wikimedia.org/wiki/File:Stormy_sunset_clouds_over_Rome,_Italy.jpg',
     license: 'CC0 1.0',
-    artist: 'Joel Alzugaray',
+    artist: 'Jebulon',
   }),
   photo('photo-milkyway', '星河', '自然', '实拍 · 夜空', '#0c1320', false, {
     provider: 'Wikimedia Commons',
@@ -695,12 +696,22 @@ export const BACKGROUNDS: PosterBackground[] = [
   ...DESIGN_LIBRARY,
   {
     id: 'forest',
-    name: '林间夜灯',
+    name: '林间秋径',
     family: '经典',
     kind: 'image',
     src: '/backgrounds/bg_forest.webp',
+    thumb: '/backgrounds/bg_forest-thumb.webp',
+    tag: '实拍 · 秋林',
     base: '#0b1512',
     light: false,
+    source: {
+      provider: 'Wikimedia Commons',
+      title: 'Forest near Mauerweg Hohen Neuendorf at night on 2019-11-11 02',
+      pageUrl:
+        'https://commons.wikimedia.org/wiki/File:Forest_near_Mauerweg_Hohen_Neuendorf_at_night_on_2019-11-11_02.jpg',
+      license: 'CC0 1.0',
+      artist: 'Leonhard Lenz',
+    },
   },
   {
     id: 'bay',
@@ -708,8 +719,17 @@ export const BACKGROUNDS: PosterBackground[] = [
     family: '经典',
     kind: 'image',
     src: '/backgrounds/bg_bay.webp',
+    thumb: '/backgrounds/bg_bay-thumb.webp',
+    tag: '实拍 · 海湾日落',
     base: '#1a2226',
     light: false,
+    source: {
+      provider: 'Wikimedia Commons',
+      title: 'Golden sunset over Norrkila bay',
+      pageUrl: 'https://commons.wikimedia.org/wiki/File:Golden_sunset_over_Norrkila_bay.jpg',
+      license: 'CC0 1.0',
+      artist: 'W.carter',
+    },
   },
   {
     id: 'night',
@@ -717,8 +737,17 @@ export const BACKGROUNDS: PosterBackground[] = [
     family: '经典',
     kind: 'image',
     src: '/backgrounds/bg_night.webp',
+    thumb: '/backgrounds/bg_night-thumb.webp',
+    tag: '实拍 · 城市夜景',
     base: '#0b1014',
     light: false,
+    source: {
+      provider: 'Wikimedia Commons',
+      title: 'Night skyline of Toronto, Canada 374759',
+      pageUrl: 'https://commons.wikimedia.org/wiki/File:Night_skyline_of_Toronto,_Canada_374759.jpg',
+      license: 'CC0 1.0',
+      artist: 'Andrew Gosine',
+    },
   },
   {
     id: 'midnight',
