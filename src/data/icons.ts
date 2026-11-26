@@ -608,8 +608,8 @@ export const ICON_LIBRARY: LibraryIcon[] = [
     category: "开发",
     platform: "Windows",
     keywords: "编辑器 文本 代码 notepad++ notepadpp 开发 windows",
-    source: "Notepad++ 官方 Logo（Wikimedia Commons）",
-    license: "GPL",
+    source: "Notepad++ 官方 Logo（经典版，项目早期采用）",
+    license: "GPL-3.0（官方图稿）",
   },
   {
     id: "obsidian",

@@ -633,16 +633,16 @@ const PHOTO_LIBRARY: PosterBackground[] = [
 ]
 
 const DESIGN_LIBRARY: PosterBackground[] = [
-  photo('design-gradient', '柔光渐变', '抽象', '设计 · 渐变', '#c9bfd4', true, {
+  photo('design-mesh', '极光网格', '抽象', '设计 · Mesh 渐变', '#25184a', false, {
     provider: '项目内置生成',
-    title: '柔光渐变',
+    title: '极光网格',
     pageUrl: '',
     license: '随项目发布',
     artist: 'annual-apps-studio',
   }),
-  photo('design-glass', '磨砂玻璃', '抽象', '设计 · 玻璃', '#cfd9df', true, {
+  photo('design-glass', '液态玻璃', '抽象', '设计 · 液态玻璃', '#cfd9df', true, {
     provider: '项目内置生成',
-    title: '磨砂玻璃',
+    title: '液态玻璃',
     pageUrl: '',
     license: '随项目发布',
     artist: 'annual-apps-studio',
@@ -654,16 +654,30 @@ const DESIGN_LIBRARY: PosterBackground[] = [
     license: '随项目发布',
     artist: 'annual-apps-studio',
   }),
-  photo('design-deepblue', '深蓝粒子', '科技', '设计 · 数字粒子', '#0a1322', false, {
+  photo('design-chrome', '液态铬金', '抽象', '设计 · 液态金属', '#101114', false, {
     provider: '项目内置生成',
-    title: '深蓝粒子',
+    title: '液态铬金',
     pageUrl: '',
     license: '随项目发布',
     artist: 'annual-apps-studio',
   }),
-  photo('design-grid', '数据网格', '科技', '设计 · 网格', '#1a2222', false, {
+  photo('design-stage', '发布会舞台', '科技', '设计 · 发布会', '#0b0f1c', false, {
     provider: '项目内置生成',
-    title: '数据网格',
+    title: '发布会舞台',
+    pageUrl: '',
+    license: '随项目发布',
+    artist: 'annual-apps-studio',
+  }),
+  photo('design-prism', '玻璃棱镜', '极简', '设计 · 棱镜焦散', '#e8e5df', true, {
+    provider: '项目内置生成',
+    title: '玻璃棱镜',
+    pageUrl: '',
+    license: '随项目发布',
+    artist: 'annual-apps-studio',
+  }),
+  photo('design-deepblue', '深蓝粒子', '科技', '设计 · 数字粒子', '#0a1322', false, {
+    provider: '项目内置生成',
+    title: '深蓝粒子',
     pageUrl: '',
     license: '随项目发布',
     artist: 'annual-apps-studio',
@@ -696,21 +710,20 @@ export const BACKGROUNDS: PosterBackground[] = [
   ...DESIGN_LIBRARY,
   {
     id: 'forest',
-    name: '林间秋径',
+    name: '林间夜灯',
     family: '经典',
     kind: 'image',
     src: '/backgrounds/bg_forest.webp',
     thumb: '/backgrounds/bg_forest-thumb.webp',
-    tag: '实拍 · 秋林',
+    tag: '项目原有 · 夜灯',
     base: '#0b1512',
     light: false,
     source: {
-      provider: 'Wikimedia Commons',
-      title: 'Forest near Mauerweg Hohen Neuendorf at night on 2019-11-11 02',
-      pageUrl:
-        'https://commons.wikimedia.org/wiki/File:Forest_near_Mauerweg_Hohen_Neuendorf_at_night_on_2019-11-11_02.jpg',
-      license: 'CC0 1.0',
-      artist: 'Leonhard Lenz',
+      provider: '项目原有素材',
+      title: '林间夜灯（原始默认背景）',
+      pageUrl: '',
+      license: '随项目发布',
+      artist: 'annual-apps-studio',
     },
   },
   {
@@ -720,15 +733,15 @@ export const BACKGROUNDS: PosterBackground[] = [
     kind: 'image',
     src: '/backgrounds/bg_bay.webp',
     thumb: '/backgrounds/bg_bay-thumb.webp',
-    tag: '实拍 · 海湾日落',
+    tag: '项目原有 · 海湾',
     base: '#1a2226',
     light: false,
     source: {
-      provider: 'Wikimedia Commons',
-      title: 'Golden sunset over Norrkila bay',
-      pageUrl: 'https://commons.wikimedia.org/wiki/File:Golden_sunset_over_Norrkila_bay.jpg',
-      license: 'CC0 1.0',
-      artist: 'W.carter',
+      provider: '项目原有素材',
+      title: '海湾暮色（原始默认背景）',
+      pageUrl: '',
+      license: '随项目发布',
+      artist: 'annual-apps-studio',
     },
   },
   {
@@ -738,15 +751,15 @@ export const BACKGROUNDS: PosterBackground[] = [
     kind: 'image',
     src: '/backgrounds/bg_night.webp',
     thumb: '/backgrounds/bg_night-thumb.webp',
-    tag: '实拍 · 城市夜景',
+    tag: '项目原有 · 城市夜景',
     base: '#0b1014',
     light: false,
     source: {
-      provider: 'Wikimedia Commons',
-      title: 'Night skyline of Toronto, Canada 374759',
-      pageUrl: 'https://commons.wikimedia.org/wiki/File:Night_skyline_of_Toronto,_Canada_374759.jpg',
-      license: 'CC0 1.0',
-      artist: 'Andrew Gosine',
+      provider: '项目原有素材',
+      title: '城市夜眺（原始默认背景）',
+      pageUrl: '',
+      license: '随项目发布',
+      artist: 'annual-apps-studio',
     },
   },
   {

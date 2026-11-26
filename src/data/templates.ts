@@ -37,7 +37,7 @@ export const TEMPLATES: TemplateDefinition[] = [
     description: '克制、编辑感、安静的纸张气质，霞鹜文楷标题。',
     tags: ['默认', '夜灯'],
     recommendBg: 'forest',
-    recommendBgName: '林间秋径',
+    recommendBgName: '林间夜灯',
     defaults: {
       columns: 6,
       color: '#ffffff',
