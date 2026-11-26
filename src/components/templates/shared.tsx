@@ -1,9 +1,12 @@
 import type { CSSProperties } from 'react'
+import type { LayoutFit } from '../../lib/layout'
 import type { PosterDoc, CategoryView } from '../../types'
 
 export type TemplateProps = {
   doc: PosterDoc
   categories: CategoryView[]
+  /** 按画幅与内容行数推导出的实际尺寸，防止软件很多时内容溢出画布 */
+  fit: LayoutFit
 }
 
 type AppIconViewProps = {

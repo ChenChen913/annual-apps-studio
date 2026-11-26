@@ -1,10 +1,10 @@
 import type { CSSProperties } from 'react'
 import { AppCaption, AppIconView, type TemplateProps } from './shared'
 
-export function CuteTemplate({ doc, categories }: TemplateProps) {
+export function CuteTemplate({ doc, categories, fit }: TemplateProps) {
   const style = {
     '--ink': doc.color,
-    '--icon': `${doc.iconSize}px`,
+    '--icon': `${fit.iconSize}px`,
     '--cols': doc.columns,
     '--title': `${doc.titleSize}px`,
     '--cat': `${doc.catSize}px`,
@@ -41,7 +41,7 @@ export function CuteTemplate({ doc, categories }: TemplateProps) {
                         boxShadow: doc.shadow ? '0 10px 18px rgba(122, 84, 96, .18)' : 'none',
                       }}
                     >
-                      <AppIconView src={app.src} name={app.name} size={doc.iconSize} />
+                      <AppIconView src={app.src} name={app.name} size={fit.iconSize} />
                     </div>
                     {doc.names && <AppCaption app={app} className="cute-name" showMeta={doc.showMeta} />}
                   </div>

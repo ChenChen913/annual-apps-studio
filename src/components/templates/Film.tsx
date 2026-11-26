@@ -1,10 +1,10 @@
 import type { CSSProperties } from 'react'
 import { AppCaption, AppIconView, type TemplateProps } from './shared'
 
-export function FilmTemplate({ doc, categories }: TemplateProps) {
+export function FilmTemplate({ doc, categories, fit }: TemplateProps) {
   const style = {
     '--ink': doc.color,
-    '--icon': `${doc.iconSize}px`,
+    '--icon': `${fit.iconSize}px`,
     '--cols': doc.columns,
     '--title': `${doc.titleSize}px`,
     '--cat': `${doc.catSize}px`,
@@ -33,7 +33,7 @@ export function FilmTemplate({ doc, categories }: TemplateProps) {
             <div className="film-apps">
               {category.apps.map((app) => (
                 <div className="film-app" key={app.id}>
-                  <AppIconView src={app.src} name={app.name} size={doc.iconSize} />
+                  <AppIconView src={app.src} name={app.name} size={fit.iconSize} />
                   {doc.names && (
                     <AppCaption
                       app={app}

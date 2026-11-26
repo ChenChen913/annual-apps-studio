@@ -1,6 +1,7 @@
 import { forwardRef } from 'react'
 import { getIconSrc } from '../data/icons'
 import { getCanvas, ratioClass } from '../data/ratios'
+import { computeFit } from '../lib/layout'
 import type { CategoryView, PosterDoc } from '../types'
 import { PosterBackground } from './PosterBackground'
 import { CuteTemplate } from './templates/Cute'
@@ -37,7 +38,7 @@ function buildCategories(doc: PosterDoc): CategoryView[] {
 }
 
 export const Poster = forwardRef<HTMLDivElement, PosterProps>(function Poster({ doc }, ref) {
-  const props: TemplateProps = { doc, categories: buildCategories(doc) }
+  const props: TemplateProps = { doc, categories: buildCategories(doc), fit: computeFit(doc) }
   const canvas = getCanvas(doc.ratio)
 
   return (

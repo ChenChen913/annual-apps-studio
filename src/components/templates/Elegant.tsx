@@ -11,7 +11,7 @@ const TITLE_LAYOUT = {
   '2:3': { x: 72, y: 200 },
 }
 
-export function ElegantTemplate({ doc, categories }: TemplateProps) {
+export function ElegantTemplate({ doc, categories, fit }: TemplateProps) {
   const canvas = getCanvas(doc.ratio)
   const titleLayout = TITLE_LAYOUT[doc.ratio] ?? TITLE_LAYOUT['16:9']
   const padX = doc.ratio === '9:16' ? 56 : 72
@@ -21,12 +21,22 @@ export function ElegantTemplate({ doc, categories }: TemplateProps) {
   const categoryShadow = `0 3px 16px ${shade}`
   const labelShadow = `0 2px 10px ${shade}`
   const iconShadow = 'drop-shadow(0 10px 16px rgba(0,0,0,.35))'
-  const cell = Math.min(
-    doc.gapX,
-    (canvas.width - doc.startX - padX - 32) / doc.columns,
+  const labelChars = categories.reduce(
+    (longest, category) => Math.max(longest, (category.name || '未命名分类').length),
+    1,
   )
+  // 分类标签独占左侧一栏，图标不能再压到标签上
+  const labelRoom = Math.round(labelChars * doc.catSize * 1.02) + 20
+  const startX = Math.max(doc.startX, padX + labelRoom)
+  const contentWidth = canvas.width - startX - padX
+  const cell = Math.max(fit.iconSize + 18, Math.min(300, contentWidth / doc.columns))
 
-  let cursorY = doc.startY
+  // 每个分类的起始 Y 由前面所有分类的行数累加得出，避免在渲染中修改可变游标
+  const categoryTop = (index: number) =>
+    fit.startY +
+    categories
+      .slice(0, index)
+      .reduce((sum, category) => sum + Math.max(1, Math.ceil(category.apps.length / doc.columns)) * fit.gapY, 0)
 
   return (
     <>
@@ -64,9 +74,7 @@ export function ElegantTemplate({ doc, categories }: TemplateProps) {
       </h1>
 
       {categories.map((category, catIndex) => {
-        const lines = Math.max(1, Math.ceil(category.apps.length / doc.columns))
-        const top = cursorY
-        cursorY += lines * doc.gapY
+        const top = categoryTop(catIndex)
         return (
           <div key={category.id}>
             <div
@@ -83,15 +91,15 @@ export function ElegantTemplate({ doc, categories }: TemplateProps) {
             </div>
 
             {category.apps.map((app, index) => {
-              const x = doc.startX + (index % doc.columns) * cell
-              const y = top + Math.floor(index / doc.columns) * doc.gapY - doc.iconSize / 2
+              const x = startX + (index % doc.columns) * cell
+              const y = top + Math.floor(index / doc.columns) * fit.gapY - fit.iconSize / 2
               return (
                 <div key={app.id}>
                   <AppIconView
                     className="poster-icon"
                     src={app.src}
                     name={app.name}
-                    size={doc.iconSize}
+                    size={fit.iconSize}
                     style={{
                       position: 'absolute',
                       left: x,
@@ -103,8 +111,8 @@ export function ElegantTemplate({ doc, categories }: TemplateProps) {
                     <div
                       className="poster-label"
                       style={{
-                        left: x + doc.iconSize / 2,
-                        top: y + doc.iconSize + 12,
+                        left: x + fit.iconSize / 2,
+                        top: y + fit.iconSize + 12,
                         fontSize: doc.nameSize,
                         color: doc.color,
                         textShadow: labelShadow,

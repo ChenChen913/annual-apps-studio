@@ -1,10 +1,10 @@
 import type { CSSProperties } from 'react'
 import { AppCaption, AppIconView, type TemplateProps } from './shared'
 
-export function BrutalistTemplate({ doc, categories }: TemplateProps) {
+export function BrutalistTemplate({ doc, categories, fit }: TemplateProps) {
   const style = {
     '--ink': doc.color,
-    '--icon': `${doc.iconSize}px`,
+    '--icon': `${fit.iconSize}px`,
     '--cols': doc.columns,
     '--title': `${doc.titleSize}px`,
     '--cat': `${doc.catSize}px`,
@@ -34,7 +34,7 @@ export function BrutalistTemplate({ doc, categories }: TemplateProps) {
                 {category.apps.map((app) => (
                   <div className="br-app" key={app.id}>
                     <div className="br-icon">
-                      <AppIconView src={app.src} name={app.name} size={doc.iconSize} />
+                      <AppIconView src={app.src} name={app.name} size={fit.iconSize} />
                     </div>
                     {doc.names && <AppCaption app={app} className="br-name" showMeta={doc.showMeta} />}
                   </div>

@@ -44,6 +44,9 @@ type PosterStore = {
   moveAppToCategory: (categoryId: string, appId: string, targetCategoryId: string) => void
   applyTemplate: (id: TemplateId) => void
   setRatio: (ratio: RatioId) => void
+  /** 按当前软件数量重新计算编号/行距/图标大小，解决内容过多时的溢出 */
+  fitCurrent: () => void
+  resetBgAdjustments: () => void
   applyExportPreset: (ratio: RatioId, scale: 1 | 2 | 3, format: ExportFormat) => void
   undo: () => void
   redo: () => void
@@ -304,20 +307,43 @@ export const usePosterStore = create<PosterStore>()(
 
       applyTemplate: (id) =>
         set((state) => {
-          const layout = resolveTemplateLayout(id, state.doc.ratio)
+          const layout = resolveTemplateLayout(id, state.doc.ratio, state.doc.categories)
           return withHistory(state, { ...state.doc, templateId: id, ...layout }, 'template')
         }),
 
       setRatio: (ratio) =>
         set((state) => {
           getCanvas(ratio)
-          const layout = resolveTemplateLayout(state.doc.templateId, ratio)
+          const layout = resolveTemplateLayout(state.doc.templateId, ratio, state.doc.categories)
           return withHistory(state, { ...state.doc, ratio, ...layout }, 'ratio')
         }),
 
+      fitCurrent: () =>
+        set((state) => {
+          const layout = resolveTemplateLayout(state.doc.templateId, state.doc.ratio, state.doc.categories)
+          return withHistory(state, { ...state.doc, ...layout }, 'fit')
+        }),
+
+      resetBgAdjustments: () =>
+        set((state) =>
+          withHistory(
+            state,
+            {
+              ...state.doc,
+              bgZoom: 100,
+              bgX: 50,
+              bgY: 50,
+              bgBlur: 0,
+              bgOpacity: 100,
+              bgTintOpacity: 0,
+            },
+            'bg-reset',
+          ),
+        ),
+
       applyExportPreset: (ratio, scale, format) =>
         set((state) => {
-          const layout = resolveTemplateLayout(state.doc.templateId, ratio)
+          const layout = resolveTemplateLayout(state.doc.templateId, ratio, state.doc.categories)
           return withHistory(
             state,
             { ...state.doc, ratio, ...layout, exportScale: scale, exportFormat: format },
@@ -351,7 +377,16 @@ export const usePosterStore = create<PosterStore>()(
           }
         }),
 
-      importDoc: (doc) => set({ doc, past: [], future: [], lastKey: null, lastAt: 0 }),
+      importDoc: (doc) => {
+        // 草稿、项目文件、旧版本数据都可能缺字段，统一过一遍校验再落地
+        let next = doc
+        try {
+          next = sanitizeDoc(doc)
+        } catch {
+          next = doc
+        }
+        set({ doc: next, past: [], future: [], lastKey: null, lastAt: 0 })
+      },
 
       resetAll: () => set({ doc: createDefaultDoc(), past: [], future: [], lastKey: null, lastAt: 0 }),
     }),

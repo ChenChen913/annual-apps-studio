@@ -1,10 +1,10 @@
 import type { CSSProperties } from 'react'
 import { AppCaption, AppIconView, type TemplateProps } from './shared'
 
-export function Y2KTemplate({ doc, categories }: TemplateProps) {
+export function Y2KTemplate({ doc, categories, fit }: TemplateProps) {
   const style = {
     '--ink': doc.color,
-    '--icon': `${doc.iconSize}px`,
+    '--icon': `${fit.iconSize}px`,
     '--cols': doc.columns,
     '--title': `${doc.titleSize}px`,
     '--cat': `${doc.catSize}px`,
@@ -36,7 +36,7 @@ export function Y2KTemplate({ doc, categories }: TemplateProps) {
               {category.apps.map((app) => (
                 <div className="y2k-app" key={app.id}>
                   <div className="y2k-bubble" style={{ boxShadow: doc.shadow ? '0 10px 24px rgba(80, 120, 255, .35)' : undefined }}>
-                    <AppIconView src={app.src} name={app.name} size={doc.iconSize} />
+                    <AppIconView src={app.src} name={app.name} size={fit.iconSize} />
                   </div>
                   {doc.names && <AppCaption app={app} className="y2k-name" showMeta={doc.showMeta} />}
                 </div>

@@ -1,5 +1,7 @@
-import { ELEGANT_RATIO_LAYOUT, type RatioId } from './ratios'
-import type { TemplateId } from '../types'
+import type { RatioId } from './ratios'
+import { getCanvas, RATIO_COLUMNS, RATIO_FRAME } from './ratios'
+import { computeFit, countRows } from '../lib/layout'
+import type { Category, PosterDoc, TemplateId } from '../types'
 
 export type TemplateDefaults = {
   columns: number
@@ -37,7 +39,7 @@ export const TEMPLATES: TemplateDefinition[] = [
     recommendBg: 'forest',
     recommendBgName: '林间夜灯',
     defaults: {
-      columns: 5,
+      columns: 6,
       color: '#ffffff',
       dim: 34,
       shadow: true,
@@ -46,9 +48,9 @@ export const TEMPLATES: TemplateDefinition[] = [
       nameSize: 16,
       iconSize: 100,
       gapX: 232,
-      gapY: 164,
+      gapY: 160,
       startX: 248,
-      startY: 254,
+      startY: 210,
     },
   },
   {
@@ -312,17 +314,91 @@ export function getTemplate(id: TemplateId): TemplateDefinition {
   return TEMPLATE_MAP.get(id) ?? TEMPLATES[0]
 }
 
-/** 模板切换或画幅切换时，套用当前画幅下的默认排版 */
-export function resolveTemplateLayout(id: TemplateId, ratio: RatioId): TemplateDefaults {
+/**
+ * 模板切换或画幅切换时，套用当前画幅下的默认排版。
+ *
+ * 旧实现只给「雅致」写了逐画幅坐标，其余模板无论什么画幅都用 16:9 的固定参数，
+ * 竖版会出现标题下方留白过大、内容被裁切。这里统一按画布尺寸与当前内容行数推导。
+ */
+export function resolveTemplateLayout(
+  id: TemplateId,
+  ratio: RatioId,
+  categories?: Category[],
+): TemplateDefaults {
   const template = getTemplate(id)
-  if (id === 'elegant') {
-    return { ...template.defaults, ...ELEGANT_RATIO_LAYOUT[ratio] }
+  const canvas = getCanvas(ratio)
+  const frame = RATIO_FRAME[ratio]
+  const scale = Math.min(1.06, Math.max(0.72, canvas.width / 1600))
+
+  const columns = Math.min(8, Math.max(3, RATIO_COLUMNS[ratio]))
+  const titleSize = Math.round(template.defaults.titleSize * scale)
+  const catSize = Math.max(12, Math.round(template.defaults.catSize * scale))
+  const nameSize = Math.max(9, Math.round(template.defaults.nameSize * scale))
+  const cellW = (canvas.width - frame.padX * 2) / columns
+  const iconSize = Math.min(
+    Math.round(template.defaults.iconSize * scale),
+    Math.round(cellW * 0.78),
+  )
+  const startX = Math.round(frame.padX + Math.max(0, cellW * 0.12))
+  const startY = Math.round(frame.titleY + titleSize * 1.05 + 26)
+  const gapX = Math.round(cellW)
+
+  const rows = categories ? countRows(categories, columns) : 0
+  const available = canvas.height - startY - frame.bottom
+  const perRow = rows ? available / rows : 160
+  const gapY = Math.round(
+    Math.max(iconSize + nameSize * 2 + 30, Math.min(perRow, iconSize + nameSize * 2 + 168)),
+  )
+
+  const base: TemplateDefaults = {
+    ...template.defaults,
+    columns,
+    titleSize,
+    catSize,
+    nameSize,
+    iconSize,
+    gapX,
+    gapY,
+    startX,
+    startY,
   }
-  const columns =
-    ratio === '9:16' ? Math.min(template.defaults.columns, 5) : template.defaults.columns
-  const iconSize =
-    ratio === '9:16'
-      ? Math.round(template.defaults.iconSize * 0.88)
-      : template.defaults.iconSize
-  return { ...template.defaults, columns, iconSize }
+
+  if (!categories) return base
+
+  const candidate = {
+    ...createLayoutDoc(base, ratio, id),
+    categories,
+  } as PosterDoc
+  const fit = computeFit(candidate as PosterDoc)
+  return {
+    ...base,
+    iconSize: fit.iconSize,
+    gapY: fit.gapY,
+    startY: id === 'elegant' ? fit.startY : base.startY,
+  }
+}
+
+function createLayoutDoc(layout: TemplateDefaults, ratio: RatioId, templateId: TemplateId): PosterDoc {
+  return {
+    schemaVersion: 3,
+    ...layout,
+    title: '',
+    templateId,
+    ratio,
+    exportFormat: 'png',
+    bg: 'forest',
+    customBg: null,
+    bgZoom: 100,
+    bgX: 50,
+    bgY: 50,
+    bgBlur: 0,
+    bgOpacity: 100,
+    bgTint: '#0b1220',
+    bgTintOpacity: 0,
+    names: true,
+    showMeta: false,
+    iconShape: 'squircle',
+    exportScale: 2,
+    categories: [],
+  }
 }

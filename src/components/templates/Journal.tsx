@@ -1,10 +1,10 @@
 import type { CSSProperties } from 'react'
 import { AppCaption, AppIconView, type TemplateProps } from './shared'
 
-export function JournalTemplate({ doc, categories }: TemplateProps) {
+export function JournalTemplate({ doc, categories, fit }: TemplateProps) {
   const style = {
     '--ink': doc.color,
-    '--icon': `${doc.iconSize}px`,
+    '--icon': `${fit.iconSize}px`,
     '--cols': doc.columns,
     '--title': `${doc.titleSize}px`,
     '--cat': `${doc.catSize}px`,
@@ -39,7 +39,7 @@ export function JournalTemplate({ doc, categories }: TemplateProps) {
                   style={{ transform: `rotate(${(appIndex % 3) - 1}deg)` }}
                 >
                   <div className="jr-photo">
-                    <AppIconView src={app.src} name={app.name} size={doc.iconSize} />
+                    <AppIconView src={app.src} name={app.name} size={fit.iconSize} />
                   </div>
                   {doc.names && (
                     <AppCaption

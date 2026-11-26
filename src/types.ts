@@ -34,8 +34,12 @@ export type Category = {
   apps: AppItem[]
 }
 
+/**
+ * 海报文档。schemaVersion 3 在 v2 基础上加入了背景位置 / 缩放 / 模糊 / 透明度 / 叠色，
+ * 迁移逻辑见 lib/project.ts 的 sanitizeDoc（旧版本缺少的字段会取默认值）。
+ */
 export type PosterDoc = {
-  schemaVersion: 2
+  schemaVersion: 3
   title: string
   templateId: TemplateId
   ratio: RatioId
@@ -43,6 +47,20 @@ export type PosterDoc = {
   bg: string
   customBg: string | null
   dim: number
+  /** 背景缩放，100 = 铺满 */
+  bgZoom: number
+  /** 背景水平位置，0-100（%），50 居中 */
+  bgX: number
+  /** 背景垂直位置，0-100（%），50 居中 */
+  bgY: number
+  /** 背景模糊，设计像素 */
+  bgBlur: number
+  /** 背景不透明度，0-100 */
+  bgOpacity: number
+  /** 叠色，十六进制 */
+  bgTint: string
+  /** 叠色强度，0-100 */
+  bgTintOpacity: number
   color: string
   names: boolean
   shadow: boolean
@@ -63,7 +81,7 @@ export type PosterDoc = {
 
 export type ProjectFile = {
   kind: 'annual-apps-project'
-  schemaVersion: 2
+  schemaVersion: 3
   savedAt: string
   doc: PosterDoc
 }

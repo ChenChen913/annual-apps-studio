@@ -1,19 +1,55 @@
-export type BackgroundGroup = '深色' | '浅色' | '风景' | '人物' | '抽象'
+export type BackgroundFamily = '自然' | '抽象' | '科技' | '极简' | '人物' | '经典'
 
 export type PosterBackground = {
   id: string
   name: string
-  group: BackgroundGroup
+  family: BackgroundFamily
   kind: 'image' | 'css'
   src?: string
+  /** 素材库缩略图（480px），列表里先用它，避免一次加载所有大图 */
+  thumb?: string
   /** CSS background-image 值，程序生成，不依赖外部图床 */
   css?: string
   base: string
   /** 是否为浅色背景，用于自动推荐文字颜色 */
   light: boolean
+  /** 素材说明，例如「实拍 · 雪山」 */
+  tag?: string
+  source?: BackgroundSource
 }
 
-export const BACKGROUND_GROUPS: BackgroundGroup[] = ['深色', '浅色', '风景', '人物', '抽象']
+export type BackgroundSource = {
+  provider: string
+  title: string
+  pageUrl: string
+  license: string
+  artist: string
+}
+
+export const BACKGROUND_GROUPS: BackgroundFamily[] = ['自然', '抽象', '科技', '极简', '人物', '经典']
+
+function photo(
+  id: string,
+  name: string,
+  family: BackgroundFamily,
+  tag: string,
+  base: string,
+  light: boolean,
+  source: BackgroundSource,
+): PosterBackground {
+  return {
+    id,
+    name,
+    family,
+    kind: 'image',
+    src: `/backgrounds/${id}.webp`,
+    thumb: `/backgrounds/${id}-thumb.webp`,
+    base,
+    light,
+    tag,
+    source,
+  }
+}
 
 function svgUrl(markup: string) {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">${markup}</svg>`
@@ -448,11 +484,219 @@ const RIPPLE_SCENE = svgUrl(`
   </g>
 `)
 
+const PHOTO_LIBRARY: PosterBackground[] = [
+  photo('photo-snowpeak', '霞光雪峰', '自然', '实拍 · 雪山', '#1b1f26', false, {
+    provider: 'Wikimedia Commons',
+    title: 'Sunset Mount Cook NZ',
+    pageUrl: 'https://commons.wikimedia.org/wiki/File:Sunset_Mount_Cook_NZ_(8114766837).jpg',
+    license: 'CC0 1.0',
+    artist: 'Bernard Spragg. NZ',
+  }),
+  photo('photo-forestfog', '雾锁林海', '自然', '实拍 · 森林', '#16211d', false, {
+    provider: 'Wikimedia Commons',
+    title: 'Foggy pine (Unsplash)',
+    pageUrl: 'https://commons.wikimedia.org/wiki/File:Foggy_pine_(Unsplash).jpg',
+    license: 'CC0 1.0',
+    artist: 'Vadim Sherbakov',
+  }),
+  photo('photo-birch', '白桦林径', '自然', '实拍 · 森林', '#2a2b23', false, {
+    provider: 'Wikimedia Commons',
+    title: 'Edderitz (Oktober 2026)',
+    pageUrl: 'https://commons.wikimedia.org/wiki/File:Edderitz_(Oktober_2026)_1.jpg',
+    license: 'CC0 1.0',
+    artist: 'Romzig',
+  }),
+  photo('photo-goldwoods', '金秋林间', '自然', '实拍 · 秋景', '#2c2417', false, {
+    provider: 'Wikimedia Commons',
+    title: 'Yamanakako - Yamanaka6753',
+    pageUrl: 'https://commons.wikimedia.org/wiki/File:Yamanakako_-_Yamanaka6753.jpg',
+    license: 'CC0 1.0',
+    artist: 'lumoplank',
+  }),
+  photo('photo-reef', '碧海礁岸', '自然', '实拍 · 海洋', '#123037', false, {
+    provider: 'Wikimedia Commons',
+    title: 'Cape Peninsula',
+    pageUrl: 'https://commons.wikimedia.org/wiki/File:Cape_Peninsula_-_CapePeninsula4327.jpg',
+    license: 'CC0 1.0',
+    artist: 'lumoplank',
+  }),
+  photo('photo-cliff', '海岸悬崖', '自然', '实拍 · 海岸', '#1a2227', false, {
+    provider: 'Wikimedia Commons',
+    title: 'El Remo, La Palma',
+    pageUrl: 'https://commons.wikimedia.org/wiki/File:El_Remo,_La_Palma,_surf_against_black_cliffs.jpg',
+    license: 'CC0 1.0',
+    artist: 'Gerda Arendt',
+  }),
+  photo('photo-lakeglow', '湖光山色', '自然', '实拍 · 湖泊', '#1c2733', false, {
+    provider: 'Wikimedia Commons',
+    title: 'Beautiful mountain reflection',
+    pageUrl: 'https://commons.wikimedia.org/wiki/File:Beautiful_mountain_reflection_(Unsplash).jpg',
+    license: 'CC0 1.0',
+    artist: 'Johannes Plenio',
+  }),
+  photo('photo-glacierlake', '冰川湖', '自然', '实拍 · 湖泊', '#1b2a34', false, {
+    provider: 'Wikimedia Commons',
+    title: 'Lake and mountain',
+    pageUrl: 'https://commons.wikimedia.org/wiki/File:Pexels-james-wheeler-417074.jpg',
+    license: 'CC0 1.0',
+    artist: 'James Wheeler',
+  }),
+  photo('photo-dawnsea', '海上晨光', '自然', '实拍 · 日出', '#c9b7a8', true, {
+    provider: 'Wikimedia Commons',
+    title: 'Sunset sky water',
+    pageUrl: 'https://commons.wikimedia.org/wiki/File:Sunset_sky_water.jpg',
+    license: 'CC0 1.0',
+    artist: 'PikWizard',
+  }),
+  photo('photo-firecloud', '火烧云', '自然', '实拍 · 日落', '#2a1712', false, {
+    provider: 'Wikimedia Commons',
+    title: 'Dramatic golden sunset',
+    pageUrl: 'https://commons.wikimedia.org/wiki/File:Dramatic_golden_sunset._(Unsplash).jpg',
+    license: 'CC0 1.0',
+    artist: 'cindy del valle',
+  }),
+  photo('photo-duskcloud', '暮色云霞', '自然', '实拍 · 云层', '#232a30', false, {
+    provider: 'Wikimedia Commons',
+    title: 'Sunset Caletense',
+    pageUrl: 'https://commons.wikimedia.org/wiki/File:Sunset_Caletense_(245636543).jpeg',
+    license: 'CC0 1.0',
+    artist: 'Joel Alzugaray',
+  }),
+  photo('photo-milkyway', '星河', '自然', '实拍 · 夜空', '#0c1320', false, {
+    provider: 'Wikimedia Commons',
+    title: 'Stars and Milky Way over Åbyfjorden',
+    pageUrl:
+      'https://commons.wikimedia.org/wiki/File:Stars_and_Milky_Way_over_%C3%85byfjorden_2.jpg',
+    license: 'CC0 1.0',
+    artist: 'W.carter',
+  }),
+  photo('photo-dunes', '沙丘曲线', '自然', '实拍 · 沙漠', '#cbb79c', true, {
+    provider: 'Wikimedia Commons',
+    title: 'Hiking Through Sand Dunes',
+    pageUrl: 'https://commons.wikimedia.org/wiki/File:Hiking_Through_Sand_Dunes_(Unsplash).jpg',
+    license: 'CC0 1.0',
+    artist: 'Keith Hardy',
+  }),
+  photo('photo-citynight', '城市夜色', '自然', '实拍 · 城市夜景', '#11161b', false, {
+    provider: 'Wikimedia Commons',
+    title: 'Cannon on the ramparts, Quebec City',
+    pageUrl:
+      'https://commons.wikimedia.org/wiki/File:Cannon_on_the_ramparts_and_the_Lower_Town_at_night,_Quebec_City.jpg',
+    license: 'CC0 1.0',
+    artist: 'Wilfredor',
+  }),
+  photo('photo-skyline', '天际线', '自然', '实拍 · 城市夜景', '#0f1318', false, {
+    provider: 'Wikimedia Commons',
+    title: 'Gray High-rise Building at Night',
+    pageUrl: 'https://commons.wikimedia.org/wiki/File:Gray_High-rise_Building_at_Night_373893.jpg',
+    license: 'CC0 1.0',
+    artist: 'Mitul Shah',
+  }),
+  photo('photo-aurora', '极光湖面', '自然', '实拍 · 极光', '#0d1a1e', false, {
+    provider: 'Wikimedia Commons',
+    title: 'Aurora borealis over water',
+    pageUrl: 'https://commons.wikimedia.org/wiki/File:PIXNIO-1094468-aurora_borealis.jpg',
+    license: 'CC0 1.0',
+    artist: 'Yuliya',
+  }),
+  photo('photo-waterfall', '彩虹瀑布', '自然', '实拍 · 瀑布', '#1a2422', false, {
+    provider: 'Wikimedia Commons',
+    title: 'Iceland (Unsplash)',
+    pageUrl: 'https://commons.wikimedia.org/wiki/File:Iceland_(Unsplash_8ZAxI5FwjFo).jpg',
+    license: 'CC0 1.0',
+    artist: 'Sorasak Boontohhgraphy',
+  }),
+  photo('photo-snowroad', '雪国林道', '自然', '实拍 · 雪景', '#b9c2c4', true, {
+    provider: 'Wikimedia Commons',
+    title: 'Snow Forest Winter Gäddede',
+    pageUrl:
+      'https://commons.wikimedia.org/wiki/File:Snow_Forest_Winter_G%C3%A4ddede_(Unsplash_3BWzjqbMlDk).jpg',
+    license: 'CC0 1.0',
+    artist: 'Jon Flobrant',
+  }),
+  photo('photo-traffic', '暮色车流', '科技', '实拍 · 城市光轨', '#2a2016', false, {
+    provider: 'Wikimedia Commons',
+    title: 'Bir-Hakeim bridge at dusk',
+    pageUrl: 'https://commons.wikimedia.org/wiki/File:Bir-Hakeim_bridge,_Paris_24_June_2021.jpg',
+    license: 'CC0 1.0',
+    artist: 'Pierre Blaché',
+  }),
+  photo('photo-nightroad', '夜路光轨', '科技', '实拍 · 光轨', '#101317', false, {
+    provider: 'Wikimedia Commons',
+    title: 'Highway light trains at night',
+    pageUrl:
+      'https://commons.wikimedia.org/wiki/File:Highway_light_trains_at_night_(Unsplash).jpg',
+    license: 'CC0 1.0',
+    artist: 'Jamie Street',
+  }),
+]
+
+const DESIGN_LIBRARY: PosterBackground[] = [
+  photo('design-gradient', '柔光渐变', '抽象', '设计 · 渐变', '#c9bfd4', true, {
+    provider: '项目内置生成',
+    title: '柔光渐变',
+    pageUrl: '',
+    license: '随项目发布',
+    artist: 'annual-apps-studio',
+  }),
+  photo('design-glass', '磨砂玻璃', '抽象', '设计 · 玻璃', '#cfd9df', true, {
+    provider: '项目内置生成',
+    title: '磨砂玻璃',
+    pageUrl: '',
+    license: '随项目发布',
+    artist: 'annual-apps-studio',
+  }),
+  photo('design-liquid', '液态大理石', '抽象', '设计 · 液态', '#ded4c4', true, {
+    provider: '项目内置生成',
+    title: '液态大理石',
+    pageUrl: '',
+    license: '随项目发布',
+    artist: 'annual-apps-studio',
+  }),
+  photo('design-deepblue', '深蓝粒子', '科技', '设计 · 数字粒子', '#0a1322', false, {
+    provider: '项目内置生成',
+    title: '深蓝粒子',
+    pageUrl: '',
+    license: '随项目发布',
+    artist: 'annual-apps-studio',
+  }),
+  photo('design-grid', '数据网格', '科技', '设计 · 网格', '#1a2222', false, {
+    provider: '项目内置生成',
+    title: '数据网格',
+    pageUrl: '',
+    license: '随项目发布',
+    artist: 'annual-apps-studio',
+  }),
+  photo('design-traces', '光轨曲线', '科技', '设计 · 光轨', '#0b121c', false, {
+    provider: '项目内置生成',
+    title: '光轨曲线',
+    pageUrl: '',
+    license: '随项目发布',
+    artist: 'annual-apps-studio',
+  }),
+  photo('design-paper', '米白纸张', '极简', '设计 · 纸张', '#e8dfd2', true, {
+    provider: '项目内置生成',
+    title: '米白纸张',
+    pageUrl: '',
+    license: '随项目发布',
+    artist: 'annual-apps-studio',
+  }),
+  photo('design-shadow', '米色光影', '极简', '设计 · 光影', '#ddd0bd', true, {
+    provider: '项目内置生成',
+    title: '米色光影',
+    pageUrl: '',
+    license: '随项目发布',
+    artist: 'annual-apps-studio',
+  }),
+]
+
 export const BACKGROUNDS: PosterBackground[] = [
+  ...PHOTO_LIBRARY,
+  ...DESIGN_LIBRARY,
   {
     id: 'forest',
     name: '林间夜灯',
-    group: '深色',
+    family: '经典',
     kind: 'image',
     src: '/backgrounds/bg_forest.webp',
     base: '#0b1512',
@@ -461,7 +705,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'bay',
     name: '海湾暮色',
-    group: '深色',
+    family: '经典',
     kind: 'image',
     src: '/backgrounds/bg_bay.webp',
     base: '#1a2226',
@@ -470,7 +714,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'night',
     name: '城市夜眺',
-    group: '深色',
+    family: '经典',
     kind: 'image',
     src: '/backgrounds/bg_night.webp',
     base: '#0b1014',
@@ -479,7 +723,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'midnight',
     name: '午夜蓝',
-    group: '深色',
+    family: '经典',
     kind: 'css',
     css: `${STARS}, radial-gradient(110% 90% at 72% 8%, rgba(64,104,168,.55), transparent 62%), radial-gradient(80% 70% at 10% 92%, rgba(20,52,88,.6), transparent 70%), linear-gradient(160deg, #0c1930 0%, #070d1b 55%, #04070f 100%)`,
     base: '#070d1b',
@@ -488,7 +732,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'ink',
     name: '墨黑',
-    group: '深色',
+    family: '经典',
     kind: 'css',
     css: `${GRAIN}, radial-gradient(120% 100% at 50% 0%, #2a2d31 0%, #131517 52%, #050607 100%)`,
     base: '#101214',
@@ -497,7 +741,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'deepgreen',
     name: '深绿',
-    group: '深色',
+    family: '经典',
     kind: 'css',
     css: `${GRAIN}, radial-gradient(90% 70% at 20% 10%, rgba(52,110,86,.55), transparent 60%), linear-gradient(150deg, #0d2a22 0%, #061511 100%)`,
     base: '#08201a',
@@ -506,7 +750,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'paper',
     name: '米白纸',
-    group: '浅色',
+    family: '极简',
     kind: 'css',
     css: `${PAPER_FIBER}, ${GRAIN}, radial-gradient(120% 100% at 20% 0%, #fbf7ee 0%, #f1ebdf 55%, #e7dfd0 100%)`,
     base: '#f1ebdf',
@@ -515,7 +759,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'cream',
     name: '奶油',
-    group: '浅色',
+    family: '极简',
     kind: 'css',
     css: `${GRAIN}, radial-gradient(100% 80% at 25% 15%, #fff9ef 0%, #fbeed8 55%, #f3dfc2 100%)`,
     base: '#fbeed8',
@@ -524,7 +768,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'mist',
     name: '雾蓝',
-    group: '浅色',
+    family: '极简',
     kind: 'css',
     css: `radial-gradient(90% 70% at 80% 10%, rgba(255,255,255,.9), transparent 60%), linear-gradient(145deg, #eef3f7 0%, #dfe9f0 55%, #cbd9e4 100%)`,
     base: '#dfe9f0',
@@ -533,7 +777,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'dawn',
     name: '晨光',
-    group: '浅色',
+    family: '极简',
     kind: 'css',
     css: `radial-gradient(60% 55% at 82% 12%, rgba(255,244,206,.95), transparent 65%), linear-gradient(160deg, #fff3d8 0%, #fbd9b4 55%, #f3bd94 100%)`,
     base: '#fbd9b4',
@@ -542,7 +786,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'blush',
     name: '浅粉',
-    group: '浅色',
+    family: '极简',
     kind: 'css',
     css: `${GRAIN}, radial-gradient(80% 60% at 20% 10%, #fff8fa 0%, #fbe4ec 55%, #f3cfdc 100%)`,
     base: '#fbe4ec',
@@ -551,7 +795,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'mint',
     name: '浅绿',
-    group: '浅色',
+    family: '极简',
     kind: 'css',
     css: `${GRAIN}, radial-gradient(80% 70% at 25% 10%, #f6fcf3 0%, #e6f2e2 55%, #d3e6cd 100%)`,
     base: '#e6f2e2',
@@ -560,7 +804,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'snow',
     name: '雪山',
-    group: '风景',
+    family: '经典',
     kind: 'css',
     css: SNOW_SCENE,
     base: '#0d2237',
@@ -569,7 +813,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'coast',
     name: '海岸',
-    group: '风景',
+    family: '经典',
     kind: 'css',
     css: COAST_SCENE,
     base: '#39283f',
@@ -578,7 +822,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'woodland',
     name: '森林',
-    group: '风景',
+    family: '经典',
     kind: 'css',
     css: woodlandScene(),
     base: '#0b1a16',
@@ -587,7 +831,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'desert',
     name: '沙漠',
-    group: '风景',
+    family: '经典',
     kind: 'css',
     css: DESERT_SCENE,
     base: '#d99a5c',
@@ -596,7 +840,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'aurora',
     name: '极光',
-    group: '风景',
+    family: '经典',
     kind: 'css',
     css: AURORA_SCENE,
     base: '#071223',
@@ -605,7 +849,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'lake',
     name: '湖泊',
-    group: '风景',
+    family: '经典',
     kind: 'css',
     css: LAKE_SCENE,
     base: '#25414f',
@@ -614,7 +858,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'portrait',
     name: '插画人物',
-    group: '人物',
+    family: '人物',
     kind: 'css',
     css: PORTRAIT_SCENE,
     base: '#3a2838',
@@ -623,7 +867,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'silhouette',
     name: '落日剪影',
-    group: '人物',
+    family: '人物',
     kind: 'css',
     css: SILHOUETTE_SCENE,
     base: '#8a4a58',
@@ -632,7 +876,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'profile',
     name: '侧脸',
-    group: '人物',
+    family: '人物',
     kind: 'css',
     css: PROFILE_SCENE,
     base: '#eadcc9',
@@ -641,7 +885,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'mesh',
     name: '渐变',
-    group: '抽象',
+    family: '抽象',
     kind: 'css',
     css: MESH_SCENE,
     base: '#2b1a4d',
@@ -650,7 +894,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'grain',
     name: '颗粒',
-    group: '抽象',
+    family: '抽象',
     kind: 'css',
     css: `${GRAIN}, radial-gradient(100% 100% at 50% 0%, #26282b 0%, #141618 60%, #0a0b0c 100%)`,
     base: '#141618',
@@ -659,7 +903,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'glass',
     name: '玻璃',
-    group: '抽象',
+    family: '抽象',
     kind: 'css',
     css: GLASS_SCENE,
     base: '#c3d5e2',
@@ -668,7 +912,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'starry',
     name: '星空',
-    group: '深色',
+    family: '经典',
     kind: 'css',
     css: STARRY_SCENE,
     base: '#050b18',
@@ -677,7 +921,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'violet',
     name: '暗紫',
-    group: '深色',
+    family: '经典',
     kind: 'css',
     css: `${GRAIN}, radial-gradient(100% 90% at 30% 10%, #4a2a6e 0%, #261543 52%, #0c0718 100%)`,
     base: '#1d1132',
@@ -686,7 +930,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'neon',
     name: '霓虹巷',
-    group: '深色',
+    family: '经典',
     kind: 'css',
     css: NEON_SCENE,
     base: '#07060f',
@@ -695,7 +939,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'bokeh',
     name: '光斑',
-    group: '深色',
+    family: '经典',
     kind: 'css',
     css: BOKEH_SCENE,
     base: '#04100f',
@@ -704,7 +948,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'sand',
     name: '暖沙',
-    group: '浅色',
+    family: '极简',
     kind: 'css',
     css: SAND_SCENE,
     base: '#f4dfbf',
@@ -713,7 +957,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'stone',
     name: '灰白',
-    group: '浅色',
+    family: '极简',
     kind: 'css',
     css: `${GRAIN}, radial-gradient(120% 100% at 20% 0%, #f5f5f2 0%, #e5e6e1 55%, #d4d6d0 100%)`,
     base: '#e5e6e1',
@@ -722,7 +966,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'sunset',
     name: '日落',
-    group: '风景',
+    family: '经典',
     kind: 'css',
     css: SUNSET_SCENE,
     base: '#8a3f57',
@@ -731,7 +975,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'mountmist',
     name: '山雾',
-    group: '风景',
+    family: '经典',
     kind: 'css',
     css: MIST_SCENE,
     base: '#c3d2d9',
@@ -740,7 +984,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'waves',
     name: '海浪',
-    group: '风景',
+    family: '经典',
     kind: 'css',
     css: WAVES_SCENE,
     base: '#0c2a3e',
@@ -749,7 +993,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'backfigure',
     name: '背影',
-    group: '人物',
+    family: '人物',
     kind: 'css',
     css: BACKFIGURE_SCENE,
     base: '#e8d2b6',
@@ -758,7 +1002,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'halo',
     name: '光晕',
-    group: '抽象',
+    family: '抽象',
     kind: 'css',
     css: `${GRAIN}, radial-gradient(55% 50% at 50% 45%, rgba(255,196,128,.9) 0%, rgba(122,74,120,.55) 40%, rgba(14,10,24,.96) 78%), linear-gradient(160deg, #191227, #070510)`,
     base: '#120c1d',
@@ -767,7 +1011,7 @@ export const BACKGROUNDS: PosterBackground[] = [
   {
     id: 'ripple',
     name: '波纹',
-    group: '抽象',
+    family: '抽象',
     kind: 'css',
     css: RIPPLE_SCENE,
     base: '#dcebf1',

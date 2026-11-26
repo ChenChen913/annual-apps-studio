@@ -1,10 +1,10 @@
 import { Fragment, type CSSProperties } from 'react'
 import { AppCaption, AppIconView, type TemplateProps } from './shared'
 
-export function NewspaperTemplate({ doc, categories }: TemplateProps) {
+export function NewspaperTemplate({ doc, categories, fit }: TemplateProps) {
   const style = {
     '--ink': doc.color,
-    '--icon': `${doc.iconSize}px`,
+    '--icon': `${fit.iconSize}px`,
     '--cols': doc.columns,
     '--title': `${doc.titleSize}px`,
     '--cat': `${doc.catSize}px`,
@@ -48,7 +48,7 @@ export function NewspaperTemplate({ doc, categories }: TemplateProps) {
                 <div className="np-apps">
                   {category.apps.map((app) => (
                     <div className="np-app" key={app.id}>
-                      <AppIconView src={app.src} name={app.name} size={doc.iconSize} />
+                      <AppIconView src={app.src} name={app.name} size={fit.iconSize} />
                       {doc.names && (
                         <AppCaption
                           app={app}

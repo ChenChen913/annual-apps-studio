@@ -1,10 +1,10 @@
 import type { CSSProperties } from 'react'
 import { AppCaption, AppIconView, type TemplateProps } from './shared'
 
-export function MinimalTemplate({ doc, categories }: TemplateProps) {
+export function MinimalTemplate({ doc, categories, fit }: TemplateProps) {
   const style = {
     '--ink': doc.color,
-    '--icon': `${Math.round(doc.iconSize * 0.8)}px`,
+    '--icon': `${Math.round(fit.iconSize * 0.8)}px`,
     '--cols': doc.columns,
     '--title': `${doc.titleSize}px`,
     '--cat': `${doc.catSize}px`,
@@ -33,7 +33,7 @@ export function MinimalTemplate({ doc, categories }: TemplateProps) {
                       className="min-icon"
                       src={app.src}
                       name={app.name}
-                      size={Math.round(doc.iconSize * 0.8)}
+                      size={Math.round(fit.iconSize * 0.8)}
                       style={doc.shadow ? { filter: 'drop-shadow(0 6px 10px rgba(0,0,0,.16))' } : undefined}
                     />
                     {doc.names && (

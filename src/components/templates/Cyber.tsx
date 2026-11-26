@@ -1,10 +1,10 @@
 import type { CSSProperties } from 'react'
 import { AppCaption, AppIconView, type TemplateProps } from './shared'
 
-export function CyberTemplate({ doc, categories }: TemplateProps) {
+export function CyberTemplate({ doc, categories, fit }: TemplateProps) {
   const style = {
     '--ink': doc.color,
-    '--icon': `${doc.iconSize}px`,
+    '--icon': `${fit.iconSize}px`,
     '--cols': doc.columns,
     '--title': `${doc.titleSize}px`,
     '--cat': `${doc.catSize}px`,
@@ -43,7 +43,7 @@ export function CyberTemplate({ doc, categories }: TemplateProps) {
               {category.apps.map((app) => (
                 <div className="cy-app" key={app.id}>
                   <div className="cy-icon-wrap">
-                    <AppIconView src={app.src} name={app.name} size={doc.iconSize} />
+                    <AppIconView src={app.src} name={app.name} size={fit.iconSize} />
                   </div>
                   {doc.names && <AppCaption app={app} className="cy-name" showMeta={doc.showMeta} />}
                 </div>

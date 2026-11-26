@@ -1,6 +1,7 @@
+import { BACKGROUND_MAP } from '../data/backgrounds'
+import { getCanvas, getLayoutBounds, type RatioId } from '../data/ratios'
 import { getTemplate } from '../data/templates'
 import { createDefaultDoc } from '../data/defaultProject'
-import { getCanvas } from '../data/ratios'
 import { uid } from './id'
 import type { AppItem, Category, ExportFormat, PosterDoc, ProjectFile, TemplateId } from '../types'
 
@@ -27,6 +28,10 @@ function clampNumber(value: unknown, fallback: number, min: number, max: number)
 
 function text(value: unknown, fallback: string) {
   return typeof value === 'string' ? value : fallback
+}
+
+function hexColor(value: unknown, fallback: string) {
+  return typeof value === 'string' && /^#[0-9a-f]{6}$/i.test(value) ? value : fallback
 }
 
 function sanitizeApp(input: unknown): AppItem | null {
@@ -68,6 +73,13 @@ function sanitizeCategory(input: unknown): Category | null {
   }
 }
 
+/**
+ * 把任意来源的数据（本地缓存、草稿、导入文件）整理成合法的海报文档。
+ *
+ * 排版参数的上下限按当前画幅推导（见 getLayoutBounds），而不是用一套固定数值，
+ * 否则竖版画幅的默认 gapY / startY 会在刷新或导入后被压回 16:9 的范围。
+ * v2 项目文件缺少背景位置等字段，这里补默认值，旧数据不会丢。
+ */
 export function sanitizeDoc(input: unknown): PosterDoc {
   if (!input || typeof input !== 'object') throw new Error('项目文件内容为空或格式不正确')
   let raw = input as Record<string, unknown>
@@ -92,34 +104,52 @@ export function sanitizeDoc(input: unknown): PosterDoc {
   const template = getTemplate(templateId)
   const fallback = template.defaults
 
-  const color = typeof raw.color === 'string' && /^#[0-9a-f]{6}$/i.test(raw.color) ? raw.color : fallback.color
+  const color = hexColor(raw.color, fallback.color)
   const ratio = getCanvas(typeof raw.ratio === 'string' ? (raw.ratio as never) : '16:9').id
   const exportFormat: ExportFormat =
     raw.exportFormat === 'jpg' || raw.exportFormat === 'webp' ? raw.exportFormat : 'png'
+  const bounds = getLayoutBounds(ratio)
+  const bgId = typeof raw.bg === 'string' ? raw.bg : defaults.bg
+  const bg = bgId === 'custom' || BACKGROUND_MAP.has(bgId) ? bgId : defaults.bg
 
   return {
-    schemaVersion: 2,
+    schemaVersion: 3,
     title: text(raw.title, defaults.title).slice(0, 60),
     templateId,
     ratio,
     exportFormat,
-    bg: text(raw.bg, defaults.bg),
+    bg,
     customBg: typeof raw.customBg === 'string' && raw.customBg.startsWith('data:image/') ? raw.customBg : null,
     dim: clampNumber(raw.dim, fallback.dim, 0, 65),
+    bgZoom: clampNumber(raw.bgZoom, 100, 100, 220),
+    bgX: clampNumber(raw.bgX, 50, 0, 100),
+    bgY: clampNumber(raw.bgY, 50, 0, 100),
+    bgBlur: clampNumber(raw.bgBlur, 0, 0, 32),
+    bgOpacity: clampNumber(raw.bgOpacity, 100, 0, 100),
+    bgTint: hexColor(raw.bgTint, defaults.bgTint),
+    bgTintOpacity: clampNumber(raw.bgTintOpacity, 0, 0, 100),
     color,
     names: typeof raw.names === 'boolean' ? raw.names : true,
     shadow: typeof raw.shadow === 'boolean' ? raw.shadow : fallback.shadow,
     showMeta: typeof raw.showMeta === 'boolean' ? raw.showMeta : false,
     iconShape: raw.iconShape === 'circle' ? 'circle' : 'squircle',
-    columns: clampNumber(raw.columns, fallback.columns, 3, 6),
-    iconSize: clampNumber(raw.iconSize, fallback.iconSize, 72, 140),
-    gapX: clampNumber(raw.gapX, fallback.gapX, 140, 270),
-    gapY: clampNumber(raw.gapY, fallback.gapY, 130, 240),
-    startX: clampNumber(raw.startX, fallback.startX, 180, 380),
-    startY: clampNumber(raw.startY, fallback.startY, 200, 330),
-    titleSize: clampNumber(raw.titleSize, fallback.titleSize, 54, 110),
-    catSize: clampNumber(raw.catSize, fallback.catSize, 20, 44),
-    nameSize: clampNumber(raw.nameSize, fallback.nameSize, 10, 26),
+    columns: Math.round(
+      clampNumber(raw.columns, fallback.columns, bounds.columns[0], bounds.columns[1]),
+    ),
+    iconSize: Math.round(
+      clampNumber(raw.iconSize, fallback.iconSize, bounds.iconSize[0], bounds.iconSize[1]),
+    ),
+    gapX: Math.round(clampNumber(raw.gapX, fallback.gapX, bounds.gapX[0], bounds.gapX[1])),
+    gapY: Math.round(clampNumber(raw.gapY, fallback.gapY, bounds.gapY[0], bounds.gapY[1])),
+    startX: Math.round(clampNumber(raw.startX, fallback.startX, bounds.startX[0], bounds.startX[1])),
+    startY: Math.round(clampNumber(raw.startY, fallback.startY, bounds.startY[0], bounds.startY[1])),
+    titleSize: Math.round(
+      clampNumber(raw.titleSize, fallback.titleSize, bounds.titleSize[0], bounds.titleSize[1]),
+    ),
+    catSize: Math.round(clampNumber(raw.catSize, fallback.catSize, bounds.catSize[0], bounds.catSize[1])),
+    nameSize: Math.round(
+      clampNumber(raw.nameSize, fallback.nameSize, bounds.nameSize[0], bounds.nameSize[1]),
+    ),
     exportScale: raw.exportScale === 1 || raw.exportScale === 3 ? raw.exportScale : 2,
     categories,
   }
@@ -128,7 +158,7 @@ export function sanitizeDoc(input: unknown): PosterDoc {
 export function createProjectFile(doc: PosterDoc): ProjectFile {
   return {
     kind: 'annual-apps-project',
-    schemaVersion: 2,
+    schemaVersion: 3,
     savedAt: new Date().toISOString(),
     doc,
   }
@@ -161,4 +191,17 @@ export async function readProjectFile(file: File): Promise<PosterDoc> {
     throw new Error('文件不是有效的 JSON，可能已损坏')
   }
   return sanitizeDoc(data)
+}
+
+/** 旧版本草稿（v2）也能载入：补齐新增的背景参数并做同样的范围校验 */
+export function migrateDoc(input: unknown): PosterDoc | null {
+  try {
+    return sanitizeDoc(input)
+  } catch {
+    return null
+  }
+}
+
+export function ratioOf(doc: PosterDoc): RatioId {
+  return doc.ratio
 }

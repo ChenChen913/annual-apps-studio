@@ -1,10 +1,10 @@
 import type { CSSProperties } from 'react'
 import { AppCaption, AppIconView, type TemplateProps } from './shared'
 
-export function MagazineTemplate({ doc, categories }: TemplateProps) {
+export function MagazineTemplate({ doc, categories, fit }: TemplateProps) {
   const style = {
     '--ink': doc.color,
-    '--icon': `${Math.round(doc.iconSize * 0.72)}px`,
+    '--icon': `${Math.round(fit.iconSize * 0.72)}px`,
     '--cols': doc.columns,
     '--title': `${doc.titleSize}px`,
     '--cat': `${doc.catSize}px`,
@@ -65,7 +65,7 @@ export function MagazineTemplate({ doc, categories }: TemplateProps) {
                         className="mag-icon"
                         src={app.src}
                         name={app.name}
-                        size={Math.round(doc.iconSize * 0.72)}
+                        size={Math.round(fit.iconSize * 0.72)}
                       />
                       {doc.names && (
                         <AppCaption

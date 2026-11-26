@@ -445,15 +445,18 @@ export function ContentPanel() {
         </p>
       </div>
 
-      <IconPicker
-        open={picker !== null}
-        mode={picker?.mode ?? 'add'}
-        title={picker?.mode === 'replace' ? `替换「${picker.name}」的图标` : '添加软件'}
-        canReset={picker?.mode === 'replace' && picker.canReset}
-        onClose={() => setPicker(null)}
-        onPick={handlePick}
-        onReset={handleResetIcon}
-      />
+      {picker && (
+        <IconPicker
+          open
+          mode={picker.mode}
+          title={picker.mode === 'replace' ? `替换「${picker.name}」的图标` : '添加软件'}
+          currentLibraryId={picker.mode === 'replace' ? picker.libraryId : null}
+          canReset={picker.mode === 'replace' && picker.canReset}
+          onClose={() => setPicker(null)}
+          onPick={handlePick}
+          onReset={handleResetIcon}
+        />
+      )}
     </>
   )
 }
