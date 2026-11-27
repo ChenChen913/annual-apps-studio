@@ -215,39 +215,42 @@ describe('模板与图标数据', () => {
   })
 
   it('AI 名录模板与示例数据完整', () => {
-    expect(AI_INDEX_TOTAL).toBe(48)
-    expect(AI_INDEX_CATEGORIES.map((category) => category.apps.length)).toEqual([3, 3, 4, 31, 7])
+    expect(AI_INDEX_TOTAL).toBe(59)
+    expect(AI_INDEX_CATEGORIES.map((category) => category.apps.length)).toEqual([2, 3, 5, 31, 6, 5, 7])
 
     const doc = createAiIndexDoc()
     expect(doc.templateId).toBe('index')
     expect(doc.ratio).toBe('4:5')
     expect(doc.columns).toBe(7)
-    expect(doc.categories.reduce((total, category) => total + category.apps.length, 0)).toBe(48)
-    expect(new Set(doc.categories.flatMap((category) => category.apps.map((app) => app.name))).size).toBe(48)
+    expect(doc.categories.reduce((total, category) => total + category.apps.length, 0)).toBe(59)
+    expect(new Set(doc.categories.flatMap((category) => category.apps.map((app) => app.name))).size).toBe(59)
 
     const layout = resolveTemplateLayout('index', '4:5', doc.categories)
     expect(layout.columns).toBe(7)
     expect(layout.startY).toBe(310)
 
     const fit = computeFit(doc)
-    expect(fit.rows).toBe(7)
+    expect(fit.rows).toBe(9)
     expect(fit.overflow).toBe(false)
 
     const clean = sanitizeDoc(doc)
     expect(clean.templateId).toBe('index')
     expect(clean.columns).toBe(7)
-    expect(clean.categories).toHaveLength(5)
-    expect(clean.categories.flatMap((category) => category.apps)).toHaveLength(48)
+    expect(clean.categories).toHaveLength(7)
+    expect(clean.categories.flatMap((category) => category.apps)).toHaveLength(59)
 
     const sites = clean.categories.find((category) => category.id === 'ai-sites')
     expect(sites?.apps).toHaveLength(7)
     expect(sites?.apps.every((app) => app.note && app.note.includes('.'))).toBe(true)
+    expect(sites?.apps.find((app) => app.name === 'Reddit')?.note).toBe('www.reddit.com')
+    expect(sites?.apps.find((app) => app.name === 'V2EX')?.note).toBe('www.v2ex.com')
+    expect(sites?.apps.find((app) => app.name === 'YouTube')?.note).toBe('www.youtube.com')
   })
 
-  it('名录模板的 48 个头像 / 站点图标文件都在本地存在', () => {
+  it('名录模板的 59 个头像 / 站点图标文件都在本地存在', () => {
     const publicDir = resolve(process.cwd(), 'public')
     const iconPaths = Object.values(CREATOR_ICON_MAP)
-    expect(iconPaths).toHaveLength(48)
+    expect(iconPaths).toHaveLength(59)
     for (const src of iconPaths) {
       expect(existsSync(resolve(publicDir, src.replace(/^\//, ''))), `${src} 缺少文件`).toBe(true)
     }

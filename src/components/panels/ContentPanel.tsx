@@ -384,7 +384,7 @@ export function ContentPanel() {
                             value={app.note}
                             placeholder={
                               category.id.endsWith('sites') || /信息站|网站|网址/.test(category.name)
-                                ? '例如：reddit.com'
+                                ? '例如：www.reddit.com'
                                 : '一句话记住它，例如：每天开机第一个打开'
                             }
                             onChange={(event) =>

@@ -28,12 +28,15 @@ export function IndexTemplate({ doc, categories }: TemplateProps) {
   const catFont = Math.min(doc.catSize, Math.round(canvas.width * 0.022))
   const nameSize = Math.min(doc.nameSize, Math.round(canvas.width * 0.0115))
   const titleSize = Math.min(doc.titleSize, Math.round(canvas.width * 0.062))
-  const groupGap = Math.max(10, Math.round(22 * sy))
+  const groupGap = Math.max(10, Math.round(18 * sy))
   const siteIcon = Math.round(Math.min(58 * sx, 64 * sy))
   const siteItemHeight = Math.round(72 * sy)
   const siteRowGap = Math.round(16 * sy)
-  const siteNameSize = Math.max(nameSize + 1, Math.round(16 * sx))
-  const siteUrlSize = Math.max(10, Math.round(10.5 * sx))
+  const siteNameSize = Math.max(nameSize + 1, Math.round(17 * sx))
+  const siteUrlSize = Math.max(12, Math.round(13.5 * sx))
+  const creditFont = Math.max(14, Math.round(nameSize))
+  const creditBottom = Math.round(50 * sy)
+  const creditReserve = Math.round(88 * sy)
 
   const gridCategories = categories.filter((category) => !isSiteCategory(category))
   const siteCategories = categories.filter(isSiteCategory)
@@ -57,7 +60,13 @@ export function IndexTemplate({ doc, categories }: TemplateProps) {
     ? siteRows * siteItemHeight + Math.max(0, siteRows - 1) * siteRowGap
     : 0
   const sectionGaps = gridCategories.length * groupGap
-  const availableRows = footerY - gridTop - siteBlockHeight - sectionGaps - Math.round(10 * sy)
+  const availableRows =
+    footerY -
+    gridTop -
+    siteBlockHeight -
+    sectionGaps -
+    creditReserve -
+    Math.round(10 * sy)
   const rowGap = Math.min(
     Math.round(doc.gapY * sy),
     Math.max(54, Math.floor(availableRows / Math.max(1, gridRows))),
@@ -241,6 +250,22 @@ export function IndexTemplate({ doc, categories }: TemplateProps) {
           })}
         </div>
       )}
+
+      <div
+        className="idx2-credit"
+        style={{
+          right: padX,
+          bottom: creditBottom,
+          fontSize: creditFont,
+          color: doc.color,
+          textShadow: shade,
+        }}
+      >
+        <span>整理人：王晨</span>
+        <span>
+          欢迎关注我的公众号 <b>MaoMaoTech</b>
+        </span>
+      </div>
     </>
   )
 }

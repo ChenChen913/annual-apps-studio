@@ -12,6 +12,8 @@ export const AI_INDEX_LEGEND: AiIndexCategory[] = [
   { id: 'tech', name: 'AI 技术', color: '#2F5E9E' },
   { id: 'general', name: 'AI 综合 / 科普', color: '#71539B' },
   { id: 'creators', name: '公众号 / 视频号', color: '#AE4A48' },
+  { id: 'official', name: '推荐公众号 / 官号', color: '#B86A3C' },
+  { id: 'podcasts', name: 'AI 播客', color: '#7A4A9E' },
   { id: 'sites', name: 'AI 信息站', color: '#2F7857' },
 ]
 
@@ -24,7 +26,6 @@ type CreatorSeed = {
 const ENLIGHTENMENT: CreatorSeed[] = [
   { key: 'qiuzhi2046', name: '秋芝2046', note: 'B站 · 抖音' },
   { key: 'xuan_jiang', name: 'Xuan_酱', note: 'B站 · 抖音' },
-  { key: 'xuanli199', name: '玄离199', note: 'B站 · 抖音' },
 ]
 
 const TECH: CreatorSeed[] = [
@@ -38,6 +39,7 @@ const GENERAL: CreatorSeed[] = [
   { key: 'youmuren', name: '数字游牧人Samuel', note: '抖音 · B站' },
   { key: 'muzi', name: '木子不写代码', note: 'B站 · 抖音' },
   { key: 'xiaohui', name: '晓辉博士', note: 'B站 · 抖音' },
+  { key: 'xuanli199', name: '玄离199', note: 'B站 · 抖音' },
 ]
 
 const CREATORS: CreatorSeed[] = [
@@ -74,14 +76,31 @@ const CREATORS: CreatorSeed[] = [
   { key: 'zangai', name: '葬AI', note: '公众号 · 网站' },
 ]
 
+const OFFICIAL: CreatorSeed[] = [
+  { key: 'tencent_research', name: '腾讯研究院', note: '公众号 · 视频号' },
+  { key: 'ali_tech', name: '阿里技术', note: '公众号 · 视频号' },
+  { key: 'tencent_cloud_dev', name: '腾讯云开发者', note: '公众号 · 视频号' },
+  { key: 'tencent_tech_eng', name: '腾讯技术工程', note: '公众号 · 视频号' },
+  { key: 'tencent_tech', name: '腾讯科技', note: '公众号 · 视频号' },
+  { key: 'latepost', name: '晚点 LatePost', note: '公众号 · 视频号' },
+]
+
+const PODCASTS: CreatorSeed[] = [
+  { key: 'zhangxiaojun', name: '张小珺', note: '播客 · 小宇宙' },
+  { key: 'crossing', name: '十字路口 Crossing', note: '播客 · 小宇宙' },
+  { key: 'silicon101', name: '硅谷 101', note: '播客 · 小宇宙' },
+  { key: 'signal_noise', name: '信号与噪声', note: '播客 · 小宇宙' },
+  { key: 'tulong', name: '屠龙之术', note: '播客 · 苹果播客' },
+]
+
 const SITES: CreatorSeed[] = [
   { key: 'site_aihot', name: 'AI Hot', note: 'aihot.news' },
-  { key: 'site_reddit', name: 'Reddit', note: 'reddit.com' },
-  { key: 'site_v2ex', name: 'V2EX', note: 'v2ex.com' },
+  { key: 'site_reddit', name: 'Reddit', note: 'www.reddit.com' },
+  { key: 'site_v2ex', name: 'V2EX', note: 'www.v2ex.com' },
   { key: 'site_linuxdo', name: 'Linux.do', note: 'linux.do' },
   { key: 'site_github', name: 'GitHub Trending', note: 'github.com/trending' },
   { key: 'site_x', name: 'X', note: 'x.com' },
-  { key: 'site_youtube', name: 'YouTube', note: 'youtube.com' },
+  { key: 'site_youtube', name: 'YouTube', note: 'www.youtube.com' },
 ]
 
 function toApp(seed: CreatorSeed): AppItem {
@@ -109,6 +128,8 @@ export const AI_INDEX_CATEGORIES: Category[] = [
   toCategory('tech', 'AI 技术', TECH),
   toCategory('general', 'AI 综合 / 科普', GENERAL),
   toCategory('creators', '公众号 / 视频号', CREATORS),
+  toCategory('official', '推荐公众号 / 官号', OFFICIAL),
+  toCategory('podcasts', 'AI 播客', PODCASTS),
   toCategory('sites', 'AI 信息站', SITES),
 ]
 
@@ -118,7 +139,7 @@ export const AI_INDEX_TOTAL = AI_INDEX_CATEGORIES.reduce(
 )
 
 /**
- * 48 条 AI 创作者 / 信息源的示例工程。
+ * 59 条 AI 创作者 / 信息源的示例工程。
  * 4:5、1600×2000，图片背景，左侧分类标签 + 七列索引网格。
  */
 export function createAiIndexDoc(): PosterDoc {

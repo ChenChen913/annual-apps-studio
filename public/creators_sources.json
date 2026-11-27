@@ -468,6 +468,116 @@
     ],
     "note": "微博公开头像，原图 600×600；白底线稿。"
   },
+  "tencent_research": {
+    "name": "腾讯研究院",
+    "src": "https://aka.doubaocdn.com/l/fKT9VUNFdx",
+    "platform": "官方品牌 logo",
+    "size": [
+      536,
+      536
+    ],
+    "note": "腾讯研究院官方蓝色 Q 标识；裁取左侧 Q 标，保留白底。"
+  },
+  "ali_tech": {
+    "name": "阿里技术",
+    "src": "https://aka.doubaocdn.com/l/VGpWf4T2Kz",
+    "platform": "官方品牌 logo",
+    "size": [
+      500,
+      500
+    ],
+    "note": "阿里技术官方公众号使用阿里巴巴橙色品牌标识。"
+  },
+  "tencent_cloud_dev": {
+    "name": "腾讯云开发者",
+    "src": "https://aka.doubaocdn.com/l/WO09Rj0gx3",
+    "platform": "官方品牌 logo",
+    "size": [
+      1024,
+      1024
+    ],
+    "note": "腾讯云官方云朵标识，1024×1024 原图。"
+  },
+  "tencent_tech_eng": {
+    "name": "腾讯技术工程",
+    "src": "https://aka.doubaocdn.com/l/imR3U578yI",
+    "platform": "官方品牌 logo",
+    "size": [
+      275,
+      207
+    ],
+    "note": "腾讯技术工程事业群 TEG 标识，深蓝底；原图偏小，已居中补方。"
+  },
+  "tencent_tech": {
+    "name": "腾讯科技",
+    "src": "https://aka.doubaocdn.com/l/mh0bTYkct5",
+    "platform": "官方品牌 logo",
+    "size": [
+      1280,
+      1280
+    ],
+    "note": "腾讯官方蓝色 T 图标，1280×1280 原图。"
+  },
+  "latepost": {
+    "name": "晚点 LatePost",
+    "src": "https://aka.doubaocdn.com/l/OL9w2IZakE",
+    "platform": "公众号",
+    "size": [
+      720,
+      720
+    ],
+    "note": "晚点 LatePost 官方红底白字头像，720×720。"
+  },
+  "zhangxiaojun": {
+    "name": "张小珺",
+    "src": "https://aka.doubaocdn.com/l/wdWLuUNuyf",
+    "platform": "小宇宙",
+    "size": [
+      300,
+      300
+    ],
+    "note": "《张小珺Jùn｜商业访谈录》小宇宙播客名片当前头像，300×300。"
+  },
+  "crossing": {
+    "name": "十字路口 Crossing",
+    "src": "https://aka.doubaocdn.com/l/dVnFU7Whmy",
+    "platform": "Apple Podcasts",
+    "size": [
+      280,
+      280
+    ],
+    "note": "十字路口 Crossing 当前绿色封面；Apple Podcasts 280×280。"
+  },
+  "silicon101": {
+    "name": "硅谷 101",
+    "src": "https://aka.doubaocdn.com/l/ZCnjM7C24V",
+    "platform": "小宇宙",
+    "size": [
+      2001,
+      2001
+    ],
+    "note": "《硅谷101》官方橙色封面，2001×2001 原图。"
+  },
+  "signal_noise": {
+    "name": "信号与噪声",
+    "src": "https://aka.doubaocdn.com/l/ZHScATJ6wK",
+    "platform": "小宇宙 / 蜻蜓FM",
+    "size": [
+      800,
+      800
+    ],
+    "note": "《信号&噪声》官方橙色封面，800×800；标题按用户写法作「信号与噪声」。"
+  },
+  "tulong": {
+    "name": "屠龙之术",
+    "src": "https://aka.doubaocdn.com/l/gUyivFPrsK",
+    "platform": "Apple Podcasts",
+    "size": [
+      280,
+      280
+    ],
+    "note": "《屠龙之术》官方红底书法封面，280×280。"
+  },
   "site_aihot": {
     "name": "AI Hot",
     "src": "https://aihot.news/apple-icon.png",

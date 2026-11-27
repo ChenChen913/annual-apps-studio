@@ -4891,3 +4891,25 @@ button {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.idx2-credit {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+  text-align: right;
+  white-space: nowrap;
+  opacity: 0.9;
+}
+
+.idx2-credit b {
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+

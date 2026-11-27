@@ -2,7 +2,7 @@
  * AI 创作者 / 信息源头像映射。
  *
  * 头像统一存放在 public/creators，文件名与这里的 key 对应；
- * 数据里用 `libraryId: "creator:<key>"` 引用，避免把 40 多张人物头像塞进软件图标库。
+ * 数据里用 `libraryId: "creator:<key>"` 引用，避免把几十张人物头像塞进软件图标库。
  * 来源与核对信息见 public/creators_sources.json 与 ASSETS_LICENSE.md。
  */
 export const CREATOR_ICON_MAP: Record<string, string> = {
@@ -47,6 +47,17 @@ export const CREATOR_ICON_MAP: Record<string, string> = {
   xiaolin: '/creators/xiaolin.webp',
   xixiaoyao: '/creators/xixiaoyao.webp',
   zangai: '/creators/zangai.webp',
+  tencent_research: '/creators/tencent_research.webp',
+  ali_tech: '/creators/ali_tech.webp',
+  tencent_cloud_dev: '/creators/tencent_cloud_dev.webp',
+  tencent_tech_eng: '/creators/tencent_tech_eng.webp',
+  tencent_tech: '/creators/tencent_tech.webp',
+  latepost: '/creators/latepost.webp',
+  zhangxiaojun: '/creators/zhangxiaojun.webp',
+  crossing: '/creators/crossing.webp',
+  silicon101: '/creators/silicon101.webp',
+  signal_noise: '/creators/signal_noise.webp',
+  tulong: '/creators/tulong.webp',
   site_aihot: '/creators/site_aihot.webp',
   site_reddit: '/creators/site_reddit.webp',
   site_v2ex: '/creators/site_v2ex.png',
