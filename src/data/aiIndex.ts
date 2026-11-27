@@ -157,7 +157,7 @@ export const AI_INDEX_TOTAL = AI_INDEX_CATEGORIES.reduce(
 export function createAiIndexDoc(): PosterDoc {
   return {
     ...createDefaultDoc(),
-    title: 'AI 创作者与信息源',
+    title: '2026 年我推荐的 AI 创作者与信息源',
     templateId: 'index',
     ratio: '4:5',
     exportFormat: 'png',
@@ -175,7 +175,7 @@ export function createAiIndexDoc(): PosterDoc {
     gapY: 166,
     startX: 88,
     startY: 310,
-    titleSize: 82,
+    titleSize: 64,
     catSize: 32,
     nameSize: 16,
     exportScale: 3,
