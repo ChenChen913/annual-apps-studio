@@ -2,6 +2,7 @@ import type { RatioId } from './data/ratios'
 
 export type TemplateId =
   | 'elegant'
+  | 'index'
   | 'pixel'
   | 'cute'
   | 'magazine'

@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
 import { BACKGROUND_MAP } from '../data/backgrounds'
 import { createDefaultDoc } from '../data/defaultProject'
+import { createAiIndexDoc } from '../data/aiIndex'
 import { resolveTemplateLayout } from '../data/templates'
 import { getCanvas, type RatioId } from '../data/ratios'
 import { isDarkColor } from '../lib/color'
@@ -43,6 +44,8 @@ type PosterStore = {
   moveAppTo: (categoryId: string, appId: string, targetCategoryId: string, targetIndex: number) => void
   moveAppToCategory: (categoryId: string, appId: string, targetCategoryId: string) => void
   applyTemplate: (id: TemplateId) => void
+  /** 载入 49 条 AI 创作者 / 信息源示例，并切换到「名录」模板 */
+  loadAiIndex: () => void
   setRatio: (ratio: RatioId) => void
   /** 按当前软件数量重新计算编号/行距/图标大小，解决内容过多时的溢出 */
   fitCurrent: () => void
@@ -103,6 +106,7 @@ export const usePosterStore = create<PosterStore>()(
             state.doc.templateId === 'journal' ||
             state.doc.templateId === 'brutalist' ||
             state.doc.templateId === 'newspaper' ||
+            state.doc.templateId === 'index' ||
             state.doc.templateId === 'terminal'
           let color = state.doc.color
           let dim = state.doc.dim
@@ -310,6 +314,8 @@ export const usePosterStore = create<PosterStore>()(
           const layout = resolveTemplateLayout(id, state.doc.ratio, state.doc.categories)
           return withHistory(state, { ...state.doc, templateId: id, ...layout }, 'template')
         }),
+
+      loadAiIndex: () => set((state) => withHistory(state, createAiIndexDoc(), 'load-ai-index')),
 
       setRatio: (ratio) =>
         set((state) => {

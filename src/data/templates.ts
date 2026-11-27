@@ -54,6 +54,29 @@ export const TEMPLATES: TemplateDefinition[] = [
     },
   },
   {
+    id: 'index',
+    name: '名录',
+    english: 'INDEX',
+    description: '纸张质感的索引式大海报，七列网格装下 49 位创作者与信息源。',
+    tags: ['AI', '名录', '海报'],
+    recommendBg: 'design-paper',
+    recommendBgName: '米白纸张',
+    defaults: {
+      columns: 7,
+      color: '#211d18',
+      dim: 0,
+      shadow: false,
+      titleSize: 96,
+      catSize: 18,
+      nameSize: 15,
+      iconSize: 92,
+      gapX: 203,
+      gapY: 210,
+      startX: 88,
+      startY: 430,
+    },
+  },
+  {
     id: 'pixel',
     name: '像素',
     english: 'PIXEL',
@@ -330,7 +353,9 @@ export function resolveTemplateLayout(
   const frame = RATIO_FRAME[ratio]
   const scale = Math.min(1.06, Math.max(0.72, canvas.width / 1600))
 
-  const columns = Math.min(8, Math.max(3, RATIO_COLUMNS[ratio]))
+  const columns = id === 'index'
+    ? ({ '16:9': 8, '4:5': 7, '3:4': 6, '1:1': 7, '9:16': 5, '2:3': 5 } as Record<RatioId, number>)[ratio]
+    : Math.min(8, Math.max(3, RATIO_COLUMNS[ratio]))
   const titleSize = Math.round(template.defaults.titleSize * scale)
   const catSize = Math.max(12, Math.round(template.defaults.catSize * scale))
   const nameSize = Math.max(9, Math.round(template.defaults.nameSize * scale))
@@ -339,11 +364,20 @@ export function resolveTemplateLayout(
     Math.round(template.defaults.iconSize * scale),
     Math.round(cellW * 0.78),
   )
-  const startX = Math.round(frame.padX + Math.max(0, cellW * 0.12))
-  const startY = Math.round(frame.titleY + titleSize * 1.05 + 26)
+  const startX = id === 'index'
+    ? frame.padX
+    : Math.round(frame.padX + Math.max(0, cellW * 0.12))
+  const startY = id === 'index'
+    ? (ratio === '4:5' ? template.defaults.startY : Math.round(frame.titleY + titleSize * 1.35 + 100))
+    : Math.round(frame.titleY + titleSize * 1.05 + 26)
   const gapX = Math.round(cellW)
 
-  const rows = categories ? countRows(categories, columns) : 0
+  const totalApps = categories?.reduce((total, category) => total + category.apps.length, 0) ?? 0
+  const rows = categories
+    ? id === 'index'
+      ? Math.max(1, Math.ceil(totalApps / columns))
+      : countRows(categories, columns)
+    : 0
   const available = canvas.height - startY - frame.bottom
   const perRow = rows ? available / rows : 160
   const gapY = Math.round(

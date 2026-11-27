@@ -7,6 +7,7 @@ import type { AppItem, Category, ExportFormat, PosterDoc, ProjectFile, TemplateI
 
 const TEMPLATE_IDS: TemplateId[] = [
   'elegant',
+  'index',
   'pixel',
   'cute',
   'magazine',

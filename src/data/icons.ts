@@ -1,3 +1,5 @@
+import { CREATOR_ICON_MAP } from './creatorIcons'
+
 export type IconCategory = 'AI' | '浏览器' | '开发' | '办公' | '设计' | '媒体' | '效率' | '系统'
 
 export type LibraryIcon = {
@@ -1179,6 +1181,9 @@ export const ICON_MAP = new Map(ICON_LIBRARY.map((icon) => [icon.id, icon]))
 
 export function getIconSrc(app: { libraryId: string | null; iconSrc: string | null }) {
   if (app.iconSrc) return app.iconSrc
+  if (app.libraryId?.startsWith('creator:')) {
+    return CREATOR_ICON_MAP[app.libraryId.slice('creator:'.length)] ?? null
+  }
   if (app.libraryId) return ICON_MAP.get(app.libraryId)?.src ?? null
   return null
 }

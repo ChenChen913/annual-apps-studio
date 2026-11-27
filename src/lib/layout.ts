@@ -32,6 +32,7 @@ export function countRows(categories: Category[], columns: number): number {
  */
 const FLOW_CHROME: Record<TemplateId, { top: number; bottom: number; labelGap: number }> = {
   elegant: { top: 0, bottom: 0, labelGap: 0 },
+  index: { top: 430, bottom: 96, labelGap: 14 },
   pixel: { top: 208, bottom: 58, labelGap: 8 },
   cute: { top: 210, bottom: 90, labelGap: 10 },
   magazine: { top: 150, bottom: 100, labelGap: 8 },
@@ -50,7 +51,10 @@ const MIN_ICON = 42
 export function computeFit(doc: PosterDoc): LayoutFit {
   const canvas = getCanvas(doc.ratio)
   const columns = doc.columns
-  const rows = countRows(doc.categories, columns)
+  const totalApps = doc.categories.reduce((total, category) => total + category.apps.length, 0)
+  const rows = doc.templateId === 'index'
+    ? Math.max(1, Math.ceil(totalApps / Math.max(1, columns)))
+    : countRows(doc.categories, columns)
   const frame = RATIO_FRAME[doc.ratio]
   const chrome = FLOW_CHROME[doc.templateId] ?? FLOW_CHROME.elegant
 

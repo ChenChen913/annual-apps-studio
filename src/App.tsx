@@ -232,7 +232,7 @@ function App() {
             </div>
           </div>
           <div className="border-t border-white/10 px-5 py-3 text-[10.5px] leading-5 text-white/40">
-            12 套模板 · {BACKGROUNDS.length} 张背景 · {ICON_LIBRARY.length} 个内置软件图标 · 6 种画幅 ·
+            13 套模板 · {BACKGROUNDS.length} 张背景 · {ICON_LIBRARY.length} 个内置软件图标 · 6 种画幅 ·
             图标、背景、字体全部本地加载，断网也能编辑和导出。
           </div>
         </section>

@@ -4288,3 +4288,382 @@ button {
     padding: 16px;
   }
 }
+
+/* ---------- templates: index ---------- */
+
+.tpl-index {
+  --ink: #211d18;
+  --cat: #786d5f;
+  color: var(--ink);
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
+}
+
+.idx-wash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(250, 247, 240, 0.78), rgba(250, 247, 240, 0.72)),
+    radial-gradient(circle at 8% 0%, rgba(255, 255, 255, 0.5), transparent 36%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(243, 235, 223, 0.08));
+}
+
+.idx-frame {
+  position: absolute;
+  inset: 22px;
+  border: 1.5px solid rgba(33, 29, 24, 0.56);
+  pointer-events: none;
+}
+
+.idx-frame::before,
+.idx-frame::after {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  content: "";
+  border-color: rgba(33, 29, 24, 0.8);
+  border-style: solid;
+}
+
+.idx-frame::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1px 0 0 1px;
+}
+
+.idx-frame::after {
+  right: -1px;
+  bottom: -1px;
+  border-width: 0 1px 1px 0;
+}
+
+.idx-spine {
+  position: absolute;
+  top: 468px;
+  right: 33px;
+  color: rgba(33, 29, 24, 0.42);
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  line-height: 1;
+  text-transform: uppercase;
+  transform: rotate(180deg);
+  transform-origin: center;
+  writing-mode: vertical-rl;
+}
+
+.idx-head {
+  position: absolute;
+  top: 62px;
+}
+
+.idx-kicker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(33, 29, 24, 0.6);
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.idx-kicker span {
+  display: flex;
+  align-items: center;
+}
+
+.idx-kicker-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #d36a2e;
+}
+
+.idx-title-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 22px;
+  padding-top: 17px;
+  border-top: 2px solid rgba(33, 29, 24, 0.82);
+}
+
+.idx-title {
+  max-width: 1120px;
+  margin: 0;
+  overflow: hidden;
+  color: var(--ink);
+  font-family: "Songti SC", "Noto Serif SC", "SimSun", serif;
+  font-size: var(--title);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.02;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.idx-total {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-bottom: 4px;
+  color: var(--ink);
+}
+
+.idx-total strong {
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-size: 72px;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.8;
+}
+
+.idx-total span {
+  margin-top: 8px;
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  opacity: 0.62;
+}
+
+.idx-sub {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  margin-top: 14px;
+  color: rgba(33, 29, 24, 0.76);
+  font-size: 14px;
+  letter-spacing: 0.01em;
+}
+
+.idx-sub em {
+  color: rgba(33, 29, 24, 0.48);
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-size: 9.5px;
+  font-style: normal;
+  letter-spacing: 0.08em;
+}
+
+.idx-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 18px;
+  margin-top: 17px;
+  color: rgba(33, 29, 24, 0.64);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.idx-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.idx-legend i {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.idx-grid {
+  position: absolute;
+  display: grid;
+  column-gap: 10px;
+  row-gap: 0;
+  align-content: start;
+}
+
+.idx-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  padding: 13px 3px 0;
+  border-top: 1px solid rgba(33, 29, 24, 0.14);
+}
+
+.idx-item:nth-child(-n + 7) {
+  border-top: 0;
+}
+
+.idx-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 0 2px;
+}
+
+.idx-number {
+  color: var(--cat);
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.idx-cat-dot {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--cat);
+  opacity: 0.9;
+}
+
+.idx-avatar {
+  display: grid;
+  flex: none;
+  width: var(--icon);
+  height: var(--icon);
+  overflow: hidden;
+  place-items: center;
+  border: 1px solid rgba(33, 29, 24, 0.16);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 18px rgba(54, 43, 30, 0.1);
+}
+
+.idx-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.idx-avatar.is-site {
+  border-color: rgba(33, 29, 24, 0.22);
+  background: #f2ebdf;
+}
+
+.idx-avatar.is-site img {
+  width: 66%;
+  height: 66%;
+  border-radius: 12%;
+  object-fit: contain;
+}
+
+.idx-avatar .tile-fallback {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  font-size: calc(var(--icon) * 0.32) !important;
+}
+
+.idx-name {
+  max-width: 100%;
+  margin-top: 9px;
+  overflow: hidden;
+  color: var(--ink);
+  font-size: var(--name);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.idx-note {
+  max-width: 100%;
+  margin-top: 4px;
+  overflow: hidden;
+  color: rgba(33, 29, 24, 0.54);
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-size: 9px;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.idx-foot {
+  position: absolute;
+  bottom: 43px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid rgba(33, 29, 24, 0.32);
+  color: rgba(33, 29, 24, 0.55);
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+
+.idx-foot span:nth-child(2) {
+  color: rgba(33, 29, 24, 0.38);
+}
+
+.thumb-index {
+  border: 1px solid #ddd1bf;
+  background: #f2eadc;
+  color: #2a2620;
+}
+
+.thumb-index .thumb-title {
+  font-family: "Songti SC", "SimSun", serif;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+.thumb-index .thumb-dots {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.thumb-index .thumb-dots i {
+  width: auto;
+  height: 7px;
+  border-radius: 50%;
+  opacity: 0.38;
+}
+
+.index-preset {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 10px;
+  border: 1px solid rgba(47, 107, 88, 0.22);
+  border-radius: 10px;
+  background: #f1f7f3;
+}
+
+.index-preset b {
+  display: block;
+  color: var(--ink);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.index-preset small {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.index-preset-btn {
+  flex: none;
+  padding: 6px 8px;
+  font-size: 10px;
+}

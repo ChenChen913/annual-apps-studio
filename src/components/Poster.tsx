@@ -13,6 +13,7 @@ import { PixelTemplate } from './templates/Pixel'
 import type { TemplateProps } from './templates/shared'
 import { BrutalistTemplate } from './templates/Brutalist'
 import { FilmTemplate } from './templates/Film'
+import { IndexTemplate } from './templates/Index'
 import { JournalTemplate } from './templates/Journal'
 import { NewspaperTemplate } from './templates/Newspaper'
 import { TerminalTemplate } from './templates/Terminal'
@@ -56,6 +57,7 @@ export const Poster = forwardRef<HTMLDivElement, PosterProps>(function Poster({ 
       />
 
       {doc.templateId === 'elegant' && <ElegantTemplate {...props} />}
+      {doc.templateId === 'index' && <IndexTemplate {...props} />}
       {doc.templateId === 'pixel' && <PixelTemplate {...props} />}
       {doc.templateId === 'cute' && <CuteTemplate {...props} />}
       {doc.templateId === 'magazine' && <MagazineTemplate {...props} />}

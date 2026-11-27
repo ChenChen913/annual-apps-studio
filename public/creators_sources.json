@@ -1,0 +1,551 @@
+{
+  "qiuzhi2046": {
+    "name": "秋芝2046",
+    "src": "https://i0.hdslb.com/bfs/face/9caeeb8cbf5b2f29e5304d0909390ba5d91331c9.jpg",
+    "mid": 385670211,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 175263,
+    "fans": 1111904
+  },
+  "xuan_jiang": {
+    "name": "Xuan_酱",
+    "src": "https://i2.hdslb.com/bfs/face/d407aa0dfeed012c4511e10b4ec0bcf276a62b6d.jpg",
+    "mid": 14848367,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 286690,
+    "fans": 599697
+  },
+  "xuanli199": {
+    "name": "玄离199",
+    "src": "https://i0.hdslb.com/bfs/face/8a70069e1dc9ab89c1d688c2cefd3596864315ea.jpg",
+    "mid": 67079745,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 10739,
+    "fans": 664011
+  },
+  "feitian": {
+    "name": "飞天闪客",
+    "src": "https://i2.hdslb.com/bfs/face/d64642c27da984831f3511c828fc3858ca441709.jpg",
+    "mid": 325864133,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 28678,
+    "fans": 474506
+  },
+  "papaxia": {
+    "name": "技术爬爬虾",
+    "src": "https://i0.hdslb.com/bfs/face/333b1b477f1ac1b40091b70afcfd4444e646a7d3.jpg",
+    "mid": 316183842,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 144112,
+    "fans": 482855
+  },
+  "yupi": {
+    "name": "程序员鱼皮",
+    "src": "https://i2.hdslb.com/bfs/face/2839f985db44bc2e756e6df2d26f1849904d552c.jpg",
+    "mid": 12890453,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 62946,
+    "fans": 1059698
+  },
+  "linyi": {
+    "name": "林亦LYi",
+    "src": "https://i1.hdslb.com/bfs/face/0218434a0c746b6c8ea1785fbfe0b31a5f66d3e5.jpg",
+    "mid": 4401694,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 1962215,
+    "fans": 1416687
+  },
+  "youmuren": {
+    "name": "数字游牧人",
+    "src": "https://i2.hdslb.com/bfs/face/6fae31f6c672ce02e1efe51aa2ae5487c25d255e.jpg",
+    "mid": 4848323,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 72172,
+    "fans": 423794
+  },
+  "muzi": {
+    "name": "木子不写代码",
+    "src": "https://i1.hdslb.com/bfs/face/9e82faca75f2b1ed3d5f03d0dd6b38eef0d9dba3.jpg",
+    "mid": 13416784,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 150057,
+    "fans": 56576
+  },
+  "xiaohui": {
+    "name": "晓辉博士",
+    "src": "https://i1.hdslb.com/bfs/face/c0c823de6abca5d40f0b79dbd89367d4365503bc.jpg",
+    "mid": 30044698,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 86055,
+    "fans": 44186
+  },
+  "kazike": {
+    "name": "数字生命卡兹克",
+    "src": "https://i0.hdslb.com/bfs/face/a989a9ef7c6903b0330e26cbb400d47b4b5a0d94.jpg",
+    "mid": 313468110,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 134275,
+    "fans": 24815
+  },
+  "kaer": {
+    "name": "卡尔的AI沃茨",
+    "src": "https://i1.hdslb.com/bfs/face/bc8860f1da73c9995b81dfcecc53bf4456e0eebb.jpg",
+    "mid": 1820008345,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 236558,
+    "fans": 60990
+  },
+  "cxuan": {
+    "name": "cxuanAI",
+    "src": "https://i2.hdslb.com/bfs/face/c97d2cd87856a2ee3536abc230255edaf97c80f0.jpg",
+    "mid": 472890848,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 197750,
+    "fans": 970
+  },
+  "guizang": {
+    "name": "歸藏的AI工具箱",
+    "src": "https://i0.hdslb.com/bfs/face/1d943fec9e14db54b062e4322969bba91c036c50.jpg",
+    "mid": 1741797,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 54068,
+    "fans": 15504
+  },
+  "yize": {
+    "name": "一泽Eze",
+    "src": "https://i1.hdslb.com/bfs/face/ddff4424e5aaeecbc23fa92995638b7366bd7185.jpg",
+    "mid": 3234142,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 93024,
+    "fans": 319
+  },
+  "xiaohui_coder": {
+    "name": "我是程序员小灰",
+    "src": "https://i1.hdslb.com/bfs/face/37ae71c79b22886bcd69c174d9c0b92e083b53cc.jpg",
+    "mid": 555047479,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 21583,
+    "fans": 25306
+  },
+  "gongzilong": {
+    "name": "公子龙龙龙",
+    "src": "https://i1.hdslb.com/bfs/face/16b1ede77af39ff21a62f22564982453e1d221a4.jpg",
+    "mid": 492456340,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 177532,
+    "fans": 186945
+  },
+  "jackcui": {
+    "name": "Jack-Cui",
+    "src": "https://i1.hdslb.com/bfs/face/d5b80805a052440ec64911c23ba4b5ddf87cf78b.jpg",
+    "mid": 331507846,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 90877,
+    "fans": 737939
+  },
+  "liuxiaopai": {
+    "name": "刘小排r",
+    "src": "http://i1.hdslb.com/bfs/face/f826d6176d02647fb47dae6c8b2209ec9f05bafc.jpg",
+    "mid": 348627253,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 330982,
+    "fans": 530
+  },
+  "lurenjia": {
+    "name": "路人甲TM",
+    "src": "http://i0.hdslb.com/bfs/face/91715104c0f116e43bf56fc6b384540ba188647e.jpg",
+    "mid": 9598239,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 534709,
+    "fans": 385
+  },
+  "zhangzala": {
+    "name": "张咋啦Zara",
+    "src": "https://i2.hdslb.com/bfs/face/a88a3c02d64117e9fc5d2fa8482675ccfa02f857.jpg",
+    "mid": 452959322,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 782489,
+    "fans": 20078
+  },
+  "woyin": {
+    "name": "沃垠AI",
+    "src": "https://i1.hdslb.com/bfs/face/206ad01f06947bd8e74870738bd46c878cfb5f1f.jpg",
+    "mid": 283914757,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 187371,
+    "fans": 16
+  },
+  "xiangyang": {
+    "name": "向阳乔木推荐看",
+    "src": "https://i2.hdslb.com/bfs/face/8850beb1303f19e9d5fe6540d2e02d3ed3c69890.jpg",
+    "mid": 13834646,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 257337,
+    "fans": 59
+  },
+  "xiaolin": {
+    "name": "小林coding",
+    "src": "https://i0.hdslb.com/bfs/face/720fc84ad2cfa8ce614997a779b1b349b4ffa483.jpg",
+    "mid": 17703921,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 38555,
+    "fans": 3282
+  },
+  "canghe": {
+    "name": "程序员苍何Ai",
+    "src": "https://i2.hdslb.com/bfs/face/5ace4af5eed6ee97bc8fc24c705f18d68027d923.jpg",
+    "mid": 408092093,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 185607,
+    "fans": 2320
+  },
+  "xixiaoyao": {
+    "name": "夕小瑶科技说",
+    "src": "https://i0.hdslb.com/bfs/face/1684f5bb70daea2d8f1017de1a8865c9a1f2eaa7.jpg",
+    "mid": 271251969,
+    "platform": "bilibili",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 158614,
+    "fans": 879
+  },
+  "saibo": {
+    "name": "赛博禅心",
+    "src": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM6cS8BhfkxfxCTLogo01MKDLNrkib14kKoV5sV3NgeYAIA/0",
+    "platform": "mixed",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 55809
+  },
+  "azhen": {
+    "name": "阿真Irene",
+    "src": "https://static.woshipm.com/pmadmin_avatar_20260226171838_2058.jpg",
+    "platform": "mixed",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 46223
+  },
+  "jiamu": {
+    "name": "甲木未来派",
+    "src": "https://static.woshipm.com/pmadmin_avatar_20260729191109_3300.jpg",
+    "platform": "mixed",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 67575
+  },
+  "moyu": {
+    "name": "摸鱼小李",
+    "src": "https://static.woshipm.com/pmadmin_avatar_20260729164846_7496.jpg",
+    "platform": "mixed",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 73874
+  },
+  "daishu": {
+    "name": "袋鼠帝AI客栈",
+    "src": "https://aka.doubaocdn.com/l/ejGMjhlt0m",
+    "platform": "mixed",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 27152
+  },
+  "moli": {
+    "name": "莫理",
+    "src": "https://aka.doubaocdn.com/l/taGvEULJJv",
+    "platform": "mixed",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 31284
+  },
+  "zangai": {
+    "name": "葬AI",
+    "src": "https://funeralai.cc/logo.png",
+    "platform": "mixed",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 1419306
+  },
+  "luoxiaoshan": {
+    "name": "洛小山",
+    "src": "https://luoxiaoshan.cn/static/images/brand/avatar.jpg",
+    "platform": "mixed",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 72386
+  },
+  "baoyu": {
+    "name": "dotey",
+    "src": "https://github.com/dotey.png?size=460",
+    "platform": "github",
+    "handle": "dotey",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 3247
+  },
+  "juai": {
+    "name": "orange2ai",
+    "src": "https://github.com/orange2ai.png?size=460",
+    "platform": "github",
+    "handle": "orange2ai",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 35885
+  },
+  "javaguide": {
+    "name": "Snailclimb",
+    "src": "https://github.com/Snailclimb.png?size=460",
+    "platform": "github",
+    "handle": "Snailclimb",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 34015
+  },
+  "stormzhang": {
+    "name": "stormzhang",
+    "src": "https://github.com/stormzhang.png?size=460",
+    "platform": "github",
+    "handle": "stormzhang",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 17718
+  },
+  "draco": {
+    "name": "dracohu2025-cloud",
+    "src": "https://github.com/dracohu2025-cloud.png?size=460",
+    "platform": "github",
+    "handle": "dracohu2025-cloud",
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 3249
+  },
+  "shutongwen": {
+    "name": "书同文Suwin",
+    "src": "https://github.com/ViffyGwaanl.png?size=460",
+    "platform": "github",
+    "handle": "ViffyGwaanl",
+    "size": [
+      512,
+      512
+    ],
+    "note": "Gwaanl / PAGE&PAUSE 个人品牌头像；书同文Suwin 的公开英文名线索来自 suwin-illustrator 开源技能说明。"
+  },
+  "aiying": {
+    "name": "AI产品阿颖",
+    "src": "https://weibo.com/u/5360910133",
+    "platform": "weibo",
+    "handle": "5360910133",
+    "size": [
+      512,
+      512
+    ],
+    "note": "微博公开头像，原图 600×600；白底线稿。"
+  },
+  "site_aihot": {
+    "name": "AI Hot",
+    "src": "https://aihot.news/apple-icon.png",
+    "platform": "website",
+    "size": [
+      512,
+      512
+    ],
+    "note": "官网 apple-icon 180×180，放大至 512。"
+  },
+  "site_reddit": {
+    "name": "Reddit",
+    "src": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/reddit.svg",
+    "platform": "website",
+    "size": [
+      512,
+      512
+    ],
+    "note": "Simple Icons（CC0 1.0）。"
+  },
+  "site_v2ex": {
+    "name": "V2EX",
+    "src": "https://www.v2ex.com/static/img/logo.png",
+    "platform": "website",
+    "size": [
+      512,
+      512
+    ],
+    "note": "V2EX 官网 94×30 wordmark，重排为 512×512。"
+  },
+  "site_linuxdo": {
+    "name": "Linux.do",
+    "src": "https://aka.doubaocdn.com/l/kwVU44bgA9",
+    "platform": "website",
+    "size": [
+      512,
+      512
+    ],
+    "note": "Linux.do 官方 500×500 圆角 logo。"
+  },
+  "site_github": {
+    "name": "GitHub Trending",
+    "src": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg",
+    "platform": "website",
+    "size": [
+      512,
+      512
+    ],
+    "note": "Simple Icons（CC0 1.0）。"
+  },
+  "site_x": {
+    "name": "X",
+    "src": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/x.svg",
+    "platform": "website",
+    "size": [
+      512,
+      512
+    ],
+    "note": "Simple Icons（CC0 1.0）。"
+  },
+  "site_youtube": {
+    "name": "YouTube",
+    "src": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/youtube.svg",
+    "platform": "website",
+    "size": [
+      512,
+      512
+    ],
+    "note": "Simple Icons（CC0 1.0）。"
+  },
+  "xiaohu": {
+    "name": "小互AI",
+    "src": "https://aka.doubaocdn.com/l/Pe0Vb0TZdi",
+    "platform": "mixed",
+    "size": [
+      512,
+      512
+    ],
+    "note": "腾讯网作者页公开头像 200×200，放大至 512；微博 UID 1814584931。"
+  }
+}

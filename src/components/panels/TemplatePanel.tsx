@@ -1,4 +1,4 @@
-import { Check, LayoutGrid, Palette, RotateCcw, Star } from 'lucide-react'
+import { Check, LayoutGrid, Palette, RotateCcw, Sparkles, Star } from 'lucide-react'
 import { useState } from 'react'
 import { TEMPLATES, getTemplate } from '../../data/templates'
 import { usePosterStore } from '../../store/posterStore'
@@ -17,6 +17,7 @@ export function TemplatePanel() {
   const doc = usePosterStore((state) => state.doc)
   const setField = usePosterStore((state) => state.setField)
   const applyTemplate = usePosterStore((state) => state.applyTemplate)
+  const loadAiIndex = usePosterStore((state) => state.loadAiIndex)
   const setBackground = usePosterStore((state) => state.setBackground)
   const showToast = useUiStore((state) => state.showToast)
   const favorites = usePrefsStore((state) => state.favoriteTemplates)
@@ -27,12 +28,23 @@ export function TemplatePanel() {
     ? TEMPLATES.filter((template) => favorites.includes(template.id))
     : TEMPLATES
 
-  const estimatedRows = doc.categories.reduce(
-    (total, category) => total + Math.max(1, Math.ceil(category.apps.length / doc.columns)),
-    0,
-  )
+  const totalApps = doc.categories.reduce((total, category) => total + category.apps.length, 0)
+  const estimatedRows = doc.templateId === 'index'
+    ? Math.max(1, Math.ceil(totalApps / Math.max(1, doc.columns)))
+    : doc.categories.reduce(
+        (total, category) => total + Math.max(1, Math.ceil(category.apps.length / doc.columns)),
+        0,
+      )
   const rowLimit =
-    doc.ratio === '16:9' ? 4 : doc.ratio === '1:1' ? 5 : doc.ratio === '4:5' ? 6 : 6
+    doc.templateId === 'index'
+      ? 7
+      : doc.ratio === '16:9'
+        ? 4
+        : doc.ratio === '1:1'
+          ? 5
+          : doc.ratio === '4:5'
+            ? 6
+            : 6
 
   return (
     <>
@@ -88,9 +100,9 @@ export function TemplatePanel() {
                   <i className="thumb-title">Aa</i>
                   <i className="thumb-line" />
                   <span className="thumb-dots">
-                    <i />
-                    <i />
-                    <i />
+                    {Array.from({ length: template.id === 'index' ? 7 : 3 }).map((_, index) => (
+                      <i key={index} />
+                    ))}
                   </span>
                 </span>
                 <span className="template-meta">
@@ -106,6 +118,26 @@ export function TemplatePanel() {
         </div>
         {onlyFavorites && !visibleTemplates.length && (
           <p className="panel-note mt-2">还没有收藏的模板，点击模板右上角的星标即可收藏。</p>
+        )}
+
+        {doc.templateId === 'index' && (
+          <div className="index-preset">
+            <div>
+              <b>AI 创作者与信息源</b>
+              <small>内置 49 条名录示例 · 42 位创作者 + 7 个信息站</small>
+            </div>
+            <button
+              className="btn btn-primary index-preset-btn"
+              type="button"
+              onClick={() => {
+                loadAiIndex()
+                showToast('已载入 49 条 AI 创作者与信息源')
+              }}
+            >
+              <Sparkles size={13} />
+              载入名录
+            </button>
+          </div>
         )}
 
         <div className="recommend-row">
@@ -130,7 +162,7 @@ export function TemplatePanel() {
           label="每行图标数"
           value={doc.columns}
           min={3}
-          max={6}
+          max={8}
           onChange={(value) => setField('columns', value, 'columns')}
           suffix=" 个"
         />
