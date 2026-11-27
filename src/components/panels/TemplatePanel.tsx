@@ -1,4 +1,4 @@
-import { Check, LayoutGrid, Palette, RotateCcw, Sparkles, Star } from 'lucide-react'
+import { Check, FilePlus2, LayoutGrid, Palette, RotateCcw, Sparkles, Star } from 'lucide-react'
 import { useState } from 'react'
 import { TEMPLATES, getTemplate } from '../../data/templates'
 import { usePosterStore } from '../../store/posterStore'
@@ -18,6 +18,7 @@ export function TemplatePanel() {
   const setField = usePosterStore((state) => state.setField)
   const applyTemplate = usePosterStore((state) => state.applyTemplate)
   const loadAiIndex = usePosterStore((state) => state.loadAiIndex)
+  const loadBlankIndex = usePosterStore((state) => state.loadBlankIndex)
   const setBackground = usePosterStore((state) => state.setBackground)
   const showToast = useUiStore((state) => state.showToast)
   const favorites = usePrefsStore((state) => state.favoriteTemplates)
@@ -124,19 +125,33 @@ export function TemplatePanel() {
           <div className="index-preset">
             <div>
               <b>AI 创作者与信息源</b>
-              <small>内置 48 条名录示例 · 41 位创作者 + 7 个信息站</small>
+              <small>内置 48 条示例 · 41 位创作者 + 7 个信息站</small>
             </div>
-            <button
-              className="btn btn-primary index-preset-btn"
-              type="button"
-              onClick={() => {
-                loadAiIndex()
-                showToast('已载入 48 条 AI 创作者与信息源')
-              }}
-            >
-              <Sparkles size={13} />
-              载入名录
-            </button>
+            <div className="index-preset-actions">
+              <button
+                className="btn btn-primary index-preset-btn"
+                type="button"
+                onClick={() => {
+                  loadAiIndex()
+                  showToast('已载入 48 条 AI 创作者与信息源')
+                }}
+              >
+                <Sparkles size={13} />
+                载入示例
+              </button>
+              <button
+                className="btn index-preset-btn"
+                type="button"
+                onClick={() => {
+                  loadBlankIndex()
+                  showToast('已新建空白名录，分类和条目由你添加')
+                }}
+                title="保留名录排版与背景，清空分类和条目"
+              >
+                <FilePlus2 size={13} />
+                空白名录
+              </button>
+            </div>
           </div>
         )}
 

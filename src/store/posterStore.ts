@@ -46,6 +46,8 @@ type PosterStore = {
   applyTemplate: (id: TemplateId) => void
   /** 载入 48 条 AI 创作者 / 信息源示例，并切换到「名录」模板 */
   loadAiIndex: () => void
+  /** 载入空白名录，分类与条目由用户自行添加 */
+  loadBlankIndex: () => void
   setRatio: (ratio: RatioId) => void
   /** 按当前软件数量重新计算编号/行距/图标大小，解决内容过多时的溢出 */
   fitCurrent: () => void
@@ -316,6 +318,20 @@ export const usePosterStore = create<PosterStore>()(
         }),
 
       loadAiIndex: () => set((state) => withHistory(state, createAiIndexDoc(), 'load-ai-index')),
+
+      loadBlankIndex: () =>
+        set((state) => {
+          const doc = createAiIndexDoc()
+          return withHistory(
+            state,
+            {
+              ...doc,
+              title: '我的名录',
+              categories: [{ id: uid('cat'), name: '新分类', apps: [] }],
+            },
+            'load-blank-index',
+          )
+        }),
 
       setRatio: (ratio) =>
         set((state) => {

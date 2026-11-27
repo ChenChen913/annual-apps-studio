@@ -98,17 +98,19 @@ export function ContentPanel() {
   const [expandedId, setExpandedId] = useState<string | null>(null)
   const [drag, setDrag] = useState<DragState | null>(null)
   const [drop, setDrop] = useState<DropState | null>(null)
+  const isIndex = doc.templateId === 'index'
+  const entryLabel = isIndex ? '条目' : '软件'
 
   const handlePick = (icon: IconPick, name?: string) => {
     if (!picker) return
     if (picker.mode === 'add') {
-      const fallbackName = icon.libraryId ? ICON_MAP.get(icon.libraryId)?.label ?? '新软件' : '新软件'
+      const fallbackName = icon.libraryId ? ICON_MAP.get(icon.libraryId)?.label ?? `新${entryLabel}` : `新${entryLabel}`
       addApp(picker.categoryId, {
         name: name?.trim() || fallbackName,
         libraryId: icon.libraryId,
         iconSrc: icon.iconSrc,
       })
-      showToast('已添加软件')
+      showToast(`已添加${entryLabel}`)
     } else {
       setAppIcon(picker.categoryId, picker.appId, icon)
       showToast('图标已更新')
@@ -156,9 +158,9 @@ export function ContentPanel() {
       </div>
 
       <div className="panel-section">
-        <SectionTitle icon={<ImageIcon size={13} />}>分类与软件</SectionTitle>
+        <SectionTitle icon={<ImageIcon size={13} />}>分类与{entryLabel}</SectionTitle>
         <p className="panel-note">
-          一行对应一个分类。拖动软件左侧的手柄可以排序或跨分类拖动；也可以增删分类、改名、换图标。
+          一行对应一个分类。拖动{entryLabel}左侧的手柄可以排序或跨分类拖动；也可以增删分类、改名、换图标。
         </p>
 
         <div className="cat-list">
@@ -199,7 +201,7 @@ export function ContentPanel() {
                     className="icon-btn danger"
                     type="button"
                     onClick={() => {
-                      if (!category.apps.length || window.confirm(`删除分类「${category.name || '未命名'}」及其 ${category.apps.length} 个软件？`)) {
+                      if (!category.apps.length || window.confirm(`删除分类「${category.name || '未命名'}」及其 ${category.apps.length} 个${entryLabel}？`)) {
                         removeCategory(category.id)
                         showToast('分类已删除')
                       }
@@ -289,7 +291,7 @@ export function ContentPanel() {
                         value={app.name}
                         maxLength={30}
                         onChange={(event) => renameApp(category.id, app.id, event.target.value)}
-                        aria-label="软件名称"
+                        aria-label={`${entryLabel}名称`}
                       />
 
                       <div className="row-tools">
@@ -327,10 +329,10 @@ export function ContentPanel() {
                           type="button"
                           onClick={() => {
                             removeApp(category.id, app.id)
-                            showToast('已删除软件，可撤销')
+                            showToast(`已删除${entryLabel}，可撤销`)
                           }}
-                          title="删除软件"
-                          aria-label="删除软件"
+                          title={`删除${entryLabel}`}
+                          aria-label={`删除${entryLabel}`}
                         >
                           <Trash2 size={12} />
                         </button>
@@ -368,7 +370,11 @@ export function ContentPanel() {
 
                         <label className="field mb-0">
                           <span className="field-label">
-                            <span>备注</span>
+                            <span>
+                              {category.id.endsWith('sites') || /信息站|网站|网址/.test(category.name)
+                                ? '网址'
+                                : '备注'}
+                            </span>
                             <strong>{app.note.length}/90</strong>
                           </span>
                           <textarea
@@ -376,7 +382,11 @@ export function ContentPanel() {
                             rows={2}
                             maxLength={90}
                             value={app.note}
-                            placeholder="一句话记住它，例如：每天开机第一个打开"
+                            placeholder={
+                              category.id.endsWith('sites') || /信息站|网站|网址/.test(category.name)
+                                ? '例如：reddit.com'
+                                : '一句话记住它，例如：每天开机第一个打开'
+                            }
                             onChange={(event) =>
                               updateAppMeta(
                                 category.id,
@@ -419,7 +429,7 @@ export function ContentPanel() {
                   </div>
                 ))}
 
-                {!category.apps.length && <p className="app-empty">这个分类还没有软件</p>}
+                {!category.apps.length && <p className="app-empty">这个分类还没有{entryLabel}</p>}
               </div>
 
               <button
@@ -428,7 +438,7 @@ export function ContentPanel() {
                 onClick={() => setPicker({ mode: 'add', categoryId: category.id })}
               >
                 <Plus size={13} />
-                添加软件
+                添加{entryLabel}
               </button>
             </section>
           ))}
@@ -440,7 +450,7 @@ export function ContentPanel() {
         </button>
         <p className="panel-note mt-2">
           共 {doc.categories.length} 个分类 /{' '}
-          {doc.categories.reduce((total, category) => total + category.apps.length, 0)} 个软件
+          {doc.categories.reduce((total, category) => total + category.apps.length, 0)} 个{entryLabel}
           {doc.categories.length > 6 && '，内容较多，导出前建议检查是否超出画布'}
         </p>
       </div>
@@ -449,7 +459,7 @@ export function ContentPanel() {
         <IconPicker
           open
           mode={picker.mode}
-          title={picker.mode === 'replace' ? `替换「${picker.name}」的图标` : '添加软件'}
+          title={picker.mode === 'replace' ? `替换「${picker.name}」的图标` : `添加${entryLabel}`}
           currentLibraryId={picker.mode === 'replace' ? picker.libraryId : null}
           canReset={picker.mode === 'replace' && picker.canReset}
           onClose={() => setPicker(null)}

@@ -12,6 +12,10 @@ function colorFor(categoryId: string) {
   return match?.color ?? FALLBACK_COLOR
 }
 
+function isSiteCategory(category: { id: string; name: string }) {
+  return category.id.endsWith('sites') || /信息站|网站|网址/.test(category.name)
+}
+
 export function IndexTemplate({ doc, categories }: TemplateProps) {
   const canvas = getCanvas(doc.ratio)
   const sx = canvas.width / 1600
@@ -20,10 +24,22 @@ export function IndexTemplate({ doc, categories }: TemplateProps) {
   const gridTop = Math.round(310 * sy)
   const footerY = Math.round(canvas.height - 80 * sy)
   const columns = Math.max(3, doc.columns)
+  const siteColumns = 4
   const catFont = Math.min(doc.catSize, Math.round(canvas.width * 0.022))
-  const nameSize = Math.min(doc.nameSize, Math.round(canvas.width * 0.011))
+  const nameSize = Math.min(doc.nameSize, Math.round(canvas.width * 0.0115))
   const titleSize = Math.min(doc.titleSize, Math.round(canvas.width * 0.062))
   const groupGap = Math.max(10, Math.round(22 * sy))
+  const siteIcon = Math.round(Math.min(58 * sx, 64 * sy))
+  const siteItemHeight = Math.round(72 * sy)
+  const siteRowGap = Math.round(16 * sy)
+  const siteNameSize = Math.max(nameSize + 1, Math.round(16 * sx))
+  const siteUrlSize = Math.max(10, Math.round(10.5 * sx))
+
+  const gridCategories = categories.filter((category) => !isSiteCategory(category))
+  const siteCategories = categories.filter(isSiteCategory)
+  const siteApps = siteCategories.flatMap((category) => category.apps)
+  const siteLabel = siteCategories.length === 1 ? siteCategories[0].name : 'AI 信息站'
+
   const labelChars = categories.reduce(
     (longest, category) => Math.max(longest, (category.name || '未命名分类').length),
     1,
@@ -32,23 +48,32 @@ export function IndexTemplate({ doc, categories }: TemplateProps) {
   const startX = padX + labelWidth
   const contentWidth = canvas.width - startX - padX
   const cell = contentWidth / columns
-  const totalRows = categories.reduce(
+  const gridRows = gridCategories.reduce(
     (total, category) => total + Math.max(1, Math.ceil(category.apps.length / columns)),
     0,
   )
-  const sectionGaps = Math.max(0, categories.length - 1) * groupGap
-  const availableRows = footerY - gridTop - sectionGaps - Math.round(10 * sy)
-  const rowGap = Math.min(Math.round(doc.gapY * sy), Math.max(54, Math.floor(availableRows / Math.max(1, totalRows))))
+  const siteRows = siteApps.length ? Math.ceil(siteApps.length / siteColumns) : 0
+  const siteBlockHeight = siteRows
+    ? siteRows * siteItemHeight + Math.max(0, siteRows - 1) * siteRowGap
+    : 0
+  const sectionGaps = gridCategories.length * groupGap
+  const availableRows = footerY - gridTop - siteBlockHeight - sectionGaps - Math.round(10 * sy)
+  const rowGap = Math.min(
+    Math.round(doc.gapY * sy),
+    Math.max(54, Math.floor(availableRows / Math.max(1, gridRows))),
+  )
   const iconSize = Math.round(Math.min(doc.iconSize * sx, rowGap * 0.62, cell * 0.56))
   const total = categories.reduce((sum, category) => sum + category.apps.length, 0)
 
   let cursor = gridTop
-  const rows = categories.map((category) => {
+  const rows = gridCategories.map((category) => {
     const rowCount = Math.max(1, Math.ceil(category.apps.length / columns))
     const top = cursor
     cursor += rowCount * rowGap + groupGap
     return { category, rowCount, top }
   })
+  const siteTop = cursor
+  const siteCell = contentWidth / siteColumns
 
   return (
     <>
@@ -109,24 +134,19 @@ export function IndexTemplate({ doc, categories }: TemplateProps) {
               const row = Math.floor(index / columns)
               const left = Math.round(startX + column * cell)
               const itemTop = top + row * rowGap
-              const site = category.id.endsWith('sites')
               return (
                 <div
                   key={app.id}
                   className="idx2-item"
-                  style={{
-                    left,
-                    top: itemTop,
-                    width: Math.round(cell),
-                  }}
+                  style={{ left, top: itemTop, width: Math.round(cell) }}
                 >
                   <div
-                    className={`idx2-avatar${site ? ' is-site' : ''}`}
+                    className="idx2-avatar"
                     style={{
                       width: iconSize,
                       height: iconSize,
-                      borderColor: site ? 'rgba(255,255,255,.72)' : 'rgba(255,255,255,.38)',
-                      background: site ? 'rgba(250,247,240,.96)' : 'rgba(255,255,255,.13)',
+                      borderColor: 'rgba(255,255,255,.38)',
+                      background: 'rgba(255,255,255,.13)',
                       boxShadow: doc.shadow ? '0 8px 18px rgba(0,0,0,.26)' : undefined,
                     }}
                   >
@@ -134,7 +154,7 @@ export function IndexTemplate({ doc, categories }: TemplateProps) {
                       src={app.src}
                       name={app.name}
                       size={iconSize}
-                      className={site ? 'idx2-site-img' : 'idx2-person-img'}
+                      className="idx2-person-img"
                     />
                   </div>
                   {doc.names && (
@@ -156,6 +176,71 @@ export function IndexTemplate({ doc, categories }: TemplateProps) {
           </div>
         )
       })}
+
+      {siteApps.length > 0 && (
+        <div>
+          <div
+            className="idx2-cat"
+            style={{
+              left: padX,
+              top: siteTop + siteIcon / 2,
+              width: labelWidth - Math.round(10 * sx),
+              color: doc.color,
+            }}
+          >
+            <span className="idx2-cat-name" style={{ fontSize: catFont, textShadow: shade }}>
+              <i style={{ background: colorFor(siteCategories[0]?.id ?? 'ai-sites') }} />
+              {siteLabel || 'AI 信息站'}
+            </span>
+          </div>
+
+          {siteApps.map((app, index) => {
+            const column = index % siteColumns
+            const row = Math.floor(index / siteColumns)
+            const left = Math.round(startX + column * siteCell)
+            const top = siteTop + row * (siteItemHeight + siteRowGap)
+            return (
+              <div
+                key={app.id}
+                className="idx2-site-item"
+                style={{ left, top, width: Math.round(siteCell - Math.round(14 * sx)) }}
+              >
+                <div
+                  className="idx2-site-avatar"
+                  style={{
+                    width: siteIcon,
+                    height: siteIcon,
+                    boxShadow: doc.shadow ? '0 8px 18px rgba(0,0,0,.26)' : undefined,
+                  }}
+                >
+                  <AppIconView
+                    src={app.src}
+                    name={app.name}
+                    size={siteIcon}
+                    className="idx2-site-img"
+                  />
+                </div>
+                <div className="idx2-site-copy">
+                  <div
+                    className="idx2-site-name"
+                    style={{ fontSize: siteNameSize, color: doc.color, textShadow: shade }}
+                  >
+                    {app.name}
+                  </div>
+                  {app.note && (
+                    <div
+                      className="idx2-site-url"
+                      style={{ fontSize: siteUrlSize, color: doc.color, textShadow: shade }}
+                    >
+                      {app.note}
+                    </div>
+                  )}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      )}
     </>
   )
 }

@@ -158,7 +158,8 @@ export function ProjectPanel() {
                 <b>{draft.name}</b>
                 <small>
                   {formatDraftTime(draft.savedAt)} · {getTemplate(draft.doc.templateId).name} ·{' '}
-                  {draft.doc.categories.reduce((total, category) => total + category.apps.length, 0)} 个软件
+                  {draft.doc.categories.reduce((total, category) => total + category.apps.length, 0)}{' '}
+                  {draft.doc.templateId === 'index' ? '条条目' : '个软件'}
                 </small>
               </div>
               <div className="draft-actions">

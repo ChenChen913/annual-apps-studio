@@ -238,6 +238,10 @@ describe('模板与图标数据', () => {
     expect(clean.columns).toBe(7)
     expect(clean.categories).toHaveLength(5)
     expect(clean.categories.flatMap((category) => category.apps)).toHaveLength(48)
+
+    const sites = clean.categories.find((category) => category.id === 'ai-sites')
+    expect(sites?.apps).toHaveLength(7)
+    expect(sites?.apps.every((app) => app.note && app.note.includes('.'))).toBe(true)
   })
 
   it('名录模板的 48 个头像 / 站点图标文件都在本地存在', () => {

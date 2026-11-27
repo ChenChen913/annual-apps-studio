@@ -105,7 +105,7 @@ function App() {
         <div className="min-w-0">
           <h1 className="truncate text-[14px] font-semibold tracking-tight">我的年度软件</h1>
           <p className="topbar-sub truncate text-[11px] text-[#75827a]">
-            {template.name}模板 · {doc.categories.length} 个分类 · {appCount} 个软件
+            {template.name}模板 · {doc.categories.length} 个分类 · {appCount} {doc.templateId === 'index' ? '条条目' : '个软件'}
           </p>
         </div>
 

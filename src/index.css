@@ -4676,6 +4676,13 @@ button {
   font-size: 10px;
 }
 
+.index-preset-actions {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 6px;
+}
+
 /* ---------- templates: index (image-backed editorial index) ---------- */
 
 .idx2-shade {
@@ -4818,13 +4825,69 @@ button {
 }
 
 .idx2-name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   margin-top: 10px;
   overflow: hidden;
+  overflow-wrap: anywhere;
   font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
   font-weight: 500;
   letter-spacing: -0.01em;
-  line-height: 1.1;
+  line-height: 1.08;
   text-align: center;
+  white-space: normal;
+}
+
+.idx2-site-item {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+}
+
+.idx2-site-avatar {
+  display: grid;
+  flex: none;
+  overflow: hidden;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 50%;
+  background: rgba(250, 247, 240, 0.96);
+}
+
+.idx2-site-avatar .idx2-site-img {
+  display: block;
+  width: 72%;
+  height: 72%;
+  border-radius: 12%;
+  object-fit: contain;
+}
+
+.idx2-site-copy {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.idx2-site-name {
+  overflow: hidden;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
+  font-weight: 600;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.idx2-site-url {
+  margin-top: 4px;
+  overflow: hidden;
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+  opacity: 0.92;
   text-overflow: ellipsis;
   white-space: nowrap;
 }

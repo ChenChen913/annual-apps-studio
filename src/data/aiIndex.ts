@@ -144,7 +144,7 @@ export function createAiIndexDoc(): PosterDoc {
     startY: 310,
     titleSize: 82,
     catSize: 32,
-    nameSize: 13,
+    nameSize: 16,
     exportScale: 3,
     categories: AI_INDEX_CATEGORIES,
   }
