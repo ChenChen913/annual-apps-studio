@@ -197,6 +197,7 @@ const state = {
 
 const imageCache = {};
 let bgImage = null;
+let defaultBg = null;
 let replaceTarget = null;
 let raf = 0;
 
@@ -736,7 +737,7 @@ $('reset').addEventListener('click', () => {
   state.color = '#ffffff';
   state.names = true;
   state.shadow = true;
-  bgImage = null;
+  bgImage = defaultBg;
   syncControls();
   renderEditor();
   schedule();
@@ -815,7 +816,7 @@ async function init() {
   $('status').textContent = '载入素材…';
   const jobs = Object.entries(ASSETS.icons).map(([key, src]) =>
     loadImage(src).then(img => { imageCache[key] = img; }).catch(() => {}));
-  jobs.push(loadImage(ASSETS.bg).then(img => { bgImage = img; }).catch(() => {}));
+  jobs.push(loadImage(ASSETS.bg).then(img => { defaultBg = img; bgImage = img; }).catch(() => {}));
   await Promise.race([Promise.all(jobs), new Promise(resolve => setTimeout(resolve, 6000))]);
   try {
     await document.fonts.load('500 64px "LXGWM"');
