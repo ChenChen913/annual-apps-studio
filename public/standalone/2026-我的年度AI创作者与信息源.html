@@ -509,8 +509,9 @@ function render(scale = 1) {
       const col = index % L.columns;
       const line = Math.floor(index / L.columns);
       const x = L.startX + col * L.cell;
+      const iconX = x + (L.cell - L.iconSize) / 2;
       const y = row.top + line * L.rowGap;
-      drawIcon(item, x, y, L.iconSize);
+      drawIcon(item, iconX, y, L.iconSize);
       if (state.names) drawName(item.name, x, y + L.iconSize + 10, L.cell);
     });
   }
