@@ -552,13 +552,17 @@
   },
   "crossing": {
     "name": "十字路口 Crossing",
-    "src": "https://aka.doubaocdn.com/l/dVnFU7Whmy",
-    "platform": "Apple Podcasts",
+    "src": "https://aka.doubaocdn.com/l/MPo0fjHDCL",
+    "platform": "Apple Podcasts / 小宇宙",
     "size": [
-      280,
-      280
+      300,
+      300
     ],
-    "note": "十字路口 Crossing 当前绿色封面；Apple Podcasts 280×280。"
+    "crop": [
+      512,
+      512
+    ],
+    "note": "官方绿底满版封面，裁掉白边并放大到 512。"
   },
   "silicon101": {
     "name": "硅谷 101",
@@ -582,13 +586,17 @@
   },
   "tulong": {
     "name": "屠龙之术",
-    "src": "https://aka.doubaocdn.com/l/gUyivFPrsK",
-    "platform": "Apple Podcasts",
+    "src": "https://aka.doubaocdn.com/l/sd7S6mrU2p",
+    "platform": "豆瓣 / 小宇宙",
     "size": [
-      280,
-      280
+      1440,
+      1440
     ],
-    "note": "《屠龙之术》官方红底书法封面，280×280。"
+    "crop": [
+      512,
+      512
+    ],
+    "note": "官方红底书法满版封面，缩放到 512。"
   },
   "site_aihot": {
     "name": "AI Hot",
@@ -602,61 +610,73 @@
   },
   "site_reddit": {
     "name": "Reddit",
-    "src": "https://aka.doubaocdn.com/l/JNZxNE5oUI",
-    "platform": "官方品牌图标",
+    "src": "https://www.redditstatic.com/desktop2x/img/favicon/apple-icon-180x180.png",
+    "platform": "官方 favicon",
     "size": [
-      400,
-      400
+      180,
+      180
     ],
     "crop": [
       512,
       512
     ],
-    "note": "橙色 Snoo 官方标识。"
+    "note": "官方透明底橙色 Snoo，去掉外围白底，按原比例显示。"
   },
   "site_v2ex": {
     "name": "V2EX",
-    "src": "https://www.v2ex.com/static/img/logo.png",
-    "platform": "website",
+    "src": "https://www.v2ex.com/static/icon-192.png",
+    "platform": "官网 favicon",
     "size": [
-      512,
-      512
-    ],
-    "note": "V2EX 官网 94×30 wordmark，重排为 512×512。"
-  },
-  "site_linuxdo": {
-    "name": "Linux.do",
-    "src": "https://aka.doubaocdn.com/l/kwVU44bgA9",
-    "platform": "website",
-    "size": [
-      512,
-      512
-    ],
-    "note": "Linux.do 官方 500×500 圆角 logo。"
-  },
-  "site_github": {
-    "name": "GitHub Trending",
-    "src": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg",
-    "platform": "website",
-    "size": [
-      512,
-      512
-    ],
-    "note": "Simple Icons（CC0 1.0）。"
-  },
-  "site_x": {
-    "name": "X",
-    "src": "https://aka.doubaocdn.com/l/haGBCmKksg",
-    "platform": "官方品牌图标",
-    "size": [
-      800,
-      800
+      192,
+      192
     ],
     "crop": [
       512,
       512
     ],
-    "note": "黑底白 X 方形官方标识。"
+    "note": "官方箭头标识，移除浅色底板，保留透明底。"
+  },
+  "site_linuxdo": {
+    "name": "Linux.do",
+    "src": "https://aka.doubaocdn.com/l/p8Uy3V22RT",
+    "platform": "Linux.do 官方新 Logo",
+    "size": [
+      500,
+      500
+    ],
+    "crop": [
+      512,
+      512
+    ],
+    "note": "2024-06 上线的新版黄黑圆角标志，移除外部白边。"
+  },
+  "site_github": {
+    "name": "GitHub Trending",
+    "src": "https://github.githubassets.com/favicons/favicon.svg",
+    "platform": "GitHub 官方 favicon",
+    "size": [
+      24,
+      24
+    ],
+    "crop": [
+      512,
+      512
+    ],
+    "note": "GitHub 官方 Octocat 标识，深色背景下反白显示。"
+  },
+  "site_x": {
+    "name": "X",
+    "src": "https://abs.twimg.com/responsive-web/client-web/icon-ios.77d25eba.png",
+    "platform": "X 官方 favicon",
+    "size": [
+      1024,
+      1024
+    ],
+    "crop": [
+      512,
+      512
+    ],
+    "note": "官方黑底白 X 方形图标，按原图显示。"
   },
   "site_youtube": {
     "name": "YouTube",
