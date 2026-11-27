@@ -227,7 +227,7 @@ describe('模板与图标数据', () => {
 
     const layout = resolveTemplateLayout('index', '4:5', doc.categories)
     expect(layout.columns).toBe(7)
-    expect(layout.startY).toBe(350)
+    expect(layout.startY).toBe(310)
 
     const fit = computeFit(doc)
     expect(fit.rows).toBe(7)

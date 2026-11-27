@@ -59,21 +59,21 @@ export const TEMPLATES: TemplateDefinition[] = [
     english: 'INDEX',
     description: '图片背景的索引式大海报，左侧分类标签 + 七列网格装下 48 位创作者与信息源。',
     tags: ['AI', '名录', '海报'],
-    recommendBg: 'forest',
-    recommendBgName: '林间夜灯',
+    recommendBg: 'photo-forestfog-tall',
+    recommendBgName: '雾锁林间',
     defaults: {
       columns: 7,
       color: '#ffffff',
-      dim: 34,
+      dim: 30,
       shadow: true,
-      titleSize: 78,
-      catSize: 24,
-      nameSize: 14,
+      titleSize: 82,
+      catSize: 32,
+      nameSize: 13,
       iconSize: 88,
       gapX: 176,
       gapY: 166,
       startX: 88,
-      startY: 350,
+      startY: 310,
     },
   },
   {
@@ -368,7 +368,7 @@ export function resolveTemplateLayout(
     ? frame.padX
     : Math.round(frame.padX + Math.max(0, cellW * 0.12))
   const startY = id === 'index'
-    ? ({ '16:9': 250, '4:5': 350, '3:4': 300, '1:1': 300, '9:16': 270, '2:3': 330 } as Record<RatioId, number>)[ratio]
+    ? ({ '16:9': 230, '4:5': 310, '3:4': 280, '1:1': 280, '9:16': 250, '2:3': 300 } as Record<RatioId, number>)[ratio]
     : Math.round(frame.titleY + titleSize * 1.05 + 26)
   const gapX = Math.round(cellW)
 

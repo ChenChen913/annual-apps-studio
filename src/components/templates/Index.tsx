@@ -17,8 +17,8 @@ export function IndexTemplate({ doc, categories }: TemplateProps) {
   const sx = canvas.width / 1600
   const sy = canvas.height / 2000
   const padX = Math.round((doc.ratio === '9:16' ? 56 : 72) * sx)
-  const gridTop = Math.round(348 * sy)
-  const footerY = Math.round(canvas.height - 52 * sy)
+  const gridTop = Math.round(310 * sy)
+  const footerY = Math.round(canvas.height - 80 * sy)
   const columns = Math.max(3, doc.columns)
   const catFont = Math.min(doc.catSize, Math.round(canvas.width * 0.022))
   const nameSize = Math.min(doc.nameSize, Math.round(canvas.width * 0.011))
@@ -41,10 +41,6 @@ export function IndexTemplate({ doc, categories }: TemplateProps) {
   const rowGap = Math.min(Math.round(doc.gapY * sy), Math.max(54, Math.floor(availableRows / Math.max(1, totalRows))))
   const iconSize = Math.round(Math.min(doc.iconSize * sx, rowGap * 0.62, cell * 0.56))
   const total = categories.reduce((sum, category) => sum + category.apps.length, 0)
-  const siteCount = categories
-    .filter((category) => category.id.endsWith('sites'))
-    .reduce((sum, category) => sum + category.apps.length, 0)
-  const creatorCount = total - siteCount
 
   let cursor = gridTop
   const rows = categories.map((category) => {
@@ -58,28 +54,11 @@ export function IndexTemplate({ doc, categories }: TemplateProps) {
     <>
       <div className="idx2-shade" />
 
-      <div
-        className="idx2-kicker"
-        style={{
-          left: padX,
-          right: padX,
-          top: Math.round(78 * sy),
-          fontSize: Math.round(10 * sx),
-          color: doc.color,
-        }}
-      >
-        <span className="idx2-kicker-left">
-          <i style={{ background: '#D36A2E' }} />
-          AI INDEX / 2026
-        </span>
-        <span className="idx2-kicker-right">VOL. 01</span>
-      </div>
-
       <h1
         className="idx2-title"
         style={{
           left: padX,
-          top: Math.round(142 * sy),
+          top: Math.round(98 * sy),
           fontSize: titleSize,
           color: doc.color,
           textShadow: strongShade,
@@ -89,41 +68,24 @@ export function IndexTemplate({ doc, categories }: TemplateProps) {
       </h1>
 
       <div
-        className="idx2-sub"
-        style={{
-          left: padX,
-          top: Math.round(250 * sy),
-          fontSize: Math.round(13 * sx),
-          color: doc.color,
-        }}
-      >
-        <span>{total} 条名录</span>
-        <i />
-        <span>{creatorCount} 位创作者 · {siteCount} 个信息站</span>
-        <i />
-        <span>排名不分先后</span>
-      </div>
-
-      <div
         className="idx2-rule"
-        style={{ left: padX, right: padX, top: Math.round(296 * sy) }}
+        style={{ left: padX, right: padX, top: Math.round(246 * sy) }}
       />
 
       <div
         className="idx2-total"
         style={{
           right: padX,
-          top: Math.round(72 * sy),
-          fontSize: Math.round(Math.min(142 * sy, canvas.width * 0.095)),
+          top: Math.round(58 * sy),
+          fontSize: Math.round(Math.min(150 * sy, canvas.width * 0.1)),
           color: doc.color,
           textShadow: strongShade,
         }}
       >
         {String(total).padStart(2, '0')}
-        <span style={{ fontSize: Math.round(9 * sx) }}>ENTRIES</span>
       </div>
 
-      {rows.map(({ category, top }, categoryIndex) => {
+      {rows.map(({ category, top }) => {
         const categoryColor = colorFor(category.id)
         return (
           <div key={category.id}>
@@ -136,17 +98,9 @@ export function IndexTemplate({ doc, categories }: TemplateProps) {
                 color: doc.color,
               }}
             >
-              <span className="idx2-cat-no">
-                {String(categoryIndex + 1).padStart(2, '0')}
-              </span>
-              <span className="idx2-cat-main">
-                <span className="idx2-cat-name" style={{ fontSize: catFont, textShadow: shade }}>
-                  <i style={{ background: categoryColor }} />
-                  {category.name || '未命名分类'}
-                </span>
-                <span className="idx2-cat-count" style={{ color: categoryColor }}>
-                  {category.apps.length}
-                </span>
+              <span className="idx2-cat-name" style={{ fontSize: catFont, textShadow: shade }}>
+                <i style={{ background: categoryColor }} />
+                {category.name || '未命名分类'}
               </span>
             </div>
 
@@ -196,40 +150,12 @@ export function IndexTemplate({ doc, categories }: TemplateProps) {
                       {app.name}
                     </div>
                   )}
-                  {doc.showMeta && app.note && (
-                    <div
-                      className="idx2-note"
-                      style={{
-                        maxWidth: Math.round(cell - 10),
-                        fontSize: Math.max(8, Math.round(nameSize * 0.62)),
-                        color: doc.color,
-                        textShadow: shade,
-                      }}
-                    >
-                      {app.note}
-                    </div>
-                  )}
                 </div>
               )
             })}
           </div>
         )
       })}
-
-      <div
-        className="idx2-foot"
-        style={{
-          left: padX,
-          right: padX,
-          bottom: Math.round(38 * sy),
-          fontSize: Math.round(9 * sx),
-          color: doc.color,
-        }}
-      >
-        <span>AI INDEX / 2026</span>
-        <span>{creatorCount} CREATORS · {siteCount} SOURCES</span>
-        <span>整理于 2026.11</span>
-      </div>
     </>
   )
 }

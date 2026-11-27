@@ -2,7 +2,7 @@
 
 本文件记录 `annual-apps-studio` 随项目分发的**图片、图标、字体**等素材的来源与许可条件。它只覆盖素材，**不构成对项目源代码的授权**；反之，代码仓库的许可也不自动覆盖这里的素材。
 
-> 结论先说：新增的 20 张实拍背景全部为 **CC0 1.0**（可商用、可再分发、无署名义务，但本文件仍逐项署名）；3 张原有默认背景为项目早期素材，已恢复原构图并本地放大到 3840px；10 张设计背景为本项目自行生成；115 个内置图标来自 4 个来源，其中 99 个为 CC0 / MIT / Apache-2.0，16 个为项目原有的品牌官方图稿（版权归各品牌，仅作识别用途，其中 Notepad++ 经典图标原文件为 GPL）。字体为**霞鹜文楷**，SIL OFL 1.1。
+> 结论先说：新增的 21 张实拍背景全部为 **CC0 1.0**（可商用、可再分发、无署名义务，但本文件仍逐项署名）；3 张原有默认背景为项目早期素材，已恢复原构图并本地放大到 3840px；10 张设计背景为本项目自行生成；115 个内置图标来自 4 个来源，其中 99 个为 CC0 / MIT / Apache-2.0，16 个为项目原有的品牌官方图稿（版权归各品牌，仅作识别用途，其中 Notepad++ 经典图标原文件为 GPL）。字体为**霞鹜文楷**，SIL OFL 1.1。
 
 ---
 
@@ -18,12 +18,12 @@
 
 ## 2. 背景素材
 
-当前背景库共 **66 张**，分为六个族：自然 / 抽象 / 科技 / 极简 / 人物 / 经典。
-其中新增 30 张（20 张实拍 + 10 张设计），原有 36 张（3 张项目原有默认背景 + 33 张 CSS/SVG 程序绘制）。
+当前背景库共 **67 张**，分为六个族：自然 / 抽象 / 科技 / 极简 / 人物 / 经典。
+其中新增 31 张（21 张实拍 + 10 张设计），原有 36 张（3 张项目原有默认背景 + 33 张 CSS/SVG 程序绘制）。
 
-### 2.1 新增实拍背景（20 张，CC0 1.0）
+### 2.1 新增实拍背景（21 张，CC0 1.0）
 
-来源：**Wikimedia Commons**。筛选方式为按「CC0 1.0」授权声明检索候选（122 张），再人工按构图、色彩层次、与图标的对比度挑选 20 张。
+来源：**Wikimedia Commons**。筛选方式为按「CC0 1.0」授权声明检索候选（122 张），再人工按构图、色彩层次、与图标的对比度挑选 21 张。
 
 处理方式：下载长边 3840px 原图 → 转 WebP（质量 82）；另生成长边 720px 的 `-thumb.webp` 供选择器使用。文件位于 `public/backgrounds/`。2026-11-26 第二轮升级把原先的 1800px 版本全部替换，避免 2× 导出时上采样发虚；3 张原始分辨率不足的素材也换成了更高清的同类作品。
 
@@ -51,6 +51,7 @@ CC0 1.0（Public Domain Dedication）允许复制、修改、商用、再分发�
 | 18 | `photo-snowroad` | 雪国林道 | 实拍 · 雪景 | Jon Flobrant | [Snow Forest Winter Gäddede](https://commons.wikimedia.org/wiki/File:Snow_Forest_Winter_G%C3%A4ddede_(Unsplash_3BWzjqbMlDk).jpg) | CC0 1.0 |
 | 19 | `photo-traffic` | 暮色车流 | 实拍 · 城市光轨 | Pierre Blaché | [Bir-Hakeim bridge at dusk](https://commons.wikimedia.org/wiki/File:Bir-Hakeim_bridge,_Paris_24_June_2021.jpg) | CC0 1.0 |
 | 20 | `photo-nightroad` | 夜路光轨 | 实拍 · 光轨 | Jamie Street | [Highway light trains at night](https://commons.wikimedia.org/wiki/File:Highway_light_trains_at_night_(Unsplash).jpg) | CC0 1.0 |
+| 21 | `photo-forestfog-tall` | 雾锁林间 | 实拍 · 森林 · 竖幅 | Vadim Sherbakov | [Foggy pine (Unsplash)](https://commons.wikimedia.org/wiki/File:Foggy_pine_(Unsplash).jpg)（5472×3648，4:5 居中裁切 2918×3648） | CC0 1.0 |
 
 程序化读取位置：`src/data/backgrounds.ts` 的 `PHOTO_LIBRARY`。**新增或替换背景时，必须同步更新该常量与本表**，否则 UI 里的署名信息会与实际素材不一致。
 
@@ -159,7 +160,7 @@ OFL 1.1 允许嵌入、再分发与商用，要求：不得单独售卖字体文
 
 ## 6. 发布前检查清单
 
-- [x] 20 张新增实拍背景均为 CC0，已逐项记录作者与来源页
+- [x] 21 张新增实拍背景均为 CC0，已逐项记录作者与来源页
 - [x] 10 张设计背景为本项目生成，无第三方底图
 - [x] 3 张原有默认背景（`forest` / `bay` / `night`）已恢复项目原构图，旧 id 保留
 - [x] 115 个内置图标的来源与许可已分类记录

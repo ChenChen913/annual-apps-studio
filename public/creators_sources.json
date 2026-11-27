@@ -181,17 +181,17 @@
   },
   "xiaohui_coder": {
     "name": "程序员小灰",
-    "src": "https://aka.doubaocdn.com/l/Fsu1fsqpGs",
-    "platform": "2026 logo 候选 7 号（CSDN 公告）",
+    "src": "https://i1.hdslb.com/bfs/face/37ae71c79b22886bcd69c174d9c0b92e083b53cc.jpg",
+    "platform": "bilibili",
     "size": [
-      862,
-      827
+      168,
+      168
     ],
     "crop": [
       512,
       512
     ],
-    "bytes": 21583
+    "note": "B 站「我是程序员小灰」当前头像，2026-11 复核。"
   },
   "gongzilong": {
     "name": "公子龙龙龙",
@@ -219,15 +219,17 @@
   },
   "liuxiaopai": {
     "name": "刘小排r",
-    "src": "http://i1.hdslb.com/bfs/face/f826d6176d02647fb47dae6c8b2209ec9f05bafc.jpg",
-    "mid": 348627253,
-    "platform": "bilibili",
+    "src": "https://aka.doubaocdn.com/l/oUPD2VcwTa",
+    "platform": "公众号",
     "size": [
+      272,
+      272
+    ],
+    "crop": [
       512,
       512
     ],
-    "bytes": 330982,
-    "fans": 530
+    "note": "公众号「刘小排r」海边灯塔头像。"
   },
   "lurenjia": {
     "name": "路人甲TM",
@@ -375,13 +377,17 @@
   },
   "zangai": {
     "name": "葬AI",
-    "src": "https://funeralai.cc/logo.png",
-    "platform": "mixed",
+    "src": "https://aka.doubaocdn.com/l/bqekfbNjLD",
+    "platform": "小宇宙",
     "size": [
+      300,
+      300
+    ],
+    "crop": [
       512,
       512
     ],
-    "bytes": 1419306
+    "note": "播客「葬AI」紫色封面头像。"
   },
   "luoxiaoshan": {
     "name": "洛小山",
@@ -438,15 +444,18 @@
     "bytes": 17718
   },
   "draco": {
-    "name": "dracohu2025-cloud",
-    "src": "https://github.com/dracohu2025-cloud.png?size=460",
-    "platform": "github",
-    "handle": "dracohu2025-cloud",
+    "name": "Draco正在VibeCoding",
+    "src": "https://aka.doubaocdn.com/l/kjOVTuJuKv",
+    "platform": "公众号",
     "size": [
+      272,
+      272
+    ],
+    "crop": [
       512,
       512
     ],
-    "bytes": 3249
+    "note": "公众号「Draco正在VibeCoding」绿色电路龙头像。"
   },
   "aiying": {
     "name": "AI产品阿颖",
@@ -471,13 +480,17 @@
   },
   "site_reddit": {
     "name": "Reddit",
-    "src": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/reddit.svg",
-    "platform": "website",
+    "src": "https://aka.doubaocdn.com/l/JNZxNE5oUI",
+    "platform": "官方品牌图标",
     "size": [
+      400,
+      400
+    ],
+    "crop": [
       512,
       512
     ],
-    "note": "Simple Icons（CC0 1.0）。"
+    "note": "橙色 Snoo 官方标识。"
   },
   "site_v2ex": {
     "name": "V2EX",
@@ -511,23 +524,31 @@
   },
   "site_x": {
     "name": "X",
-    "src": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/x.svg",
-    "platform": "website",
+    "src": "https://aka.doubaocdn.com/l/haGBCmKksg",
+    "platform": "官方品牌图标",
     "size": [
+      800,
+      800
+    ],
+    "crop": [
       512,
       512
     ],
-    "note": "Simple Icons（CC0 1.0）。"
+    "note": "黑底白 X 方形官方标识。"
   },
   "site_youtube": {
     "name": "YouTube",
-    "src": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/youtube.svg",
-    "platform": "website",
+    "src": "https://aka.doubaocdn.com/l/cRqUSZ4J0d",
+    "platform": "官方品牌图标",
     "size": [
+      900,
+      622
+    ],
+    "crop": [
       512,
       512
     ],
-    "note": "Simple Icons（CC0 1.0）。"
+    "note": "红色圆角矩形 + 白色播放键官方标识。"
   },
   "xiaohu": {
     "name": "小互AI",

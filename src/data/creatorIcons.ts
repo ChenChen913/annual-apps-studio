@@ -48,10 +48,10 @@ export const CREATOR_ICON_MAP: Record<string, string> = {
   xixiaoyao: '/creators/xixiaoyao.webp',
   zangai: '/creators/zangai.webp',
   site_aihot: '/creators/site_aihot.webp',
-  site_reddit: '/creators/site_reddit.svg',
+  site_reddit: '/creators/site_reddit.webp',
   site_v2ex: '/creators/site_v2ex.png',
   site_linuxdo: '/creators/site_linuxdo.webp',
   site_github: '/creators/site_github.svg',
-  site_x: '/creators/site_x.svg',
-  site_youtube: '/creators/site_youtube.svg',
+  site_x: '/creators/site_x.webp',
+  site_youtube: '/creators/site_youtube.webp',
 }

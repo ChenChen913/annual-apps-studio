@@ -499,6 +499,13 @@ const PHOTO_LIBRARY: PosterBackground[] = [
     license: 'CC0 1.0',
     artist: 'Vadim Sherbakov',
   }),
+  photo('photo-forestfog-tall', '雾锁林间', '自然', '实拍 · 森林 · 竖幅', '#16211d', false, {
+    provider: 'Wikimedia Commons',
+    title: 'Foggy pine (Unsplash) — 4:5 vertical crop',
+    pageUrl: 'https://commons.wikimedia.org/wiki/File:Foggy_pine_(Unsplash).jpg',
+    license: 'CC0 1.0',
+    artist: 'Vadim Sherbakov',
+  }),
   photo('photo-birch', '白桦林径', '自然', '实拍 · 森林', '#2a2b23', false, {
     provider: 'Wikimedia Commons',
     title: 'Edderitz (Oktober 2026)',
