@@ -180,16 +180,18 @@
     "fans": 319
   },
   "xiaohui_coder": {
-    "name": "我是程序员小灰",
-    "src": "https://i1.hdslb.com/bfs/face/37ae71c79b22886bcd69c174d9c0b92e083b53cc.jpg",
-    "mid": 555047479,
-    "platform": "bilibili",
+    "name": "程序员小灰",
+    "src": "https://aka.doubaocdn.com/l/Fsu1fsqpGs",
+    "platform": "2026 logo 候选 7 号（CSDN 公告）",
     "size": [
+      862,
+      827
+    ],
+    "crop": [
       512,
       512
     ],
-    "bytes": 21583,
-    "fans": 25306
+    "bytes": 21583
   },
   "gongzilong": {
     "name": "公子龙龙龙",
@@ -392,15 +394,15 @@
     "bytes": 72386
   },
   "baoyu": {
-    "name": "dotey",
-    "src": "https://github.com/dotey.png?size=460",
-    "platform": "github",
+    "name": "宝玉AI",
+    "src": "https://unavatar.io/x/dotey",
+    "platform": "x",
     "handle": "dotey",
     "size": [
       512,
       512
     ],
-    "bytes": 3247
+    "note": "X @dotey 当前头像，400×400 源图放大；旧版 GitHub 绿色 T 标已替换。"
   },
   "juai": {
     "name": "orange2ai",
@@ -414,15 +416,15 @@
     "bytes": 35885
   },
   "javaguide": {
-    "name": "Snailclimb",
-    "src": "https://github.com/Snailclimb.png?size=460",
-    "platform": "github",
-    "handle": "Snailclimb",
+    "name": "JavaGuide",
+    "src": "https://aka.doubaocdn.com/l/SU0VMPU5gV",
+    "platform": "wechat",
+    "handle": "JavaGuide",
     "size": [
       512,
       512
     ],
-    "bytes": 34015
+    "note": "JavaGuide 官方公众号 / 知识星球头像（书本 + 苹果 + JavaGuide 字标），640×640 源图裁切。"
   },
   "stormzhang": {
     "name": "stormzhang",
@@ -445,17 +447,6 @@
       512
     ],
     "bytes": 3249
-  },
-  "shutongwen": {
-    "name": "书同文Suwin",
-    "src": "https://github.com/ViffyGwaanl.png?size=460",
-    "platform": "github",
-    "handle": "ViffyGwaanl",
-    "size": [
-      512,
-      512
-    ],
-    "note": "Gwaanl / PAGE&PAUSE 个人品牌头像；书同文Suwin 的公开英文名线索来自 suwin-illustrator 开源技能说明。"
   },
   "aiying": {
     "name": "AI产品阿颖",

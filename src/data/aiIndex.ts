@@ -10,8 +10,8 @@ export type AiIndexCategory = {
 export const AI_INDEX_LEGEND: AiIndexCategory[] = [
   { id: 'enlightenment', name: 'AI 启蒙', color: '#D36A2E' },
   { id: 'tech', name: 'AI 技术', color: '#2F5E9E' },
-  { id: 'general', name: 'AI 综合', color: '#71539B' },
-  { id: 'creators', name: 'AI 创作者', color: '#AE4A48' },
+  { id: 'general', name: 'AI 综合 / 科普', color: '#71539B' },
+  { id: 'creators', name: '公众号 / 视频号', color: '#AE4A48' },
   { id: 'sites', name: 'AI 信息站', color: '#2F7857' },
 ]
 
@@ -65,7 +65,6 @@ const CREATORS: CreatorSeed[] = [
   { key: 'moli', name: '莫理', note: '公众号 · 视频号' },
   { key: 'moyu', name: '摸鱼小李', note: '公众号 · 视频号' },
   { key: 'zhangzala', name: '张咋啦Zara', note: '公众号 · 视频号' },
-  { key: 'shutongwen', name: '书同文Suwin', note: '公众号 · 视频号' },
   { key: 'stormzhang', name: 'stormzhang', note: '公众号 · 视频号' },
   { key: 'woyin', name: '沃垠AI', note: '公众号 · 视频号' },
   { key: 'xiangyang', name: '向阳乔木推荐看', note: '公众号 · 视频号' },
@@ -108,8 +107,8 @@ function toCategory(id: string, name: string, seeds: CreatorSeed[]): Category {
 export const AI_INDEX_CATEGORIES: Category[] = [
   toCategory('enlightenment', 'AI 启蒙', ENLIGHTENMENT),
   toCategory('tech', 'AI 技术', TECH),
-  toCategory('general', 'AI 综合', GENERAL),
-  toCategory('creators', 'AI 创作者', CREATORS),
+  toCategory('general', 'AI 综合 / 科普', GENERAL),
+  toCategory('creators', '公众号 / 视频号', CREATORS),
   toCategory('sites', 'AI 信息站', SITES),
 ]
 
@@ -119,8 +118,8 @@ export const AI_INDEX_TOTAL = AI_INDEX_CATEGORIES.reduce(
 )
 
 /**
- * 49 条 AI 创作者 / 信息源的示例工程。
- * 版式按 4:5、1600×2000、7 列 × 7 行设计；内容顺序与用户提供的名单一致。
+ * 48 条 AI 创作者 / 信息源的示例工程。
+ * 4:5、1600×2000，图片背景，左侧分类标签 + 七列索引网格。
  */
 export function createAiIndexDoc(): PosterDoc {
   return {
@@ -129,22 +128,23 @@ export function createAiIndexDoc(): PosterDoc {
     templateId: 'index',
     ratio: '4:5',
     exportFormat: 'png',
-    bg: 'design-paper',
-    dim: 0,
-    color: '#211d18',
+    bg: 'forest',
+    bgBlur: 6,
+    dim: 34,
+    color: '#ffffff',
     names: true,
-    shadow: false,
+    shadow: true,
     showMeta: true,
     iconShape: 'circle',
     columns: 7,
-    iconSize: 92,
-    gapX: 203,
-    gapY: 210,
+    iconSize: 88,
+    gapX: 176,
+    gapY: 166,
     startX: 88,
-    startY: 430,
-    titleSize: 96,
-    catSize: 18,
-    nameSize: 15,
+    startY: 350,
+    titleSize: 78,
+    catSize: 24,
+    nameSize: 14,
     exportScale: 3,
     categories: AI_INDEX_CATEGORIES,
   }

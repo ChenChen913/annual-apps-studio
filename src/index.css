@@ -4667,3 +4667,246 @@ button {
   padding: 6px 8px;
   font-size: 10px;
 }
+
+/* ---------- templates: index (image-backed editorial index) ---------- */
+
+.idx2-shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.44) 0%, rgba(0, 0, 0, 0.12) 25%, rgba(0, 0, 0, 0.1) 58%, rgba(0, 0, 0, 0.5) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.16) 36%, rgba(0, 0, 0, 0) 68%);
+}
+
+.idx2-kicker {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+
+.idx2-kicker-left,
+.idx2-kicker-right {
+  display: flex;
+  align-items: center;
+}
+
+.idx2-kicker-left i {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 8px;
+  border-radius: 50%;
+}
+
+.idx2-title {
+  position: absolute;
+  z-index: 2;
+  margin: 0;
+  max-width: 82%;
+  overflow: hidden;
+  font-family: "LXGW WenKai", "Songti SC", serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 0.96;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.idx2-sub {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  opacity: 0.82;
+  white-space: nowrap;
+}
+
+.idx2-sub i {
+  display: block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+.idx2-rule {
+  position: absolute;
+  z-index: 2;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.38);
+}
+
+.idx2-total {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-weight: 700;
+  letter-spacing: -0.07em;
+  line-height: 0.78;
+  text-align: right;
+}
+
+.idx2-total span {
+  margin-top: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  opacity: 0.68;
+}
+
+.idx2-cat {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  transform: translateY(-50%);
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.idx2-cat-no {
+  flex: none;
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  opacity: 0.55;
+}
+
+.idx2-cat-main {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.idx2-cat-name {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  font-family: "LXGW WenKai", "Songti SC", serif;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.08;
+  text-overflow: ellipsis;
+}
+
+.idx2-cat-name i {
+  display: block;
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.idx2-cat-count {
+  flex: none;
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.idx2-item {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+}
+
+.idx2-avatar {
+  display: grid;
+  flex: none;
+  overflow: hidden;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.idx2-avatar .idx2-person-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.idx2-avatar.is-site {
+  border-radius: 50%;
+}
+
+.idx2-avatar.is-site .idx2-site-img {
+  display: block;
+  width: 62%;
+  height: 62%;
+  border-radius: 12%;
+  object-fit: contain;
+}
+
+.idx2-name {
+  margin-top: 10px;
+  overflow: hidden;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.idx2-note {
+  margin-top: 3px;
+  overflow: hidden;
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0.64;
+}
+
+.idx2-foot {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  opacity: 0.74;
+}
+
+.idx2-foot span:nth-child(2) {
+  letter-spacing: 0.14em;
+  opacity: 0.88;
+}
+
+.idx2-foot span:last-child {
+  letter-spacing: 0.02em;
+}

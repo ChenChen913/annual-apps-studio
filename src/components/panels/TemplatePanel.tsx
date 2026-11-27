@@ -124,14 +124,14 @@ export function TemplatePanel() {
           <div className="index-preset">
             <div>
               <b>AI 创作者与信息源</b>
-              <small>内置 49 条名录示例 · 42 位创作者 + 7 个信息站</small>
+              <small>内置 48 条名录示例 · 41 位创作者 + 7 个信息站</small>
             </div>
             <button
               className="btn btn-primary index-preset-btn"
               type="button"
               onClick={() => {
                 loadAiIndex()
-                showToast('已载入 49 条 AI 创作者与信息源')
+                showToast('已载入 48 条 AI 创作者与信息源')
               }}
             >
               <Sparkles size={13} />

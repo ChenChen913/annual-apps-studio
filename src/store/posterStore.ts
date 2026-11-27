@@ -44,7 +44,7 @@ type PosterStore = {
   moveAppTo: (categoryId: string, appId: string, targetCategoryId: string, targetIndex: number) => void
   moveAppToCategory: (categoryId: string, appId: string, targetCategoryId: string) => void
   applyTemplate: (id: TemplateId) => void
-  /** 载入 49 条 AI 创作者 / 信息源示例，并切换到「名录」模板 */
+  /** 载入 48 条 AI 创作者 / 信息源示例，并切换到「名录」模板 */
   loadAiIndex: () => void
   setRatio: (ratio: RatioId) => void
   /** 按当前软件数量重新计算编号/行距/图标大小，解决内容过多时的溢出 */

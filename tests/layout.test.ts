@@ -215,19 +215,19 @@ describe('模板与图标数据', () => {
   })
 
   it('AI 名录模板与示例数据完整', () => {
-    expect(AI_INDEX_TOTAL).toBe(49)
-    expect(AI_INDEX_CATEGORIES.map((category) => category.apps.length)).toEqual([3, 3, 4, 32, 7])
+    expect(AI_INDEX_TOTAL).toBe(48)
+    expect(AI_INDEX_CATEGORIES.map((category) => category.apps.length)).toEqual([3, 3, 4, 31, 7])
 
     const doc = createAiIndexDoc()
     expect(doc.templateId).toBe('index')
     expect(doc.ratio).toBe('4:5')
     expect(doc.columns).toBe(7)
-    expect(doc.categories.reduce((total, category) => total + category.apps.length, 0)).toBe(49)
-    expect(new Set(doc.categories.flatMap((category) => category.apps.map((app) => app.name))).size).toBe(49)
+    expect(doc.categories.reduce((total, category) => total + category.apps.length, 0)).toBe(48)
+    expect(new Set(doc.categories.flatMap((category) => category.apps.map((app) => app.name))).size).toBe(48)
 
     const layout = resolveTemplateLayout('index', '4:5', doc.categories)
     expect(layout.columns).toBe(7)
-    expect(layout.startY).toBe(430)
+    expect(layout.startY).toBe(350)
 
     const fit = computeFit(doc)
     expect(fit.rows).toBe(7)
@@ -237,13 +237,13 @@ describe('模板与图标数据', () => {
     expect(clean.templateId).toBe('index')
     expect(clean.columns).toBe(7)
     expect(clean.categories).toHaveLength(5)
-    expect(clean.categories.flatMap((category) => category.apps)).toHaveLength(49)
+    expect(clean.categories.flatMap((category) => category.apps)).toHaveLength(48)
   })
 
-  it('名录模板的 49 个头像 / 站点图标文件都在本地存在', () => {
+  it('名录模板的 48 个头像 / 站点图标文件都在本地存在', () => {
     const publicDir = resolve(process.cwd(), 'public')
     const iconPaths = Object.values(CREATOR_ICON_MAP)
-    expect(iconPaths).toHaveLength(49)
+    expect(iconPaths).toHaveLength(48)
     for (const src of iconPaths) {
       expect(existsSync(resolve(publicDir, src.replace(/^\//, ''))), `${src} 缺少文件`).toBe(true)
     }

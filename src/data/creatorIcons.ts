@@ -40,7 +40,6 @@ export const CREATOR_ICON_MAP: Record<string, string> = {
   moli: '/creators/moli.webp',
   moyu: '/creators/moyu.webp',
   zhangzala: '/creators/zhangzala.webp',
-  shutongwen: '/creators/shutongwen.webp',
   stormzhang: '/creators/stormzhang.webp',
   woyin: '/creators/woyin.webp',
   xiangyang: '/creators/xiangyang.webp',

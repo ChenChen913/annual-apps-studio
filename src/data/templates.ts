@@ -57,23 +57,23 @@ export const TEMPLATES: TemplateDefinition[] = [
     id: 'index',
     name: '名录',
     english: 'INDEX',
-    description: '纸张质感的索引式大海报，七列网格装下 49 位创作者与信息源。',
+    description: '图片背景的索引式大海报，左侧分类标签 + 七列网格装下 48 位创作者与信息源。',
     tags: ['AI', '名录', '海报'],
-    recommendBg: 'design-paper',
-    recommendBgName: '米白纸张',
+    recommendBg: 'forest',
+    recommendBgName: '林间夜灯',
     defaults: {
       columns: 7,
-      color: '#211d18',
-      dim: 0,
-      shadow: false,
-      titleSize: 96,
-      catSize: 18,
-      nameSize: 15,
-      iconSize: 92,
-      gapX: 203,
-      gapY: 210,
+      color: '#ffffff',
+      dim: 34,
+      shadow: true,
+      titleSize: 78,
+      catSize: 24,
+      nameSize: 14,
+      iconSize: 88,
+      gapX: 176,
+      gapY: 166,
       startX: 88,
-      startY: 430,
+      startY: 350,
     },
   },
   {
@@ -368,7 +368,7 @@ export function resolveTemplateLayout(
     ? frame.padX
     : Math.round(frame.padX + Math.max(0, cellW * 0.12))
   const startY = id === 'index'
-    ? (ratio === '4:5' ? template.defaults.startY : Math.round(frame.titleY + titleSize * 1.35 + 100))
+    ? ({ '16:9': 250, '4:5': 350, '3:4': 300, '1:1': 300, '9:16': 270, '2:3': 330 } as Record<RatioId, number>)[ratio]
     : Math.round(frame.titleY + titleSize * 1.05 + 26)
   const gapX = Math.round(cellW)
 
