@@ -246,6 +246,19 @@ export function IndexTemplate({ doc, categories }: TemplateProps) {
       )}
 
       <div
+        className="idx2-note"
+        style={{
+          left: padX,
+          bottom: creditBottom,
+          fontSize: Math.max(13, Math.round(14 * sx)),
+          color: doc.color,
+          textShadow: shade,
+        }}
+      >
+        * 未注明来源的默认去抖音搜索
+      </div>
+
+      <div
         className="idx2-credit"
         style={{
           right: padX,

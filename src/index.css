@@ -4884,6 +4884,19 @@ button {
   white-space: nowrap;
 }
 
+.idx2-note {
+  position: absolute;
+  z-index: 2;
+  max-width: 44%;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  text-align: left;
+  white-space: nowrap;
+  opacity: 0.84;
+}
+
 .idx2-credit {
   position: absolute;
   z-index: 2;
