@@ -4612,15 +4612,22 @@ button {
 }
 
 .thumb-index {
-  border: 1px solid #ddd1bf;
-  background: #f2eadc;
-  color: #2a2620;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background:
+    linear-gradient(180deg, rgba(4, 9, 7, 0.58), rgba(4, 9, 7, 0.2)),
+    url('/backgrounds/bg_forest-thumb.webp') center/cover no-repeat;
+  color: #fff;
 }
 
 .thumb-index .thumb-title {
+  color: #fff;
   font-family: "Songti SC", "SimSun", serif;
   font-size: 12px;
   letter-spacing: 0.04em;
+}
+
+.thumb-index .thumb-line {
+  background: rgba(255, 255, 255, 0.72);
 }
 
 .thumb-index .thumb-dots {
@@ -4633,7 +4640,8 @@ button {
   width: auto;
   height: 7px;
   border-radius: 50%;
-  opacity: 0.38;
+  background: rgba(255, 255, 255, 0.6);
+  opacity: 0.9;
 }
 
 .index-preset {
