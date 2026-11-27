@@ -572,7 +572,7 @@
       2001,
       2001
     ],
-    "note": "《硅谷101》官方橙色封面，2001×2001 原图。"
+    "note": "《硅谷101》官方橙色封面，2001×2001 原图；按内容边缘裁掉四周白边。"
   },
   "signal_noise": {
     "name": "信号与噪声",
@@ -582,7 +582,7 @@
       800,
       800
     ],
-    "note": "《信号&噪声》官方橙色封面，800×800；标题按用户写法作「信号与噪声」。"
+    "note": "《信号&噪声》官方橙色封面，800×800；按内容边缘裁掉四周白边。"
   },
   "tulong": {
     "name": "屠龙之术",
@@ -638,17 +638,13 @@
   },
   "site_linuxdo": {
     "name": "Linux.do",
-    "src": "https://aka.doubaocdn.com/l/p8Uy3V22RT",
-    "platform": "Linux.do 官方新 Logo",
+    "src": "public/creators/site_linuxdo.webp",
+    "platform": "Linux.do 原版圆形标志",
     "size": [
-      500,
-      500
-    ],
-    "crop": [
       512,
       512
     ],
-    "note": "2024-06 上线的新版黄黑圆角标志，移除外部白边。"
+    "note": "恢复原版圆形图标，仅将圆外四角改为透明。"
   },
   "site_github": {
     "name": "GitHub Trending",
@@ -690,7 +686,7 @@
       512,
       512
     ],
-    "note": "红色圆角矩形 + 白色播放键官方标识。"
+    "note": "官方红色圆角播放键；重绘为透明外层，去掉白边。"
   },
   "xiaohu": {
     "name": "小互AI",
@@ -773,7 +769,7 @@
     "note": "Andrej Karpathy 个人官网头像。"
   },
   "stanford_cs229": {
-    "name": "Stanford CS229",
+    "name": "Stanford",
     "src": "https://aka.doubaocdn.com/l/cy60jyJT3q",
     "platform": "官方校徽",
     "size": [
@@ -784,10 +780,10 @@
       512,
       512
     ],
-    "note": "斯坦福大学官方 S 树校徽；对应 CS229 机器学习课程。"
+    "note": "斯坦福大学官方 S 树校徽；名录只显示学校名。"
   },
   "mit_6s191": {
-    "name": "MIT 6.S191",
+    "name": "MIT",
     "src": "https://aka.doubaocdn.com/l/UMlJqikET0",
     "platform": "官方校徽",
     "size": [
@@ -798,6 +794,6 @@
       512,
       512
     ],
-    "note": "MIT 官方字标，白底完整居中；对应 6.S191 深度学习导论。"
+    "note": "MIT 官方字标；名录只显示学校名。"
   }
 }

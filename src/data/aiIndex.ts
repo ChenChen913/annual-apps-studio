@@ -92,8 +92,8 @@ const TEACHERS: CreatorSeed[] = [
   { key: 'lihongyi', name: '李宏毅', note: 'B站 · 机器学习' },
   { key: 'threeblueonebrown', name: '3Blue1Brown', note: 'B站 · 数学可视化' },
   { key: 'karpathy', name: 'Andrej Karpathy', note: 'X · 深度学习' },
-  { key: 'stanford_cs229', name: 'Stanford CS229', note: '斯坦福 · 机器学习' },
-  { key: 'mit_6s191', name: 'MIT 6.S191', note: 'MIT · 深度学习导论' },
+  { key: 'stanford_cs229', name: 'Stanford', note: '斯坦福大学' },
+  { key: 'mit_6s191', name: 'MIT', note: '麻省理工学院' },
 ]
 
 const PODCASTS: CreatorSeed[] = [
