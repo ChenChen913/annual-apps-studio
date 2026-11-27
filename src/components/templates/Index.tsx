@@ -28,15 +28,17 @@ export function IndexTemplate({ doc, categories }: TemplateProps) {
   const catFont = Math.min(doc.catSize, Math.round(canvas.width * 0.022))
   const nameSize = Math.min(doc.nameSize, Math.round(canvas.width * 0.0115))
   const titleSize = Math.min(doc.titleSize, Math.round(canvas.width * 0.062))
-  const groupGap = Math.max(10, Math.round(18 * sy))
+  const groupGap = Math.max(10, Math.round(16 * sy))
   const siteIcon = Math.round(Math.min(58 * sx, 64 * sy))
   const siteItemHeight = Math.round(72 * sy)
   const siteRowGap = Math.round(16 * sy)
   const siteNameSize = Math.max(nameSize + 1, Math.round(17 * sx))
-  const siteUrlSize = Math.max(12, Math.round(13.5 * sx))
+  const siteUrlSize = Math.max(13, Math.round(15 * sx))
   const creditFont = Math.max(14, Math.round(nameSize))
   const creditBottom = Math.round(50 * sy)
   const creditReserve = Math.round(88 * sy)
+  const nameLineHeight = 1.3
+  const nameBlock = Math.round(nameSize * nameLineHeight * 2 + 10)
 
   const gridCategories = categories.filter((category) => !isSiteCategory(category))
   const siteCategories = categories.filter(isSiteCategory)
@@ -71,8 +73,13 @@ export function IndexTemplate({ doc, categories }: TemplateProps) {
     Math.round(doc.gapY * sy),
     Math.max(54, Math.floor(availableRows / Math.max(1, gridRows))),
   )
-  const iconSize = Math.round(Math.min(doc.iconSize * sx, rowGap * 0.62, cell * 0.56))
-  const total = categories.reduce((sum, category) => sum + category.apps.length, 0)
+  const iconSize = Math.round(
+    Math.min(
+      doc.iconSize * sx,
+      cell * 0.56,
+      Math.max(44, rowGap - nameBlock - 4),
+    ),
+  )
 
   let cursor = gridTop
   const rows = gridCategories.map((category) => {
@@ -105,19 +112,6 @@ export function IndexTemplate({ doc, categories }: TemplateProps) {
         className="idx2-rule"
         style={{ left: padX, right: padX, top: Math.round(246 * sy) }}
       />
-
-      <div
-        className="idx2-total"
-        style={{
-          right: padX,
-          top: Math.round(58 * sy),
-          fontSize: Math.round(Math.min(150 * sy, canvas.width * 0.1)),
-          color: doc.color,
-          textShadow: strongShade,
-        }}
-      >
-        {String(total).padStart(2, '0')}
-      </div>
 
       {rows.map(({ category, top }) => {
         const categoryColor = colorFor(category.id)

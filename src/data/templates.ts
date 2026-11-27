@@ -57,12 +57,12 @@ export const TEMPLATES: TemplateDefinition[] = [
     id: 'index',
     name: '名录',
     english: 'INDEX',
-    description: '图片背景的索引式大海报，左侧分类标签 + 七列头像网格；分类、条目、信息站网址都可增删改。',
+    description: '图片背景的索引式大海报，左侧分类标签 + 八列头像网格；分类、条目、信息站网址都可增删改。',
     tags: ['AI', '名录', '可编辑'],
     recommendBg: 'photo-forestfog-tall',
     recommendBgName: '雾锁林间',
     defaults: {
-      columns: 7,
+      columns: 8,
       color: '#ffffff',
       dim: 30,
       shadow: true,
@@ -354,7 +354,7 @@ export function resolveTemplateLayout(
   const scale = Math.min(1.06, Math.max(0.72, canvas.width / 1600))
 
   const columns = id === 'index'
-    ? ({ '16:9': 8, '4:5': 7, '3:4': 6, '1:1': 7, '9:16': 5, '2:3': 5 } as Record<RatioId, number>)[ratio]
+    ? ({ '16:9': 8, '4:5': 8, '3:4': 6, '1:1': 7, '9:16': 5, '2:3': 5 } as Record<RatioId, number>)[ratio]
     : Math.min(8, Math.max(3, RATIO_COLUMNS[ratio]))
   const titleSize = Math.round(template.defaults.titleSize * scale)
   const catSize = Math.max(12, Math.round(template.defaults.catSize * scale))

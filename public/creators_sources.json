@@ -500,23 +500,31 @@
   },
   "tencent_tech_eng": {
     "name": "腾讯技术工程",
-    "src": "https://aka.doubaocdn.com/l/imR3U578yI",
-    "platform": "官方品牌 logo",
+    "src": "https://aka.doubaocdn.com/l/D6IHSjwA0z",
+    "platform": "腾讯云开发者社区官方号",
     "size": [
-      275,
-      207
+      249,
+      249
     ],
-    "note": "腾讯技术工程事业群 TEG 标识，深蓝底；原图偏小，已居中补方。"
+    "crop": [
+      512,
+      512
+    ],
+    "note": "腾讯技术工程官方号专栏当前头像：深蓝底青色点阵企鹅。替换此前深色 TEG 标识。"
   },
   "tencent_tech": {
     "name": "腾讯科技",
-    "src": "https://aka.doubaocdn.com/l/mh0bTYkct5",
-    "platform": "官方品牌 logo",
+    "src": "https://aka.doubaocdn.com/l/sQ3vtSjwHn",
+    "platform": "公众号公开资料",
     "size": [
-      1280,
-      1280
+      400,
+      400
     ],
-    "note": "腾讯官方蓝色 T 图标，1280×1280 原图。"
+    "crop": [
+      512,
+      512
+    ],
+    "note": "腾讯科技公开账号标识（企鹅 + 三色环 + 腾讯科技字标）。替换此前只有 T 的集团图标。"
   },
   "latepost": {
     "name": "晚点 LatePost",
@@ -530,13 +538,17 @@
   },
   "zhangxiaojun": {
     "name": "张小珺",
-    "src": "https://aka.doubaocdn.com/l/wdWLuUNuyf",
+    "src": "https://aka.doubaocdn.com/l/CoVGLbwhP0",
     "platform": "小宇宙",
     "size": [
-      300,
-      300
+      640,
+      640
     ],
-    "note": "《张小珺Jùn｜商业访谈录》小宇宙播客名片当前头像，300×300。"
+    "crop": [
+      512,
+      512
+    ],
+    "note": "《张小珺商业访谈录》官方封面，主持人手持麦克风；裁掉左侧标题，保留人物。"
   },
   "crossing": {
     "name": "十字路口 Crossing",
@@ -669,5 +681,103 @@
       512
     ],
     "note": "腾讯网作者页公开头像 200×200，放大至 512；微博 UID 1814584931。"
+  },
+  "wenda": {
+    "name": "吴恩达",
+    "src": "https://aka.doubaocdn.com/l/aV3dSe1kf8",
+    "platform": "官方活动页",
+    "size": [
+      600,
+      600
+    ],
+    "crop": [
+      512,
+      512
+    ],
+    "note": "UNSW 活动页 Andrew Ng 官方头像。"
+  },
+  "limu": {
+    "name": "李沐",
+    "src": "https://aka.doubaocdn.com/l/zxKn6ejjLB",
+    "platform": "公开报道",
+    "size": [
+      309,
+      308
+    ],
+    "crop": [
+      512,
+      512
+    ],
+    "note": "李沐公开职业照，B站/论文精读课程常用形象；源图 309×308。"
+  },
+  "lihongyi": {
+    "name": "李宏毅",
+    "src": "https://aka.doubaocdn.com/l/gqJcYdJPdH",
+    "platform": "官方学者页",
+    "size": [
+      500,
+      500
+    ],
+    "crop": [
+      512,
+      512
+    ],
+    "note": "国科会年轻学者计划官网李宏毅教授照片。"
+  },
+  "threeblueonebrown": {
+    "name": "3Blue1Brown",
+    "src": "https://aka.doubaocdn.com/l/CqJvpqzduX",
+    "platform": "YouTube",
+    "size": [
+      800,
+      800
+    ],
+    "crop": [
+      512,
+      512
+    ],
+    "note": "3Blue1Brown 官方频道眼状标识。"
+  },
+  "karpathy": {
+    "name": "Andrej Karpathy",
+    "src": "https://aka.doubaocdn.com/l/kbf89qRpkN",
+    "platform": "karpathy.ai",
+    "size": [
+      768,
+      768
+    ],
+    "crop": [
+      512,
+      512
+    ],
+    "note": "Andrej Karpathy 个人官网头像。"
+  },
+  "stanford_cs229": {
+    "name": "Stanford CS229",
+    "src": "https://aka.doubaocdn.com/l/cy60jyJT3q",
+    "platform": "官方校徽",
+    "size": [
+      1406,
+      1406
+    ],
+    "crop": [
+      512,
+      512
+    ],
+    "note": "斯坦福大学官方 S 树校徽；对应 CS229 机器学习课程。"
+  },
+  "mit_6s191": {
+    "name": "MIT 6.S191",
+    "src": "https://aka.doubaocdn.com/l/UMlJqikET0",
+    "platform": "官方校徽",
+    "size": [
+      3500,
+      1969
+    ],
+    "crop": [
+      512,
+      512
+    ],
+    "note": "MIT 官方字标，白底完整居中；对应 6.S191 深度学习导论。"
   }
 }

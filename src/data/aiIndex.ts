@@ -13,6 +13,7 @@ export const AI_INDEX_LEGEND: AiIndexCategory[] = [
   { id: 'general', name: 'AI 综合 / 科普', color: '#71539B' },
   { id: 'creators', name: '公众号 / 视频号', color: '#AE4A48' },
   { id: 'official', name: '推荐公众号 / 官号', color: '#B86A3C' },
+  { id: 'teachers', name: 'B 站老师阵营', color: '#3D6F8E' },
   { id: 'podcasts', name: 'AI 播客', color: '#7A4A9E' },
   { id: 'sites', name: 'AI 信息站', color: '#2F7857' },
 ]
@@ -85,6 +86,16 @@ const OFFICIAL: CreatorSeed[] = [
   { key: 'latepost', name: '晚点 LatePost', note: '公众号 · 视频号' },
 ]
 
+const TEACHERS: CreatorSeed[] = [
+  { key: 'wenda', name: '吴恩达', note: 'B站 · AI 课程' },
+  { key: 'limu', name: '李沐', note: 'B站 · 论文精读' },
+  { key: 'lihongyi', name: '李宏毅', note: 'B站 · 机器学习' },
+  { key: 'threeblueonebrown', name: '3Blue1Brown', note: 'B站 · 数学可视化' },
+  { key: 'karpathy', name: 'Andrej Karpathy', note: 'X · 深度学习' },
+  { key: 'stanford_cs229', name: 'Stanford CS229', note: '斯坦福 · 机器学习' },
+  { key: 'mit_6s191', name: 'MIT 6.S191', note: 'MIT · 深度学习导论' },
+]
+
 const PODCASTS: CreatorSeed[] = [
   { key: 'zhangxiaojun', name: '张小珺', note: '播客 · 小宇宙' },
   { key: 'crossing', name: '十字路口 Crossing', note: '播客 · 小宇宙' },
@@ -129,6 +140,7 @@ export const AI_INDEX_CATEGORIES: Category[] = [
   toCategory('general', 'AI 综合 / 科普', GENERAL),
   toCategory('creators', '公众号 / 视频号', CREATORS),
   toCategory('official', '推荐公众号 / 官号', OFFICIAL),
+  toCategory('teachers', 'B 站老师阵营', TEACHERS),
   toCategory('podcasts', 'AI 播客', PODCASTS),
   toCategory('sites', 'AI 信息站', SITES),
 ]
@@ -139,8 +151,8 @@ export const AI_INDEX_TOTAL = AI_INDEX_CATEGORIES.reduce(
 )
 
 /**
- * 59 条 AI 创作者 / 信息源的示例工程。
- * 4:5、1600×2000，图片背景，左侧分类标签 + 七列索引网格。
+ * 66 条 AI 创作者 / 官号 / 老师 / 播客 / 信息源的示例工程。
+ * 4:5、1600×2000，图片背景，左侧分类标签 + 八列索引网格。
  */
 export function createAiIndexDoc(): PosterDoc {
   return {
@@ -157,7 +169,7 @@ export function createAiIndexDoc(): PosterDoc {
     shadow: true,
     showMeta: false,
     iconShape: 'circle',
-    columns: 7,
+    columns: 8,
     iconSize: 88,
     gapX: 176,
     gapY: 166,

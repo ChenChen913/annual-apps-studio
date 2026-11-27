@@ -44,7 +44,7 @@ type PosterStore = {
   moveAppTo: (categoryId: string, appId: string, targetCategoryId: string, targetIndex: number) => void
   moveAppToCategory: (categoryId: string, appId: string, targetCategoryId: string) => void
   applyTemplate: (id: TemplateId) => void
-  /** 载入 59 条 AI 创作者 / 信息源示例，并切换到「名录」模板 */
+  /** 载入 66 条 AI 创作者 / 官号 / 老师 / 播客 / 信息源示例，并切换到「名录」模板 */
   loadAiIndex: () => void
   /** 载入空白名录，分类与条目由用户自行添加 */
   loadBlankIndex: () => void
