@@ -90,9 +90,11 @@ canvas{display:block;width:100%;height:auto}
   <h1>我的年度 AI 名录</h1><span class="sub">单文件海报生成器</span>
   <div class="spacer"></div>
   <select id="scale" aria-label="导出倍率">
-    <option value="1">导出 1× · 1600×2000</option>
-    <option value="2">导出 2× · 3200×4000</option>
-    <option value="3" selected>导出 3× · 4800×6000</option>
+    <option value="1">1× · 1600×2000 · 参考 7 MB</option>
+    <option value="1.5">1.5× · 2400×3000 · 参考 14 MB</option>
+    <option value="2" selected>2× · 3200×4000 · 参考 23 MB</option>
+    <option value="2.5">2.5× · 4000×5000 · 参考 33 MB</option>
+    <option value="3">3× · 4800×6000 · 参考 46 MB</option>
   </select>
   <button class="primary" id="dl">↓ 下载 PNG</button>
 </header>
@@ -155,14 +157,14 @@ canvas{display:block;width:100%;height:auto}
 
     <div class="group">
       <h2>导出</h2>
-      <p class="small-note">标题与分类使用内嵌的霞鹜文楷；头像、背景、字体全部内嵌，断网也能预览和导出。默认导出 4800×6000。</p>
+      <p class="small-note">标题与分类使用内嵌的霞鹜文楷；头像、背景、字体全部内嵌，断网也能预览和导出。顶部可选择 1×–3× 导出规格，默认 2×（约 23 MB）。</p>
     </div>
   </aside>
 
   <section class="stage">
     <div class="bar"><span>实时预览 · 4:5</span><div class="spacer"></div><span class="status" id="status">载入中…</span></div>
     <div class="canvas-wrap"><canvas id="cv" width="1600" height="2000"></canvas></div>
-    <p class="hint">左侧改动会立即反映到右侧。下载 PNG 会按顶部倍率生成 1600×2000 / 3200×4000 / 4800×6000。</p>
+    <p class="hint">左侧改动会立即反映到右侧。顶部「导出规格」提供 1×–3× 多档 PNG；默认 2×（3200×4000，约 23 MB），需要高清时再切 2.5× / 3×。</p>
   </section>
 </main>
 
